@@ -18,7 +18,7 @@ import mdlaf.MaterialLookAndFeel;
 public class Main {
 
     public static void main(String[] args) {
-        vistaUI();
+      //  vistaUI();
         //new CTRL_login();
         new CTRL_principal();
     }

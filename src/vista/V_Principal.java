@@ -34,6 +34,11 @@ public class V_Principal extends javax.swing.JFrame {
         jb_buscarPaciente = new javax.swing.JButton();
         jb_creditos = new javax.swing.JButton();
         jb_presupuesto = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmi_cerrarCecion = new javax.swing.JMenuItem();
@@ -41,25 +46,76 @@ public class V_Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(94, 117, 116));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jb_enTratamiento.setText("TRATAMIENTO");
-        jPanel1.add(jb_enTratamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 200, 120));
+        jb_enTratamiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cerrar_170_140.png"))); // NOI18N
+        jb_enTratamiento.setText("Cerrar Caja");
+        jb_enTratamiento.setBorder(null);
+        jb_enTratamiento.setBorderPainted(false);
+        jb_enTratamiento.setContentAreaFilled(false);
+        jb_enTratamiento.setFocusPainted(false);
+        jb_enTratamiento.setFocusable(false);
+        jPanel1.add(jb_enTratamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 170, 170, 140));
 
-        jb_nuevoPaciente.setText("Nuevo Paciente");
-        jPanel1.add(jb_nuevoPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 200, 120));
+        jb_nuevoPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/nuevo_170_140.png"))); // NOI18N
+        jb_nuevoPaciente.setBorder(null);
+        jb_nuevoPaciente.setBorderPainted(false);
+        jb_nuevoPaciente.setContentAreaFilled(false);
+        jb_nuevoPaciente.setFocusPainted(false);
+        jb_nuevoPaciente.setFocusable(false);
+        jPanel1.add(jb_nuevoPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 170, 140));
 
-        jb_buscarPaciente.setText("Buscar Paciente");
-        jPanel1.add(jb_buscarPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 200, 120));
+        jb_buscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar_170_140.png"))); // NOI18N
+        jb_buscarPaciente.setBorder(null);
+        jb_buscarPaciente.setBorderPainted(false);
+        jb_buscarPaciente.setContentAreaFilled(false);
+        jb_buscarPaciente.setFocusPainted(false);
+        jb_buscarPaciente.setFocusable(false);
+        jPanel1.add(jb_buscarPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 170, 140));
 
-        jb_creditos.setText("Agenda");
-        jPanel1.add(jb_creditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 200, 120));
+        jb_creditos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agenda_170_140.png"))); // NOI18N
+        jb_creditos.setBorder(null);
+        jb_creditos.setBorderPainted(false);
+        jb_creditos.setContentAreaFilled(false);
+        jb_creditos.setFocusPainted(false);
+        jb_creditos.setFocusable(false);
+        jPanel1.add(jb_creditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 170, 140));
 
-        jb_presupuesto.setText("PRESUPUESTO");
-        jPanel1.add(jb_presupuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 200, 120));
+        jb_presupuesto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/presupuesto_170_140.png"))); // NOI18N
+        jb_presupuesto.setBorder(null);
+        jb_presupuesto.setBorderPainted(false);
+        jb_presupuesto.setContentAreaFilled(false);
+        jb_presupuesto.setFocusPainted(false);
+        jb_presupuesto.setFocusable(false);
+        jPanel1.add(jb_presupuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 170, 140));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 450));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Cerrar Caja");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 330, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Presupuesto");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Nuevo Paciente");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Buscar Paciente");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Agenda De Hoy");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 330, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 450));
 
         jMenu1.setText("Opciones");
 
@@ -109,6 +165,11 @@ public class V_Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
