@@ -28,7 +28,7 @@ public class PrubaComponentes extends javax.swing.JFrame {
      */
     public PrubaComponentes() {
         initComponents();
-        jb_as.setIcon(setIcono("/iconos/book.png", jb_as));
+        jb_as.setIcon(setIcono("/iconos/cancelar_40_40.png", jb_as));
 
         model = new DefaultTableModel();
         model.addColumn("CONCEPTO");

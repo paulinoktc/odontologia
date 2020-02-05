@@ -7,17 +7,17 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import vista.V_ListaPacientes;
+import vista.V_Agenda;
 
 /**
  *
  * @author ZOMBY
  */
 public class CNTRL_ListaPacientes {
-    V_ListaPacientes v_listaPacientes;
+    V_Agenda v_listaPacientes;
 
     public CNTRL_ListaPacientes() {
-        v_listaPacientes=new  V_ListaPacientes();
+        v_listaPacientes=new  V_Agenda();
         agregarActions();
         v_listaPacientes.setVisible(true);
     }

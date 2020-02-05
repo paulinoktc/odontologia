@@ -185,7 +185,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, 20));
 
         jtf_ocupacion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel1.add(jtf_ocupacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 150, 20));
+        jPanel1.add(jtf_ocupacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 190, 20));
 
         jt_domicilio1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel1.add(jt_domicilio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 220, 20));

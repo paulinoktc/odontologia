@@ -26,7 +26,7 @@ public class CTRL_BuscarPaciente {
         v_buscarPaciente.setVisible(true);
     }
    public void agregarActions(){
-       v_buscarPaciente.jmi_salir.addActionListener(new ActionListener() {
+       v_buscarPaciente.jb_salir.addActionListener(new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent e) {
                v_buscarPaciente.dispose();
@@ -34,7 +34,7 @@ public class CTRL_BuscarPaciente {
            }
        });
        
-       v_buscarPaciente.jmi_abonar.addActionListener(new ActionListener() {
+       v_buscarPaciente.jb_salir.addActionListener(new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent e) {
                v_cobrar.setVisible(true);

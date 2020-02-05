@@ -38,18 +38,23 @@ public class V_login extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(94, 117, 116));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jcb_usuarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USUARIO", "pedro", "juan" }));
-        jPanel2.add(jcb_usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 150, 40));
-        jPanel2.add(jp_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 150, 40));
+        jPanel2.add(jcb_usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 150, 30));
+        jPanel2.add(jp_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 150, 30));
 
         jb_iniciar.setText("INICIAR");
         jPanel2.add(jb_iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 150, -1));
 
-        jb_cancelar.setText("CANCELAR");
-        jPanel2.add(jb_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 150, -1));
+        jb_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar_40_40.png"))); // NOI18N
+        jb_cancelar.setBorder(null);
+        jb_cancelar.setBorderPainted(false);
+        jb_cancelar.setContentAreaFilled(false);
+        jb_cancelar.setFocusPainted(false);
+        jb_cancelar.setFocusable(false);
+        jPanel2.add(jb_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 40, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 380));
 
