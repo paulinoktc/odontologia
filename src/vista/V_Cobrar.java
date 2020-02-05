@@ -16,6 +16,7 @@ public class V_Cobrar extends javax.swing.JFrame {
      */
     public V_Cobrar() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -28,47 +29,48 @@ public class V_Cobrar extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jl_titulo = new javax.swing.JLabel();
+        jl_nombre = new javax.swing.JLabel();
+        jtf_datos_ref = new javax.swing.JTextField();
         jb_abonar = new javax.swing.JButton();
-        jb_cancelar = new javax.swing.JButton();
+        jb_salir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        jtab_venta = new javax.swing.JTable();
+        jl_total_pagar = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(94, 117, 116));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Registrar Venta");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 160, -1));
+        jl_titulo.setBackground(new java.awt.Color(255, 255, 255));
+        jl_titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jl_titulo.setForeground(new java.awt.Color(255, 255, 255));
+        jl_titulo.setText("Registrar Venta");
+        jPanel1.add(jl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 160, -1));
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("NOMBRE:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 90, -1));
+        jl_nombre.setBackground(new java.awt.Color(255, 255, 255));
+        jl_nombre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jl_nombre.setForeground(new java.awt.Color(255, 255, 255));
+        jl_nombre.setText("NOMBRE:");
+        jPanel1.add(jl_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 90, -1));
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 340, 30));
+        jtf_datos_ref.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jPanel1.add(jtf_datos_ref, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 340, 30));
         jPanel1.add(jb_abonar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 100, 60));
 
-        jb_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar_40_40.png"))); // NOI18N
-        jb_cancelar.setBorder(null);
-        jb_cancelar.setBorderPainted(false);
-        jb_cancelar.setContentAreaFilled(false);
-        jb_cancelar.setFocusPainted(false);
-        jb_cancelar.setFocusable(false);
-        jPanel1.add(jb_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 40, 40));
+        jb_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar_40_40.png"))); // NOI18N
+        jb_salir.setBorder(null);
+        jb_salir.setBorderPainted(false);
+        jb_salir.setContentAreaFilled(false);
+        jb_salir.setFocusPainted(false);
+        jb_salir.setFocusable(false);
+        jPanel1.add(jb_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 40, 40));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtab_venta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -79,14 +81,14 @@ public class V_Cobrar extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtab_venta);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 440, 130));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 440, 160));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("$0.0");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 130, -1));
+        jl_total_pagar.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jl_total_pagar.setForeground(new java.awt.Color(255, 255, 255));
+        jl_total_pagar.setText("$0.0");
+        jPanel1.add(jl_total_pagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 130, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -134,15 +136,15 @@ public class V_Cobrar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     public javax.swing.JButton jb_abonar;
-    public javax.swing.JButton jb_cancelar;
+    public javax.swing.JButton jb_salir;
+    public javax.swing.JLabel jl_nombre;
+    public javax.swing.JLabel jl_titulo;
+    public javax.swing.JLabel jl_total_pagar;
+    public javax.swing.JTable jtab_venta;
+    public javax.swing.JTextField jtf_datos_ref;
     // End of variables declaration//GEN-END:variables
 }

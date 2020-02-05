@@ -29,19 +29,19 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jcb_buscar_por = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jtf_dato_a_buscar = new javax.swing.JTextField();
+        jb_buscar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jl_cuenta_credito = new javax.swing.JLabel();
+        jcb_select_paciente = new javax.swing.JComboBox<>();
+        jb_hist_complet = new javax.swing.JButton();
+        jb_add_cita = new javax.swing.JButton();
+        jb_abonar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jb_salir = new javax.swing.JButton();
@@ -53,23 +53,23 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(94, 117, 116));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Telefono", "Num. Paciente", "Apellido Paterno", "Apellido Materno" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 30));
+        jcb_buscar_por.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jcb_buscar_por.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Telefono", "Num. Paciente", "Apellido Paterno", "Apellido Materno" }));
+        jPanel1.add(jcb_buscar_por, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 30));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 90, 30));
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 230, 30));
+        jtf_dato_a_buscar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel1.add(jtf_dato_a_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 230, 30));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar_50_50.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setFocusPainted(false);
-        jButton1.setFocusable(false);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 50, 50));
+        jb_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar_50_50.png"))); // NOI18N
+        jb_buscar.setBorder(null);
+        jb_buscar.setBorderPainted(false);
+        jb_buscar.setContentAreaFilled(false);
+        jb_buscar.setFocusPainted(false);
+        jb_buscar.setFocusable(false);
+        jPanel1.add(jb_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 50, 50));
 
         jLabel2.setBackground(new java.awt.Color(204, 204, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -93,37 +93,37 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
         jLabel5.setText("BUSCAR PACIENTE");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("$1500");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, -1, -1));
+        jl_cuenta_credito.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jl_cuenta_credito.setForeground(new java.awt.Color(255, 255, 255));
+        jl_cuenta_credito.setText("$1500");
+        jPanel1.add(jl_cuenta_credito, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, -1, -1));
 
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 390, -1));
+        jcb_select_paciente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel1.add(jcb_select_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 390, -1));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Archivo_80_80.png"))); // NOI18N
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setFocusPainted(false);
-        jButton2.setFocusable(false);
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 80, 80));
+        jb_hist_complet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Archivo_80_80.png"))); // NOI18N
+        jb_hist_complet.setBorder(null);
+        jb_hist_complet.setBorderPainted(false);
+        jb_hist_complet.setContentAreaFilled(false);
+        jb_hist_complet.setFocusPainted(false);
+        jb_hist_complet.setFocusable(false);
+        jPanel1.add(jb_hist_complet, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 80, 80));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Agenda_80_80.png"))); // NOI18N
-        jButton3.setBorder(null);
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setFocusPainted(false);
-        jButton3.setFocusable(false);
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 80, 80));
+        jb_add_cita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Agenda_80_80.png"))); // NOI18N
+        jb_add_cita.setBorder(null);
+        jb_add_cita.setBorderPainted(false);
+        jb_add_cita.setContentAreaFilled(false);
+        jb_add_cita.setFocusPainted(false);
+        jb_add_cita.setFocusable(false);
+        jPanel1.add(jb_add_cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 80, 80));
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Cobrar_80_80.png"))); // NOI18N
-        jButton4.setBorder(null);
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
-        jButton4.setFocusPainted(false);
-        jButton4.setFocusable(false);
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 80, 80));
+        jb_abonar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Cobrar_80_80.png"))); // NOI18N
+        jb_abonar.setBorder(null);
+        jb_abonar.setBorderPainted(false);
+        jb_abonar.setContentAreaFilled(false);
+        jb_abonar.setFocusPainted(false);
+        jb_abonar.setFocusable(false);
+        jPanel1.add(jb_abonar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 80, 80));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -184,22 +184,22 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    public javax.swing.JButton jb_abonar;
+    public javax.swing.JButton jb_add_cita;
+    public javax.swing.JButton jb_buscar;
+    public javax.swing.JButton jb_hist_complet;
     public javax.swing.JButton jb_salir;
+    public javax.swing.JComboBox<String> jcb_buscar_por;
+    public javax.swing.JComboBox<String> jcb_select_paciente;
+    public javax.swing.JLabel jl_cuenta_credito;
+    public javax.swing.JTextField jtf_dato_a_buscar;
     // End of variables declaration//GEN-END:variables
 }

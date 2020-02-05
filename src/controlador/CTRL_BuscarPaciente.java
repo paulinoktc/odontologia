@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import vista.V_BuscarPaciente;
 import vista.V_Cobrar;
+import vista.V_RegistrarCita;
 
 /**
  *
@@ -17,11 +18,9 @@ import vista.V_Cobrar;
 public class CTRL_BuscarPaciente {
 
     V_BuscarPaciente v_buscarPaciente;
-    V_Cobrar v_cobrar;
-    
+    V_RegistrarCita v_regitra_cita;
     public CTRL_BuscarPaciente() {
         v_buscarPaciente=new V_BuscarPaciente();
-        v_cobrar=new V_Cobrar();
         agregarActions();
         v_buscarPaciente.setVisible(true);
     }
@@ -34,17 +33,18 @@ public class CTRL_BuscarPaciente {
            }
        });
        
-       v_buscarPaciente.jb_salir.addActionListener(new ActionListener() {
+       v_buscarPaciente.jb_abonar.addActionListener(new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent e) {
-               v_cobrar.setVisible(true);
+               new CTRL_Cobrar();
+               v_buscarPaciente.dispose();
            }
        });
-       
-       v_cobrar.jb_cancelar.addActionListener(new ActionListener() {
+       v_buscarPaciente.jb_add_cita.addActionListener(new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent e) {
-               v_cobrar.dispose();
+               new CTRL_AgendarCita();
+               v_buscarPaciente.dispose();
            }
        });
    }

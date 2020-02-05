@@ -82,12 +82,9 @@ public class V_Presupuesto extends javax.swing.JFrame {
         jb_calcular = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         jl_total1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jm_opciones = new javax.swing.JMenu();
-        jmi_generarHistorial = new javax.swing.JMenuItem();
-        jmi_cancelar = new javax.swing.JMenuItem();
+        jb_cobrar = new javax.swing.JButton();
+        jb_nuevo_paciente = new javax.swing.JButton();
+        jb_salir = new javax.swing.JButton();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -319,30 +316,26 @@ public class V_Presupuesto extends javax.swing.JFrame {
         jl_total1.setText("TOTAL:");
         jPanel1.add(jl_total1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, -1, -1));
 
-        jButton1.setText("Cobrar Consulta");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 410, 120, -1));
+        jb_cobrar.setText("Cobrar Consulta");
+        jPanel1.add(jb_cobrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 410, 120, -1));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/nuevo_170_140.png"))); // NOI18N
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setFocusPainted(false);
-        jButton2.setFocusable(false);
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 170, 140));
+        jb_nuevo_paciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/nuevo_170_140.png"))); // NOI18N
+        jb_nuevo_paciente.setBorder(null);
+        jb_nuevo_paciente.setBorderPainted(false);
+        jb_nuevo_paciente.setContentAreaFilled(false);
+        jb_nuevo_paciente.setFocusPainted(false);
+        jb_nuevo_paciente.setFocusable(false);
+        jPanel1.add(jb_nuevo_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 170, 140));
+
+        jb_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar_40_40.png"))); // NOI18N
+        jb_salir.setBorder(null);
+        jb_salir.setBorderPainted(false);
+        jb_salir.setContentAreaFilled(false);
+        jb_salir.setFocusPainted(false);
+        jb_salir.setFocusable(false);
+        jPanel1.add(jb_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 40, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 450));
-
-        jm_opciones.setText("Opciones");
-
-        jmi_generarHistorial.setText("Generar Historial Clinico");
-        jm_opciones.add(jmi_generarHistorial);
-
-        jmi_cancelar.setText("Cancelar");
-        jm_opciones.add(jmi_cancelar);
-
-        jMenuBar1.add(jm_opciones);
-
-        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -383,8 +376,6 @@ public class V_Presupuesto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -401,15 +392,14 @@ public class V_Presupuesto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JButton jb_calcular;
+    public javax.swing.JButton jb_cobrar;
+    public javax.swing.JButton jb_nuevo_paciente;
+    public javax.swing.JButton jb_salir;
     public javax.swing.JLabel jl_total;
     private javax.swing.JLabel jl_total1;
-    public javax.swing.JMenu jm_opciones;
-    public javax.swing.JMenuItem jmi_cancelar;
-    public javax.swing.JMenuItem jmi_generarHistorial;
     public javax.swing.JTextField jtf_c_amalgama;
     public javax.swing.JTextField jtf_c_corona;
     public javax.swing.JTextField jtf_c_cureta;

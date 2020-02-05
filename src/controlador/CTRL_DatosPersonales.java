@@ -18,12 +18,11 @@ import vista.V_Presupuesto;
 public class CTRL_DatosPersonales {
 
     V_DatosPersonales v_datosPersonales;
-    V_Presupuesto v_presupuesto;
+  
 
     public CTRL_DatosPersonales() {
         v_datosPersonales = new V_DatosPersonales();
-        v_presupuesto=new V_Presupuesto();
-        //v_historial = new V_Historial();
+
         agregarActions();
 
     }
@@ -50,7 +49,7 @@ public class CTRL_DatosPersonales {
             }
         });
 
-        v_datosPersonales.jmi_salir.addActionListener(new ActionListener() {
+        v_datosPersonales.jb_salir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 v_datosPersonales.dispose();
@@ -112,20 +111,6 @@ public class CTRL_DatosPersonales {
                 }
             }
         });
-        /*
-        
-        v_datosPersonales.jmi_presupuesto.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new CTRL_Presupuesto();
-            }
-        });
-        */
-       v_presupuesto.jmi_cancelar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                v_presupuesto.setVisible(false);
-            }
-        });
+
     }
 }

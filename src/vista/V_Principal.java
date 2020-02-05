@@ -29,10 +29,10 @@ public class V_Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jb_enTratamiento = new javax.swing.JButton();
+        jb_cerrar_caja = new javax.swing.JButton();
         jb_nuevoPaciente = new javax.swing.JButton();
         jb_buscarPaciente = new javax.swing.JButton();
-        jb_creditos = new javax.swing.JButton();
+        jb_agenda = new javax.swing.JButton();
         jb_presupuesto = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -49,14 +49,14 @@ public class V_Principal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(94, 117, 116));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jb_enTratamiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cerrar_170_140.png"))); // NOI18N
-        jb_enTratamiento.setText("Cerrar Caja");
-        jb_enTratamiento.setBorder(null);
-        jb_enTratamiento.setBorderPainted(false);
-        jb_enTratamiento.setContentAreaFilled(false);
-        jb_enTratamiento.setFocusPainted(false);
-        jb_enTratamiento.setFocusable(false);
-        jPanel1.add(jb_enTratamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 170, 170, 140));
+        jb_cerrar_caja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cerrar_170_140.png"))); // NOI18N
+        jb_cerrar_caja.setText("Cerrar Caja");
+        jb_cerrar_caja.setBorder(null);
+        jb_cerrar_caja.setBorderPainted(false);
+        jb_cerrar_caja.setContentAreaFilled(false);
+        jb_cerrar_caja.setFocusPainted(false);
+        jb_cerrar_caja.setFocusable(false);
+        jPanel1.add(jb_cerrar_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 170, 170, 140));
 
         jb_nuevoPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/nuevo_170_140.png"))); // NOI18N
         jb_nuevoPaciente.setBorder(null);
@@ -74,13 +74,13 @@ public class V_Principal extends javax.swing.JFrame {
         jb_buscarPaciente.setFocusable(false);
         jPanel1.add(jb_buscarPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 170, 140));
 
-        jb_creditos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agenda_170_140.png"))); // NOI18N
-        jb_creditos.setBorder(null);
-        jb_creditos.setBorderPainted(false);
-        jb_creditos.setContentAreaFilled(false);
-        jb_creditos.setFocusPainted(false);
-        jb_creditos.setFocusable(false);
-        jPanel1.add(jb_creditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 170, 140));
+        jb_agenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agenda_170_140.png"))); // NOI18N
+        jb_agenda.setBorder(null);
+        jb_agenda.setBorderPainted(false);
+        jb_agenda.setContentAreaFilled(false);
+        jb_agenda.setFocusPainted(false);
+        jb_agenda.setFocusable(false);
+        jPanel1.add(jb_agenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 170, 140));
 
         jb_presupuesto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/presupuesto_170_140.png"))); // NOI18N
         jb_presupuesto.setBorder(null);
@@ -173,9 +173,9 @@ public class V_Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    public javax.swing.JButton jb_agenda;
     public javax.swing.JButton jb_buscarPaciente;
-    public javax.swing.JButton jb_creditos;
-    public javax.swing.JButton jb_enTratamiento;
+    public javax.swing.JButton jb_cerrar_caja;
     public javax.swing.JButton jb_nuevoPaciente;
     public javax.swing.JButton jb_presupuesto;
     public javax.swing.JMenuItem jmi_cerrarCecion;

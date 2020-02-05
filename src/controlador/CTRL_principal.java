@@ -47,19 +47,19 @@ public class CTRL_principal {
             }
         });
         
-        v_principal.jb_creditos.addActionListener(new ActionListener() {
+        v_principal.jb_agenda.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 v_principal.dispose();
-                new CNTRL_ListaPacientes();
+                new CNTRL_ListaAgenda();
             }
         });
         
-        v_principal.jb_enTratamiento.addActionListener(new ActionListener() {
+        v_principal.jb_cerrar_caja.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 v_principal.dispose();
-                new CNTRL_ListaPacientes();
+                new CNTRL_Venta();
             }
         });
         

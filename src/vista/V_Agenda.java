@@ -31,14 +31,12 @@ public class V_Agenda extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jmi_salir = new javax.swing.JMenuItem();
+        jt_cita_pacientes = new javax.swing.JTable();
+        jcb_pacientes_mostrar = new javax.swing.JComboBox<>();
+        jb_atender = new javax.swing.JButton();
+        jb_agendar_cita = new javax.swing.JButton();
+        jb_cambiar_fecha = new javax.swing.JButton();
+        jb_salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -52,7 +50,7 @@ public class V_Agenda extends javax.swing.JFrame {
         jLabel1.setText("Agenda");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jt_cita_pacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -63,47 +61,46 @@ public class V_Agenda extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jt_cita_pacientes);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, 300));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Atendidos", "Por Antender" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 140, 30));
+        jcb_pacientes_mostrar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Atendidos", "Por Antender" }));
+        jPanel1.add(jcb_pacientes_mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 140, 30));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Atender_80_80.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setFocusPainted(false);
-        jButton1.setFocusable(false);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 80, 80));
+        jb_atender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Atender_80_80.png"))); // NOI18N
+        jb_atender.setBorder(null);
+        jb_atender.setBorderPainted(false);
+        jb_atender.setContentAreaFilled(false);
+        jb_atender.setFocusPainted(false);
+        jb_atender.setFocusable(false);
+        jPanel1.add(jb_atender, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 80, 80));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Agenda_80_80.png"))); // NOI18N
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setFocusPainted(false);
-        jButton2.setFocusable(false);
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 80, 80));
+        jb_agendar_cita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Agenda_80_80.png"))); // NOI18N
+        jb_agendar_cita.setBorder(null);
+        jb_agendar_cita.setBorderPainted(false);
+        jb_agendar_cita.setContentAreaFilled(false);
+        jb_agendar_cita.setFocusPainted(false);
+        jb_agendar_cita.setFocusable(false);
+        jPanel1.add(jb_agendar_cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 80, 80));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/calendario_80_80.png"))); // NOI18N
-        jButton3.setBorder(null);
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setFocusPainted(false);
-        jButton3.setFocusable(false);
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, 80, 80));
+        jb_cambiar_fecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/calendario_80_80.png"))); // NOI18N
+        jb_cambiar_fecha.setBorder(null);
+        jb_cambiar_fecha.setBorderPainted(false);
+        jb_cambiar_fecha.setContentAreaFilled(false);
+        jb_cambiar_fecha.setFocusPainted(false);
+        jb_cambiar_fecha.setFocusable(false);
+        jPanel1.add(jb_cambiar_fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, 80, 80));
+
+        jb_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar_40_40.png"))); // NOI18N
+        jb_salir.setToolTipText("");
+        jb_salir.setBorder(null);
+        jb_salir.setBorderPainted(false);
+        jb_salir.setContentAreaFilled(false);
+        jb_salir.setFocusPainted(false);
+        jPanel1.add(jb_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 40, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 380));
-
-        jMenu1.setText("Archivo");
-
-        jmi_salir.setText("Salir");
-        jMenu1.add(jmi_salir);
-
-        jMenuBar1.add(jMenu1);
-
-        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -145,16 +142,14 @@ public class V_Agenda extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    public javax.swing.JMenuItem jmi_salir;
+    public javax.swing.JButton jb_agendar_cita;
+    public javax.swing.JButton jb_atender;
+    public javax.swing.JButton jb_cambiar_fecha;
+    public javax.swing.JButton jb_salir;
+    public javax.swing.JComboBox<String> jcb_pacientes_mostrar;
+    public javax.swing.JTable jt_cita_pacientes;
     // End of variables declaration//GEN-END:variables
 }

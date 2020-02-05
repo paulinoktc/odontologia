@@ -38,19 +38,28 @@ public class CTRL_Presupuesto {
             }
         });
         
-        v_presupuesto.jmi_generarHistorial.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                v_presupuesto.dispose();
-                new CTRL_DatosPersonales();
-            }
-        });
+
         
-        v_presupuesto.jmi_cancelar.addActionListener(new ActionListener() {
+        v_presupuesto.jb_salir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 v_presupuesto.dispose();
                 new CTRL_principal();
+            }
+        });
+        
+        v_presupuesto.jb_nuevo_paciente.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new CTRL_DatosPersonales();
+                v_presupuesto.dispose();
+            }
+        });
+        v_presupuesto.jb_cobrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new CTRL_Cobrar();
+                v_presupuesto.dispose();
             }
         });
     }
