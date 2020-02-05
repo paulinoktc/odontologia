@@ -63,7 +63,7 @@ public class CTRL_Presupuesto {
         for (int i = 0; i < listaPresupuesto.length; i++) {
             if (listaPresupuesto[i] != null) {
                 totalNeto += listaPresupuesto[i].getTotal();
-                v_presupuesto.jt_totalNeto.setText("$" + totalNeto);
+                v_presupuesto.jl_total.setText("$" + totalNeto);
             }
             
         }
