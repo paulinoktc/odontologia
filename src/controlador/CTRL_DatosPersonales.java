@@ -18,7 +18,6 @@ import vista.V_Presupuesto;
 public class CTRL_DatosPersonales {
 
     V_DatosPersonales v_datosPersonales;
-  
 
     public CTRL_DatosPersonales() {
         v_datosPersonales = new V_DatosPersonales();
@@ -28,8 +27,15 @@ public class CTRL_DatosPersonales {
 
     }
 
+    /**
+     * Configura el comportamiento de los botones
+     */
     public void agregarActions() {
-
+        /**
+         * Ajusta comboBox y textField para un mejor entendimiento de la ventana
+         * no todos son requeridos y conforme se necesiten iran apareciendo
+         * ejemplo sexo si es hombre no apareceran los meses de embarazo etc.
+         */
         v_datosPersonales.jcb_mesesEmbarazo.setVisible(false);
         v_datosPersonales.jtf_alergias.setVisible(false);
         v_datosPersonales.jtf_anti.setVisible(false);
@@ -38,13 +44,13 @@ public class CTRL_DatosPersonales {
         v_datosPersonales.jtf_hospitalizado.setVisible(false);
         v_datosPersonales.jtf_medicamento.setVisible(false);
         v_datosPersonales.jrb_embarazada.setVisible(false);
-        
+
         v_datosPersonales.jcb_sexo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(v_datosPersonales.jcb_sexo.getSelectedIndex()==1){
+                if (v_datosPersonales.jcb_sexo.getSelectedIndex() == 1) {
                     v_datosPersonales.jrb_embarazada.setVisible(true);
-                }else{
+                } else {
                     v_datosPersonales.jrb_embarazada.setVisible(false);
                 }
             }
@@ -113,5 +119,5 @@ public class CTRL_DatosPersonales {
             }
         });
     }
-    
+
 }

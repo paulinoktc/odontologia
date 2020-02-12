@@ -14,15 +14,20 @@ import vista.V_RegistrarCita;
  * @author ZOMBY
  */
 public class CTRL_AgendarCita {
+
     V_RegistrarCita v_citas;
 
     public CTRL_AgendarCita() {
-        v_citas=new V_RegistrarCita();
+        v_citas = new V_RegistrarCita();
         AgregarActions();
         v_citas.setVisible(true);
-        
+
     }
-    public void AgregarActions(){
+
+    /**
+     * Configura el comportamiento de los botones
+     */
+    public void AgregarActions() {
         v_citas.jb_salir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

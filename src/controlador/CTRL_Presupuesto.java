@@ -29,6 +29,9 @@ public class CTRL_Presupuesto {
         v_presupuesto.setVisible(true);
     }
 
+    /**
+     * Configura el comportamiento de los botones
+     */
     public void AgregarActions() {
         v_presupuesto.jb_calcular.addActionListener(new ActionListener() {
             @Override
@@ -64,6 +67,9 @@ public class CTRL_Presupuesto {
         });
     }
 
+    /**
+     * Calcula el precio total a partir de la vista presupuesto
+     */
     public void CalcularPrecioTotal() {
         double totalNeto = 0;
 

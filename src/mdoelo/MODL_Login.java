@@ -19,6 +19,10 @@ import javax.swing.JComboBox;
  */
 public class MODL_Login {
 
+    /**
+     * Rellema los items del JComboBox de usuarios
+     * @param items JComboBox a llenar de nombres de usuarios
+     */
     public void cargarItems(JComboBox items) {
         try {
             ResultSet result = new Conexion().crearConexion().createStatement().executeQuery("SELECT nombre_user FROM USUARIOS");
@@ -31,6 +35,12 @@ public class MODL_Login {
         }
     }
 
+    /**
+     * Ejecuta la sentencia SQL para la validacion del usuario
+     * @param nombreUsuario Nombre del usuario a comprobar
+     * @param pass Contraseña del usuario
+     * @return Si es correcto o no la validacion
+     */
     public boolean validarPass(String nombreUsuario, String pass) {
         boolean passCorrect = false;
         Connection conected = new Conexion().crearConexion();

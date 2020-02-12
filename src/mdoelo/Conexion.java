@@ -18,6 +18,9 @@ import java.util.logging.Logger;
  * @author ZOMBY
  */
 public class Conexion {
+    /**
+     * Queda pendiente la coneccion con postgres para migrar en un futuro
+     */
 /*
     String cadena = "jdbc:postgresql://localhost:5432/";
     String baseDeDatos = "clase04";

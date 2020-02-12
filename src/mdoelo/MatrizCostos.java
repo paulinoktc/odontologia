@@ -9,16 +9,21 @@ package mdoelo;
  *
  * @author ZOMBY
  */
-
 public class MatrizCostos {
-    private double total=0;
+
+    private double total = 0;
     private double presio = 0;
     private int cantidad = 0;
 
+    /**
+     * Calcula precio total de dos parametros 
+     * @param presio presio
+     * @param cantidad cantidad
+     */
     public MatrizCostos(double presio, int cantidad) {
         this.presio = presio;
         this.cantidad = cantidad;
-        total=presio*cantidad;
+        total = presio * cantidad;
     }
 
     public double getTotal() {
@@ -44,7 +49,5 @@ public class MatrizCostos {
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
-    
-    
 
 }

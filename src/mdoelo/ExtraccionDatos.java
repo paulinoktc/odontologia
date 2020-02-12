@@ -16,8 +16,12 @@ import vista.V_Presupuesto;
 public class ExtraccionDatos {
 
     //V_Presupuesto v_presupuesto;
-    MatrizCostos[] listaPresupuesto=null;
+    MatrizCostos[] listaPresupuesto = null;
 
+    /**
+     *Extrae los datos de la vista presupuestos
+     * @param v_presupuesto ventana presupuesto a extraer elementos inicializa MatrizCostos[]
+     */
     public void ExtraerDatosPresupuesto(V_Presupuesto v_presupuesto) {
         try {
             listaPresupuesto = new MatrizCostos[11];
@@ -73,9 +77,7 @@ public class ExtraccionDatos {
                 listaPresupuesto[10] = new MatrizCostos(Double.parseDouble(v_presupuesto.jtf_p_otro2.getText().toString()), Integer.parseInt(v_presupuesto.jtf_c_otro2.getText().toString()));
                 v_presupuesto.jtf_t_otro2.setText(listaPresupuesto[10].getTotal() + "");
             }
-            
-          
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Dato erroneo : Prueba\n1: Verifica que presio y cantidad no estan vacios\n2: Poner Numero Entero En Cantidad\n3: No Poner Letras");
         }
@@ -88,6 +90,5 @@ public class ExtraccionDatos {
     public void setListaPresupuesto(MatrizCostos[] listaPresupuesto) {
         this.listaPresupuesto = listaPresupuesto;
     }
-    
-    
+
 }

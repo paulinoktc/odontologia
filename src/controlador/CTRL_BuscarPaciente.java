@@ -19,33 +19,38 @@ public class CTRL_BuscarPaciente {
 
     V_BuscarPaciente v_buscarPaciente;
     V_RegistrarCita v_regitra_cita;
+
     public CTRL_BuscarPaciente() {
-        v_buscarPaciente=new V_BuscarPaciente();
+        v_buscarPaciente = new V_BuscarPaciente();
         agregarActions();
         v_buscarPaciente.setVisible(true);
     }
-   public void agregarActions(){
-       v_buscarPaciente.jb_salir.addActionListener(new ActionListener() {
-           @Override
-           public void actionPerformed(ActionEvent e) {
-               v_buscarPaciente.dispose();
-               new CTRL_principal();
-           }
-       });
-       
-       v_buscarPaciente.jb_abonar.addActionListener(new ActionListener() {
-           @Override
-           public void actionPerformed(ActionEvent e) {
-               new CTRL_Cobrar();
-               v_buscarPaciente.dispose();
-           }
-       });
-       v_buscarPaciente.jb_add_cita.addActionListener(new ActionListener() {
-           @Override
-           public void actionPerformed(ActionEvent e) {
-               new CTRL_AgendarCita();
-               v_buscarPaciente.dispose();
-           }
-       });
-   }
+
+    /**
+     * Configura el comportamiento de los botones
+     */
+    public void agregarActions() {
+        v_buscarPaciente.jb_salir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                v_buscarPaciente.dispose();
+                new CTRL_principal();
+            }
+        });
+
+        v_buscarPaciente.jb_abonar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new CTRL_Cobrar();
+                v_buscarPaciente.dispose();
+            }
+        });
+        v_buscarPaciente.jb_add_cita.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new CTRL_AgendarCita();
+                v_buscarPaciente.dispose();
+            }
+        });
+    }
 }

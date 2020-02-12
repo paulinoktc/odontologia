@@ -38,24 +38,13 @@ public class CTRL_login {
     }
 
     private void agregarActions() {
-/*        
+
         v_login.jb_iniciar.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                if (mod_login.conectarPostgres(String.valueOf(v_login.jcb_usuarios.getSelectedItem()), v_login.jp_pass.getText()) != null) {
-                    new CTRL_principal();
-                    v_login.dispose();
-                } else {
-                    v_login.jp_pass.setText("");
-                    JOptionPane.showMessageDialog(null, "USUARIO O CONTRASEÑA INVALIDA");
-                }
-            }
-        });
-*/
-        v_login.jb_iniciar.addActionListener(new ActionListener() {
-            @Override
+            /**
+             * Verifica que el usuario y contraseña sean correctos pendiente de cifrar contraseña
+             */
             public void actionPerformed(ActionEvent ae) {
-                //-----------------------------------------------------------------init
                 if(mod_login.validarPass(String.valueOf(v_login.jcb_usuarios.getSelectedItem()), v_login.jp_pass.getText())){
                     new CTRL_principal();
                     v_login.dispose();

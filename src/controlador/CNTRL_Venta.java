@@ -23,6 +23,9 @@ public class CNTRL_Venta {
         AjustarVentana();
         v_ventasDia.setVisible(true);
     }
+    /**
+     * Ajusta la ventana combrar para terminar las ventas de dia
+     */
     public void AjustarVentana(){
         v_ventasDia.jl_titulo.setText("VENTAS DEL DIA");
         v_ventasDia.jl_nombre.setVisible(false);

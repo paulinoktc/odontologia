@@ -14,15 +14,20 @@ import vista.V_Cobrar;
  * @author ZOMBY
  */
 public class CTRL_Cobrar {
+
     V_Cobrar v_cobrar;
 
 //---------------------------------pendiente de mandar un objeto
     public CTRL_Cobrar() {
-        v_cobrar=new V_Cobrar();
+        v_cobrar = new V_Cobrar();
         agregarActions();
         v_cobrar.setVisible(true);
     }
-    public void agregarActions(){
+
+    /**
+     * Configura el comportamiento de los botones
+     */
+    public void agregarActions() {
         v_cobrar.jb_salir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
