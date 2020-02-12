@@ -11,7 +11,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.Action;
 import javax.swing.JOptionPane;
-import mdoelo.MOD_login;
+import mdoelo.Conexion;
+import mdoelo.MODL_Login;
 import vista.V_login;
 
 /**
@@ -21,16 +22,23 @@ import vista.V_login;
 public class CTRL_login {
 
     V_login v_login;
-    MOD_login mod_login;
+    MODL_Login mod_login;
 
     public CTRL_login() {
         v_login = new V_login();
-        mod_login = new MOD_login();
+        mod_login = new MODL_Login();
+        
         agregarActions();
         v_login.setVisible(true);
+        cargarItems();
+    }
+    
+    public void cargarItems(){
+        mod_login.cargarItems(v_login.jcb_usuarios);
     }
 
     private void agregarActions() {
+/*        
         v_login.jb_iniciar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -43,7 +51,20 @@ public class CTRL_login {
                 }
             }
         });
-
+*/
+        v_login.jb_iniciar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                //-----------------------------------------------------------------init
+                if(mod_login.validarPass(String.valueOf(v_login.jcb_usuarios.getSelectedItem()), v_login.jp_pass.getText())){
+                    new CTRL_principal();
+                    v_login.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null, "CONTRASEÑA ERRONEA");
+                }
+            }
+        });
+        
         v_login.jcb_usuarios.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

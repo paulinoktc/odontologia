@@ -24,6 +24,7 @@ public class CTRL_DatosPersonales {
         v_datosPersonales = new V_DatosPersonales();
 
         agregarActions();
+        v_datosPersonales.setDefaultCloseOperation(0);
 
     }
 
@@ -111,6 +112,6 @@ public class CTRL_DatosPersonales {
                 }
             }
         });
-
     }
+    
 }

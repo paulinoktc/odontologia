@@ -17,14 +17,15 @@ import java.util.logging.Logger;
  *
  * @author ZOMBY
  */
-public class MOD_login {
-
+public class Conexion {
+/*
     String cadena = "jdbc:postgresql://localhost:5432/";
     String baseDeDatos = "clase04";
     String user = "pedro";
     String pass = "PEDRO";
-
-    public static void main(String[] args) {
+*/
+    /*
+    public  void POSTGRES() {
         String cadena = "jdbc:postgresql://localhost:5432/";
         String baseDeDatos = "clase04";
         String user = "pedro";
@@ -49,7 +50,8 @@ public class MOD_login {
             System.out.println("Errorx:" + exc.getMessage());
         }
     }
-
+    */
+/*CONEXION POSTGRES
     public Connection conectarPostgres(String usuario,String password) {
         Connection conex = null;
         try {
@@ -59,5 +61,23 @@ public class MOD_login {
         }
         return conex;
     }
+*/
+    String baseDatos="odontologia";
+    String usuario="root";
+    String contraseña="zomby";
+    String direccion = "jdbc:mysql://localhost/"+baseDatos+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";//+baseDatos;
+    Connection conectarDB;
+    public Connection crearConexion(){
+        try {
+            conectarDB=DriverManager.getConnection(direccion,usuario,contraseña);
+        Statement my_state=conectarDB.createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return this.conectarDB;
 
+    }
+    public static void main(String[] args) {
+        new Conexion().crearConexion();
+    }
 }

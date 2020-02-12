@@ -9,8 +9,8 @@ package mdoelo;
  *
  * @author ZOMBY
  */
-public class MatrizCostos {
 
+public class MatrizCostos {
     private double total=0;
     private double presio = 0;
     private int cantidad = 0;

@@ -33,6 +33,7 @@ public class V_login extends javax.swing.JFrame {
         jp_pass = new javax.swing.JPasswordField();
         jb_iniciar = new javax.swing.JButton();
         jb_cancelar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -41,12 +42,12 @@ public class V_login extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(94, 117, 116));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jcb_usuarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USUARIO", "pedro", "juan" }));
-        jPanel2.add(jcb_usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 150, 30));
-        jPanel2.add(jp_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 150, 30));
+        jcb_usuarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USUARIO" }));
+        jPanel2.add(jcb_usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 150, 30));
+        jPanel2.add(jp_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 150, 30));
 
         jb_iniciar.setText("INICIAR");
-        jPanel2.add(jb_iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 150, -1));
+        jPanel2.add(jb_iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 150, -1));
 
         jb_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar_40_40.png"))); // NOI18N
         jb_cancelar.setBorder(null);
@@ -55,6 +56,9 @@ public class V_login extends javax.swing.JFrame {
         jb_cancelar.setFocusPainted(false);
         jb_cancelar.setFocusable(false);
         jPanel2.add(jb_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 40, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/nuevo_170_140.png"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 170, 170));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 380));
 
@@ -97,6 +101,7 @@ public class V_login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JButton jb_cancelar;
     public javax.swing.JButton jb_iniciar;
