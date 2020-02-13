@@ -18,8 +18,6 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
-        System.out.println(jrb_alcohol.getText());
-        
     }
 
     /**
@@ -34,36 +32,39 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
+        jp_datosPersonales = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jt_telefono = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jt_nombre = new javax.swing.JTextField();
-        jt_apellidos = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        jt_ap_materno = new javax.swing.JTextField();
+        tratamiento = new javax.swing.JLabel();
         jt_domicilio = new javax.swing.JTextField();
         jcb_sexo = new javax.swing.JComboBox<>();
         jb_mas = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jtf_ocupacion = new javax.swing.JTextField();
-        jt_domicilio1 = new javax.swing.JTextField();
+        jt_representante = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jcb_estadoCivil = new javax.swing.JComboBox<>();
+        jcb_escolaridad = new javax.swing.JComboBox<>();
         jcb_dia = new javax.swing.JComboBox<>();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        jcb_mes = new javax.swing.JComboBox<>();
+        jcb_age = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
-        jt_domicilio2 = new javax.swing.JTextField();
+        jt_motiv_visita = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jt_domicilio3 = new javax.swing.JTextField();
-        jComboBox7 = new javax.swing.JComboBox<>();
+        jt_correo = new javax.swing.JTextField();
+        jcb_t_consulta = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
-        jt_apellidos1 = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
+        jt_ap_paterno = new javax.swing.JTextField();
+        jl_domicilio = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jta_tratamiento = new javax.swing.JTextArea();
+        jl_antecedentes = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jrb_apRespiratorio = new javax.swing.JRadioButton();
         jrb_aparatoCardio = new javax.swing.JRadioButton();
@@ -86,39 +87,41 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jrb_anti = new javax.swing.JRadioButton();
         jtf_anti = new javax.swing.JTextField();
         jcb_higieneBucal = new javax.swing.JComboBox<>();
-        jPanel3 = new javax.swing.JPanel();
+        jp_habitos = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jrb_brincomania = new javax.swing.JRadioButton();
         jrb_contracciones = new javax.swing.JRadioButton();
         jrb_habitMoridida = new javax.swing.JRadioButton();
         jrb_respiracionBucal = new javax.swing.JRadioButton();
-        jLabel8 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jRadioButton21 = new javax.swing.JRadioButton();
+        jcb_alimentacion = new javax.swing.JComboBox<>();
+        BajoTratamiento = new javax.swing.JRadioButton();
         jrb_medicamento = new javax.swing.JRadioButton();
         jrb_hospializado = new javax.swing.JRadioButton();
         jtf_medicamento = new javax.swing.JTextField();
         jtf_hospitalizado = new javax.swing.JTextField();
         jb_add = new javax.swing.JButton();
-        jRadioButton24 = new javax.swing.JRadioButton();
-        jRadioButton25 = new javax.swing.JRadioButton();
-        jLabel9 = new javax.swing.JLabel();
-        jRadioButton26 = new javax.swing.JRadioButton();
-        jRadioButton27 = new javax.swing.JRadioButton();
-        jLabel10 = new javax.swing.JLabel();
-        jRadioButton28 = new javax.swing.JRadioButton();
-        jRadioButton29 = new javax.swing.JRadioButton();
-        jRadioButton30 = new javax.swing.JRadioButton();
-        jRadioButton31 = new javax.swing.JRadioButton();
-        jRadioButton32 = new javax.swing.JRadioButton();
-        jRadioButton33 = new javax.swing.JRadioButton();
-        jLabel11 = new javax.swing.JLabel();
-        jRadioButton34 = new javax.swing.JRadioButton();
-        jRadioButton35 = new javax.swing.JRadioButton();
-        jRadioButton36 = new javax.swing.JRadioButton();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        jb_encia = new javax.swing.JRadioButton();
+        jrb_lengua = new javax.swing.JRadioButton();
+        jrb_carrillo = new javax.swing.JRadioButton();
+        jb_more_medic = new javax.swing.JButton();
         jb_salir = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jl_lengua = new javax.swing.JLabel();
+        jcb_frenillo = new javax.swing.JComboBox<>();
+        jl_mejilla = new javax.swing.JLabel();
+        jl_labios = new javax.swing.JLabel();
+        jl_Paladar = new javax.swing.JLabel();
+        jl_Encia = new javax.swing.JLabel();
+        jtf_labios = new javax.swing.JTextField();
+        jtf_mejilla = new javax.swing.JTextField();
+        jtf_lengua = new javax.swing.JTextField();
+        jtf_paladar = new javax.swing.JTextField();
+        jtf_encia = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jta_observaciones = new javax.swing.JTextArea();
+        jp_odontograma = new javax.swing.JPanel();
         jl_paradontograma = new javax.swing.JLabel();
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -130,377 +133,319 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(94, 117, 116));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jp_datosPersonales.setBackground(new java.awt.Color(94, 117, 116));
+        jp_datosPersonales.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("INGRESA LOS DATOS DEL PACIENTE");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
+        jp_datosPersonales.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
         jLabel2.setBackground(new java.awt.Color(204, 204, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre: ");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+        jp_datosPersonales.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         jt_telefono.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel1.add(jt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 120, 30));
+        jp_datosPersonales.add(jt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 120, 20));
 
         jLabel3.setBackground(new java.awt.Color(204, 204, 255));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("A Materno");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+        jp_datosPersonales.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         jLabel4.setBackground(new java.awt.Color(204, 204, 255));
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("FECHA NACIMIENTO");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, 20));
+        jp_datosPersonales.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, 20));
 
         jt_nombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel1.add(jt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 170, 30));
+        jp_datosPersonales.add(jt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 170, 20));
 
-        jt_apellidos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel1.add(jt_apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 260, 30));
+        jt_ap_materno.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jp_datosPersonales.add(jt_ap_materno, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 260, 20));
 
-        jLabel6.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Domicilio:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 20));
+        tratamiento.setBackground(new java.awt.Color(204, 204, 255));
+        tratamiento.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        tratamiento.setForeground(new java.awt.Color(255, 255, 255));
+        tratamiento.setText("Tratamiento");
+        jp_datosPersonales.add(tratamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, -1, 20));
 
         jt_domicilio.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel1.add(jt_domicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 220, 30));
+        jp_datosPersonales.add(jt_domicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 220, 20));
 
         jcb_sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sexo", "F", "M" }));
-        jPanel1.add(jcb_sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 110, -1));
+        jp_datosPersonales.add(jcb_sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 70, 20));
 
         jb_mas.setText("AGREGAR");
-        jPanel1.add(jb_mas, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, -1, -1));
+        jp_datosPersonales.add(jb_mas, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, -1, -1));
 
         jLabel12.setBackground(new java.awt.Color(204, 204, 255));
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Telefono:");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, -1, 20));
+        jp_datosPersonales.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, 20));
 
         jLabel13.setBackground(new java.awt.Color(204, 204, 255));
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("REPRESENTANTE");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, 20));
+        jLabel13.setText("Representante");
+        jp_datosPersonales.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, 20));
 
         jtf_ocupacion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel1.add(jtf_ocupacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 190, 30));
+        jp_datosPersonales.add(jtf_ocupacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 190, 20));
 
-        jt_domicilio1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel1.add(jt_domicilio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 220, 30));
+        jt_representante.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jp_datosPersonales.add(jt_representante, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 220, 20));
 
         jLabel18.setBackground(new java.awt.Color(204, 204, 255));
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("OCUPACION");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, -1, 20));
+        jp_datosPersonales.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, 20));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ESTADO CIVIL", "CASADO", "SOLTERO" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 150, -1));
+        jcb_estadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ESTADO CIVIL", "CASADO", "SOLTERO" }));
+        jp_datosPersonales.add(jcb_estadoCivil, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 150, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ESCOLARIDAD", "PREESCOLAR", "PRIMARIA", "SECUNDARIA", "BACHILLERATO", "MEDIA SUPERIOR", "CARRERA", " " }));
-        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, -1, -1));
+        jcb_escolaridad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ESCOLARIDAD", "PREESCOLAR", "PRIMARIA", "SECUNDARIA", "BACHILLERATO", "MEDIA SUPERIOR", "CARRERA", " " }));
+        jp_datosPersonales.add(jcb_escolaridad, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, -1, -1));
 
         jcb_dia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        jPanel1.add(jcb_dia, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, -1, -1));
+        jp_datosPersonales.add(jcb_dia, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mes", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-        jPanel1.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, -1));
+        jcb_mes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mes", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        jp_datosPersonales.add(jcb_mes, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, -1));
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Año", "2020", "2021", "2022", "2023", "2024" }));
-        jPanel1.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, -1, -1));
+        jcb_age.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Año", "2020", "2021", "2022", "2023", "2024" }));
+        jp_datosPersonales.add(jcb_age, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, -1, -1));
 
         jLabel14.setBackground(new java.awt.Color(204, 204, 255));
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Motivo Visita");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, 20));
+        jp_datosPersonales.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, 20));
 
-        jt_domicilio2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel1.add(jt_domicilio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 220, 30));
+        jt_motiv_visita.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jp_datosPersonales.add(jt_motiv_visita, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 220, 20));
 
         jLabel15.setBackground(new java.awt.Color(204, 204, 255));
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Correo");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, 20));
+        jp_datosPersonales.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, 20));
 
-        jt_domicilio3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel1.add(jt_domicilio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 220, 30));
+        jt_correo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jp_datosPersonales.add(jt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 220, 20));
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo Consulta" }));
-        jPanel1.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 190, -1));
+        jcb_t_consulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo Consulta" }));
+        jp_datosPersonales.add(jcb_t_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 150, -1));
 
         jLabel16.setBackground(new java.awt.Color(204, 204, 255));
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("A Paterno");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1, -1));
+        jp_datosPersonales.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1, -1));
 
-        jt_apellidos1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel1.add(jt_apellidos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 260, 30));
+        jt_ap_paterno.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jp_datosPersonales.add(jt_ap_paterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 210, 20));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 330));
+        jl_domicilio.setBackground(new java.awt.Color(204, 204, 255));
+        jl_domicilio.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jl_domicilio.setForeground(new java.awt.Color(255, 255, 255));
+        jl_domicilio.setText("Domicilio:");
+        jp_datosPersonales.add(jl_domicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, 20));
 
-        jPanel2.setBackground(new java.awt.Color(94, 117, 116));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jta_tratamiento.setColumns(20);
+        jta_tratamiento.setRows(5);
+        jScrollPane1.setViewportView(jta_tratamiento);
+
+        jp_datosPersonales.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, 250, -1));
+
+        getContentPane().add(jp_datosPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 350));
+
+        jl_antecedentes.setBackground(new java.awt.Color(94, 117, 116));
+        jl_antecedentes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setBackground(new java.awt.Color(94, 117, 116));
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("ANTECEDENTES PERSONALES");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
+        jl_antecedentes.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
         jrb_apRespiratorio.setBackground(new java.awt.Color(94, 117, 116));
         jrb_apRespiratorio.setForeground(new java.awt.Color(255, 255, 255));
         jrb_apRespiratorio.setText("Aparato Respiratorio");
-        jPanel2.add(jrb_apRespiratorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        jl_antecedentes.add(jrb_apRespiratorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         jrb_aparatoCardio.setBackground(new java.awt.Color(94, 117, 116));
         jrb_aparatoCardio.setForeground(new java.awt.Color(255, 255, 255));
         jrb_aparatoCardio.setText("Aparato Cardiovascular");
-        jPanel2.add(jrb_aparatoCardio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+        jl_antecedentes.add(jrb_aparatoCardio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         jrb_apDigestivo.setBackground(new java.awt.Color(94, 117, 116));
         jrb_apDigestivo.setForeground(new java.awt.Color(255, 255, 255));
         jrb_apDigestivo.setText("Aparato Digestivo");
-        jPanel2.add(jrb_apDigestivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+        jl_antecedentes.add(jrb_apDigestivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
         jrb_sistemNervioso.setBackground(new java.awt.Color(94, 117, 116));
         jrb_sistemNervioso.setForeground(new java.awt.Color(255, 255, 255));
         jrb_sistemNervioso.setText("Sistema Nervioso");
-        jPanel2.add(jrb_sistemNervioso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        jl_antecedentes.add(jrb_sistemNervioso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         jrb_problemasCardio.setBackground(new java.awt.Color(94, 117, 116));
         jrb_problemasCardio.setForeground(new java.awt.Color(255, 255, 255));
         jrb_problemasCardio.setText("Probelmas de Goagualacion");
-        jPanel2.add(jrb_problemasCardio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        jl_antecedentes.add(jrb_problemasCardio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
         jrb_desmayos.setBackground(new java.awt.Color(94, 117, 116));
         jrb_desmayos.setForeground(new java.awt.Color(255, 255, 255));
         jrb_desmayos.setText("Desmayos");
-        jPanel2.add(jrb_desmayos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
+        jl_antecedentes.add(jrb_desmayos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
         jrb_vertigos.setBackground(new java.awt.Color(94, 117, 116));
         jrb_vertigos.setForeground(new java.awt.Color(255, 255, 255));
         jrb_vertigos.setText("Vertigos y Mareos");
-        jPanel2.add(jrb_vertigos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+        jl_antecedentes.add(jrb_vertigos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
         jrb_diabetes.setBackground(new java.awt.Color(94, 117, 116));
         jrb_diabetes.setForeground(new java.awt.Color(255, 255, 255));
         jrb_diabetes.setText("Diabetes");
-        jPanel2.add(jrb_diabetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+        jl_antecedentes.add(jrb_diabetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
         jrb_tiroides.setBackground(new java.awt.Color(94, 117, 116));
         jrb_tiroides.setForeground(new java.awt.Color(255, 255, 255));
         jrb_tiroides.setText("Tiroides");
-        jPanel2.add(jrb_tiroides, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+        jl_antecedentes.add(jrb_tiroides, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
         jrb_fiebreReumatica.setBackground(new java.awt.Color(94, 117, 116));
         jrb_fiebreReumatica.setForeground(new java.awt.Color(255, 255, 255));
         jrb_fiebreReumatica.setText("Fiebre Reumatica");
-        jPanel2.add(jrb_fiebreReumatica, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        jl_antecedentes.add(jrb_fiebreReumatica, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
 
         jrb_hipertencion.setBackground(new java.awt.Color(94, 117, 116));
         jrb_hipertencion.setForeground(new java.awt.Color(255, 255, 255));
         jrb_hipertencion.setText("Hipertension");
-        jPanel2.add(jrb_hipertencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+        jl_antecedentes.add(jrb_hipertencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
 
         jrb_embarazada.setBackground(new java.awt.Color(94, 117, 116));
         jrb_embarazada.setForeground(new java.awt.Color(255, 255, 255));
         jrb_embarazada.setText("Ebarazada");
-        jPanel2.add(jrb_embarazada, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, -1, -1));
+        jl_antecedentes.add(jrb_embarazada, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, -1, -1));
 
         jcb_mesesEmbarazo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Meses", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
-        jPanel2.add(jcb_mesesEmbarazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, -1, -1));
+        jl_antecedentes.add(jcb_mesesEmbarazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, -1, -1));
 
         jcb_fuma.setBackground(new java.awt.Color(94, 117, 116));
         jcb_fuma.setForeground(new java.awt.Color(255, 255, 255));
         jcb_fuma.setText("Fuma");
-        jPanel2.add(jcb_fuma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
+        jl_antecedentes.add(jcb_fuma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
 
         jrb_alcohol.setBackground(new java.awt.Color(94, 117, 116));
         jrb_alcohol.setForeground(new java.awt.Color(255, 255, 255));
         jrb_alcohol.setText("Bebe Alcohol");
         jrb_alcohol.setFocusable(false);
-        jPanel2.add(jrb_alcohol, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, -1));
+        jl_antecedentes.add(jrb_alcohol, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, -1));
 
         jrb_drogas.setBackground(new java.awt.Color(94, 117, 116));
         jrb_drogas.setForeground(new java.awt.Color(255, 255, 255));
         jrb_drogas.setText("Consume Drogas");
         jrb_drogas.setFocusable(false);
-        jPanel2.add(jrb_drogas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, -1, -1));
+        jl_antecedentes.add(jrb_drogas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, -1, -1));
 
         jrb_alergias.setBackground(new java.awt.Color(94, 117, 116));
         jrb_alergias.setForeground(new java.awt.Color(255, 255, 255));
         jrb_alergias.setText("Alergias");
-        jPanel2.add(jrb_alergias, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, -1));
-        jPanel2.add(jtf_alergias, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 140, 20));
+        jl_antecedentes.add(jrb_alergias, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, -1));
+        jl_antecedentes.add(jtf_alergias, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 140, 20));
 
         jrb_anti.setBackground(new java.awt.Color(94, 117, 116));
         jrb_anti.setForeground(new java.awt.Color(255, 255, 255));
         jrb_anti.setText("Anticonceptivo");
-        jPanel2.add(jrb_anti, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, -1, -1));
-        jPanel2.add(jtf_anti, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, 140, -1));
+        jl_antecedentes.add(jrb_anti, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, -1, -1));
+        jl_antecedentes.add(jtf_anti, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, 140, -1));
 
         jcb_higieneBucal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Higiene Bucal", "Buena", "Mala" }));
-        jPanel2.add(jcb_higieneBucal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, -1, -1));
+        jl_antecedentes.add(jcb_higieneBucal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, -1, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, 300, 660));
+        getContentPane().add(jl_antecedentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, 300, 660));
 
-        jPanel3.setBackground(new java.awt.Color(94, 117, 116));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jp_habitos.setBackground(new java.awt.Color(94, 117, 116));
+        jp_habitos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("HABITOS");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+        jLabel7.setText("CHUPADORES DE:");
+        jp_habitos.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, -1, -1));
 
         jrb_brincomania.setBackground(new java.awt.Color(94, 117, 116));
         jrb_brincomania.setForeground(new java.awt.Color(255, 255, 255));
         jrb_brincomania.setText("Brincomania");
-        jPanel3.add(jrb_brincomania, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+        jp_habitos.add(jrb_brincomania, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
         jrb_contracciones.setBackground(new java.awt.Color(94, 117, 116));
         jrb_contracciones.setForeground(new java.awt.Color(255, 255, 255));
         jrb_contracciones.setText("Contracciones Musculares");
-        jPanel3.add(jrb_contracciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+        jp_habitos.add(jrb_contracciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         jrb_habitMoridida.setBackground(new java.awt.Color(94, 117, 116));
         jrb_habitMoridida.setForeground(new java.awt.Color(255, 255, 255));
         jrb_habitMoridida.setText("Habitos De Mordida");
-        jPanel3.add(jrb_habitMoridida, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        jp_habitos.add(jrb_habitMoridida, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
         jrb_respiracionBucal.setBackground(new java.awt.Color(94, 117, 116));
         jrb_respiracionBucal.setForeground(new java.awt.Color(255, 255, 255));
         jrb_respiracionBucal.setText("Respiracion Bucal");
-        jPanel3.add(jrb_respiracionBucal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+        jp_habitos.add(jrb_respiracionBucal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("EXAMEN DE TEGIDOS");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, -1, 20));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alimentacion", "Buena", "Mala" }));
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+        jcb_alimentacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alimentacion", "Buena", "Mala" }));
+        jcb_alimentacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
+                jcb_alimentacionActionPerformed(evt);
             }
         });
-        jPanel3.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
+        jp_habitos.add(jcb_alimentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, -1, -1));
 
-        jRadioButton21.setBackground(new java.awt.Color(94, 117, 116));
-        jRadioButton21.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton21.setText("Esta Bajo Tratamiento");
-        jPanel3.add(jRadioButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
+        BajoTratamiento.setBackground(new java.awt.Color(94, 117, 116));
+        BajoTratamiento.setForeground(new java.awt.Color(255, 255, 255));
+        BajoTratamiento.setText("Esta Bajo Tratamiento");
+        jp_habitos.add(BajoTratamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
 
         jrb_medicamento.setBackground(new java.awt.Color(94, 117, 116));
         jrb_medicamento.setForeground(new java.awt.Color(255, 255, 255));
         jrb_medicamento.setText("Toma Medicamento");
-        jPanel3.add(jrb_medicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
+        jp_habitos.add(jrb_medicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
         jrb_hospializado.setBackground(new java.awt.Color(94, 117, 116));
         jrb_hospializado.setForeground(new java.awt.Color(255, 255, 255));
         jrb_hospializado.setText("Ha Sido Hospitalizado");
-        jPanel3.add(jrb_hospializado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
-        jPanel3.add(jtf_medicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 150, -1));
-        jPanel3.add(jtf_hospitalizado, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 150, -1));
+        jp_habitos.add(jrb_hospializado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+        jp_habitos.add(jtf_medicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 170, -1));
+        jp_habitos.add(jtf_hospitalizado, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 160, -1));
 
         jb_add.setText("Guardar");
-        jPanel3.add(jb_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 600, -1, -1));
+        jp_habitos.add(jb_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 360, -1));
 
-        jRadioButton24.setBackground(new java.awt.Color(94, 117, 116));
-        jRadioButton24.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton24.setText("Esmalte");
-        jPanel3.add(jRadioButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, -1, -1));
+        jb_encia.setBackground(new java.awt.Color(94, 117, 116));
+        jb_encia.setForeground(new java.awt.Color(255, 255, 255));
+        jb_encia.setText("Encia");
+        jp_habitos.add(jb_encia, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
 
-        jRadioButton25.setBackground(new java.awt.Color(94, 117, 116));
-        jRadioButton25.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton25.setText("Dentina");
-        jPanel3.add(jRadioButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, -1, -1));
+        jrb_lengua.setBackground(new java.awt.Color(94, 117, 116));
+        jrb_lengua.setForeground(new java.awt.Color(255, 255, 255));
+        jrb_lengua.setText("Lengua");
+        jp_habitos.add(jrb_lengua, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("RX");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, -1, -1));
+        jrb_carrillo.setBackground(new java.awt.Color(94, 117, 116));
+        jrb_carrillo.setForeground(new java.awt.Color(255, 255, 255));
+        jrb_carrillo.setText("Carrillos");
+        jp_habitos.add(jrb_carrillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, -1, -1));
 
-        jRadioButton26.setBackground(new java.awt.Color(94, 117, 116));
-        jRadioButton26.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton26.setText("Raiz");
-        jPanel3.add(jRadioButton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, -1, -1));
-
-        jRadioButton27.setBackground(new java.awt.Color(94, 117, 116));
-        jRadioButton27.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton27.setText("Huesos");
-        jPanel3.add(jRadioButton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, -1, -1));
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("BLANDOS");
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, -1));
-
-        jRadioButton28.setBackground(new java.awt.Color(94, 117, 116));
-        jRadioButton28.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton28.setText("Encia");
-        jPanel3.add(jRadioButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
-
-        jRadioButton29.setBackground(new java.awt.Color(94, 117, 116));
-        jRadioButton29.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton29.setText("Ensercion Epitelial");
-        jPanel3.add(jRadioButton29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, -1, -1));
-
-        jRadioButton30.setBackground(new java.awt.Color(94, 117, 116));
-        jRadioButton30.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton30.setText("Lengua");
-        jPanel3.add(jRadioButton30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, -1, -1));
-
-        jRadioButton31.setBackground(new java.awt.Color(94, 117, 116));
-        jRadioButton31.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton31.setText("Pulpa Alteraciones");
-        jPanel3.add(jRadioButton31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, -1, -1));
-
-        jRadioButton32.setBackground(new java.awt.Color(94, 117, 116));
-        jRadioButton32.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton32.setText("Velo De Paladar");
-        jPanel3.add(jRadioButton32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, -1, -1));
-
-        jRadioButton33.setBackground(new java.awt.Color(94, 117, 116));
-        jRadioButton33.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton33.setText("Carrillos");
-        jPanel3.add(jRadioButton33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, -1, -1));
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("CONCLUCIONES");
-        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, -1, -1));
-
-        jRadioButton34.setBackground(new java.awt.Color(94, 117, 116));
-        jRadioButton34.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton34.setText("Morida Abierta");
-        jPanel3.add(jRadioButton34, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, -1, -1));
-
-        jRadioButton35.setBackground(new java.awt.Color(94, 117, 116));
-        jRadioButton35.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton35.setText("Desgaste Bruxismo");
-        jPanel3.add(jRadioButton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, -1, -1));
-
-        jRadioButton36.setBackground(new java.awt.Color(94, 117, 116));
-        jRadioButton36.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton36.setText("Anoclucion");
-        jPanel3.add(jRadioButton36, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, -1, -1));
-
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sobre Mordida", "Horizontal", "Vertical" }));
-        jPanel3.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 500, -1, -1));
+        jb_more_medic.setText("+");
+        jp_habitos.add(jb_more_medic, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, -1, -1));
 
         jb_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar_40_40.png"))); // NOI18N
         jb_salir.setBorder(null);
@@ -508,27 +453,86 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jb_salir.setContentAreaFilled(false);
         jb_salir.setFocusPainted(false);
         jb_salir.setFocusable(false);
-        jPanel3.add(jb_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 40, 40));
+        jp_habitos.add(jb_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 40, 40));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 400, 660));
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("HABITOS");
+        jp_habitos.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
-        jPanel4.setBackground(new java.awt.Color(94, 117, 116));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Observaciones");
+        jp_habitos.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 510, -1, -1));
+
+        jl_lengua.setBackground(new java.awt.Color(204, 204, 255));
+        jl_lengua.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jl_lengua.setForeground(new java.awt.Color(255, 255, 255));
+        jl_lengua.setText("Lengua");
+        jp_habitos.add(jl_lengua, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, -1, 20));
+
+        jcb_frenillo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fremillo" }));
+        jp_habitos.add(jcb_frenillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
+
+        jl_mejilla.setBackground(new java.awt.Color(204, 204, 255));
+        jl_mejilla.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jl_mejilla.setForeground(new java.awt.Color(255, 255, 255));
+        jl_mejilla.setText("Mejilla");
+        jp_habitos.add(jl_mejilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, 20));
+
+        jl_labios.setBackground(new java.awt.Color(204, 204, 255));
+        jl_labios.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jl_labios.setForeground(new java.awt.Color(255, 255, 255));
+        jl_labios.setText("Labios");
+        jp_habitos.add(jl_labios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, 20));
+
+        jl_Paladar.setBackground(new java.awt.Color(204, 204, 255));
+        jl_Paladar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jl_Paladar.setForeground(new java.awt.Color(255, 255, 255));
+        jl_Paladar.setText("Paladar");
+        jp_habitos.add(jl_Paladar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, -1, 20));
+
+        jl_Encia.setBackground(new java.awt.Color(204, 204, 255));
+        jl_Encia.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jl_Encia.setForeground(new java.awt.Color(255, 255, 255));
+        jl_Encia.setText("Encia");
+        jp_habitos.add(jl_Encia, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, 20));
+        jp_habitos.add(jtf_labios, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 270, -1));
+        jp_habitos.add(jtf_mejilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 270, -1));
+        jp_habitos.add(jtf_lengua, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 270, -1));
+        jp_habitos.add(jtf_paladar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 270, -1));
+        jp_habitos.add(jtf_encia, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 270, -1));
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("TEJIDOS BLANDOS");
+        jp_habitos.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+
+        jta_observaciones.setColumns(20);
+        jta_observaciones.setRows(5);
+        jScrollPane2.setViewportView(jta_observaciones);
+
+        jp_habitos.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, 340, -1));
+
+        getContentPane().add(jp_habitos, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, -1, 660));
+
+        jp_odontograma.setBackground(new java.awt.Color(94, 117, 116));
+        jp_odontograma.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jl_paradontograma.setBackground(new java.awt.Color(204, 204, 255));
         jl_paradontograma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/odonto.png"))); // NOI18N
         jl_paradontograma.setFocusable(false);
         jl_paradontograma.setRequestFocusEnabled(false);
-        jPanel4.add(jl_paradontograma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 560, 280));
+        jp_odontograma.add(jl_paradontograma, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 560, 280));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 610, 320));
+        getContentPane().add(jp_odontograma, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 610, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+    private void jcb_alimentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_alimentacionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox3ActionPerformed
+    }//GEN-LAST:event_jcb_alimentacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -566,60 +570,55 @@ public class V_DatosPersonales extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
-    private javax.swing.JComboBox<String> jComboBox7;
+    private javax.swing.JRadioButton BajoTratamiento;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JRadioButton jRadioButton21;
-    private javax.swing.JRadioButton jRadioButton24;
-    private javax.swing.JRadioButton jRadioButton25;
-    private javax.swing.JRadioButton jRadioButton26;
-    private javax.swing.JRadioButton jRadioButton27;
-    private javax.swing.JRadioButton jRadioButton28;
-    private javax.swing.JRadioButton jRadioButton29;
-    private javax.swing.JRadioButton jRadioButton30;
-    private javax.swing.JRadioButton jRadioButton31;
-    private javax.swing.JRadioButton jRadioButton32;
-    private javax.swing.JRadioButton jRadioButton33;
-    private javax.swing.JRadioButton jRadioButton34;
-    private javax.swing.JRadioButton jRadioButton35;
-    private javax.swing.JRadioButton jRadioButton36;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JButton jb_add;
+    public javax.swing.JRadioButton jb_encia;
     public javax.swing.JButton jb_mas;
+    public javax.swing.JButton jb_more_medic;
     public javax.swing.JButton jb_salir;
+    private javax.swing.JComboBox<String> jcb_age;
+    private javax.swing.JComboBox<String> jcb_alimentacion;
     private javax.swing.JComboBox<String> jcb_dia;
+    private javax.swing.JComboBox<String> jcb_escolaridad;
+    private javax.swing.JComboBox<String> jcb_estadoCivil;
+    private javax.swing.JComboBox<String> jcb_frenillo;
     private javax.swing.JRadioButton jcb_fuma;
     private javax.swing.JComboBox<String> jcb_higieneBucal;
+    private javax.swing.JComboBox<String> jcb_mes;
     public javax.swing.JComboBox<String> jcb_mesesEmbarazo;
     public javax.swing.JComboBox<String> jcb_sexo;
+    public javax.swing.JComboBox<String> jcb_t_consulta;
+    private javax.swing.JLabel jl_Encia;
+    private javax.swing.JLabel jl_Paladar;
+    private javax.swing.JPanel jl_antecedentes;
+    private javax.swing.JLabel jl_domicilio;
+    private javax.swing.JLabel jl_labios;
+    private javax.swing.JLabel jl_lengua;
+    private javax.swing.JLabel jl_mejilla;
     public javax.swing.JLabel jl_paradontograma;
+    private javax.swing.JPanel jp_datosPersonales;
+    private javax.swing.JPanel jp_habitos;
+    private javax.swing.JPanel jp_odontograma;
     private javax.swing.JRadioButton jrb_alcohol;
     public javax.swing.JRadioButton jrb_alergias;
     public javax.swing.JRadioButton jrb_anti;
@@ -627,6 +626,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
     private javax.swing.JRadioButton jrb_apRespiratorio;
     private javax.swing.JRadioButton jrb_aparatoCardio;
     private javax.swing.JRadioButton jrb_brincomania;
+    public javax.swing.JRadioButton jrb_carrillo;
     private javax.swing.JRadioButton jrb_contracciones;
     private javax.swing.JRadioButton jrb_desmayos;
     private javax.swing.JRadioButton jrb_diabetes;
@@ -636,24 +636,33 @@ public class V_DatosPersonales extends javax.swing.JFrame {
     private javax.swing.JRadioButton jrb_habitMoridida;
     private javax.swing.JRadioButton jrb_hipertencion;
     public javax.swing.JRadioButton jrb_hospializado;
+    public javax.swing.JRadioButton jrb_lengua;
     public javax.swing.JRadioButton jrb_medicamento;
     private javax.swing.JRadioButton jrb_problemasCardio;
     private javax.swing.JRadioButton jrb_respiracionBucal;
     private javax.swing.JRadioButton jrb_sistemNervioso;
     private javax.swing.JRadioButton jrb_tiroides;
     private javax.swing.JRadioButton jrb_vertigos;
-    public javax.swing.JTextField jt_apellidos;
-    public javax.swing.JTextField jt_apellidos1;
+    public javax.swing.JTextField jt_ap_materno;
+    public javax.swing.JTextField jt_ap_paterno;
+    public javax.swing.JTextField jt_correo;
     public javax.swing.JTextField jt_domicilio;
-    public javax.swing.JTextField jt_domicilio1;
-    public javax.swing.JTextField jt_domicilio2;
-    public javax.swing.JTextField jt_domicilio3;
+    public javax.swing.JTextField jt_motiv_visita;
     public javax.swing.JTextField jt_nombre;
+    public javax.swing.JTextField jt_representante;
     public javax.swing.JTextField jt_telefono;
+    public javax.swing.JTextArea jta_observaciones;
+    public javax.swing.JTextArea jta_tratamiento;
     public javax.swing.JTextField jtf_alergias;
     public javax.swing.JTextField jtf_anti;
+    public javax.swing.JTextField jtf_encia;
     public javax.swing.JTextField jtf_hospitalizado;
+    public javax.swing.JTextField jtf_labios;
+    public javax.swing.JTextField jtf_lengua;
     public javax.swing.JTextField jtf_medicamento;
+    public javax.swing.JTextField jtf_mejilla;
     public javax.swing.JTextField jtf_ocupacion;
+    public javax.swing.JTextField jtf_paladar;
+    private javax.swing.JLabel tratamiento;
     // End of variables declaration//GEN-END:variables
 }

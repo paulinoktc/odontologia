@@ -8,6 +8,7 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import mdoelo.MODL_Consulta;
 import vista.V_DatosPersonales;
 import vista.V_Presupuesto;
 
@@ -18,12 +19,13 @@ import vista.V_Presupuesto;
 public class CTRL_DatosPersonales {
 
     V_DatosPersonales v_datosPersonales;
-
+    MODL_Consulta m_consulta;
     public CTRL_DatosPersonales() {
         v_datosPersonales = new V_DatosPersonales();
 
         agregarActions();
         v_datosPersonales.setDefaultCloseOperation(0);
+        LlenarItemsConsulta();
 
     }
 
@@ -40,7 +42,7 @@ public class CTRL_DatosPersonales {
         v_datosPersonales.jtf_alergias.setVisible(false);
         v_datosPersonales.jtf_anti.setVisible(false);
         v_datosPersonales.setVisible(true);
-        v_datosPersonales.setVisible(true);
+        m_consulta=new MODL_Consulta();
         v_datosPersonales.jtf_hospitalizado.setVisible(false);
         v_datosPersonales.jtf_medicamento.setVisible(false);
         v_datosPersonales.jrb_embarazada.setVisible(false);
@@ -120,4 +122,7 @@ public class CTRL_DatosPersonales {
         });
     }
 
+    public void LlenarItemsConsulta(){
+        m_consulta.cargarItems(v_datosPersonales.jcb_t_consulta);
+    }
 }
