@@ -3,10 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mdoelo;
+package controlador;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import mdoelo.MatrizCostos;
+import mdoelo.OBJ_Paciente;
+import vista.V_DatosPersonales;
 import vista.V_Presupuesto;
 
 /**
@@ -19,8 +22,10 @@ public class ExtraccionDatos {
     MatrizCostos[] listaPresupuesto = null;
 
     /**
-     *Extrae los datos de la vista presupuestos
-     * @param v_presupuesto ventana presupuesto a extraer elementos inicializa MatrizCostos[]
+     * Extrae los datos de la vista presupuestos
+     *
+     * @param v_presupuesto ventana presupuesto a extraer elementos inicializa
+     * MatrizCostos[]
      */
     public void ExtraerDatosPresupuesto(V_Presupuesto v_presupuesto) {
         try {
@@ -91,4 +96,23 @@ public class ExtraccionDatos {
         this.listaPresupuesto = listaPresupuesto;
     }
 
+    public OBJ_Paciente ExtraerDatosPaciente(V_DatosPersonales vista) {
+        OBJ_Paciente el_paciente = new OBJ_Paciente();
+        el_paciente.setNombre(vista.jt_nombre.getText());
+        el_paciente.setAp_paterno(vista.jt_ap_paterno.getText());
+        el_paciente.setAp_materno(vista.jt_ap_materno.getText());
+        el_paciente.setSexo((char) vista.jcb_sexo.getSelectedItem());
+        String eage = String.valueOf(vista.jcb_age.getSelectedItem());
+        String mes = String.valueOf(vista.jcb_mes.getSelectedItem());
+        String dia = String.valueOf(vista.jcb_dia.getSelectedItem());
+        String fechaNaciemiento = eage + "-" + mes + "-" + dia;
+        el_paciente.setFechaNaciemiento(fechaNaciemiento);
+        el_paciente.setEstadoCivil(String.valueOf(vista.jcb_estadoCivil.getSelectedItem()));
+        el_paciente.setOcupacion(vista.jtf_ocupacion.getText());
+        el_paciente.setEscolaridad(String.valueOf(vista.jcb_escolaridad.getSelectedItem()));
+        /**
+         * pendientes insertar id_domicilio and id_tegidos
+         */
+        return el_paciente;
+    }
 }
