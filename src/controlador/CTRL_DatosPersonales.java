@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import mdoelo.MODL_Consulta;
+import mdoelo.OBJ_Paciente;
 import vista.V_DatosPersonales;
 import vista.V_Presupuesto;
 
@@ -20,9 +21,12 @@ public class CTRL_DatosPersonales {
 
     V_DatosPersonales v_datosPersonales;
     MODL_Consulta m_consulta;
+    OBJ_Paciente paciente;
+    ExtraccionDatos extraerDatosVista;
+
     public CTRL_DatosPersonales() {
         v_datosPersonales = new V_DatosPersonales();
-
+        extraerDatosVista = new ExtraccionDatos();
         agregarActions();
         v_datosPersonales.setDefaultCloseOperation(0);
         LlenarItemsConsulta();
@@ -42,7 +46,7 @@ public class CTRL_DatosPersonales {
         v_datosPersonales.jtf_alergias.setVisible(false);
         v_datosPersonales.jtf_anti.setVisible(false);
         v_datosPersonales.setVisible(true);
-        m_consulta=new MODL_Consulta();
+        m_consulta = new MODL_Consulta();
         v_datosPersonales.jtf_hospitalizado.setVisible(false);
         v_datosPersonales.jtf_medicamento.setVisible(false);
         v_datosPersonales.jrb_embarazada.setVisible(false);
@@ -120,9 +124,20 @@ public class CTRL_DatosPersonales {
                 }
             }
         });
+        v_datosPersonales.jb_add.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                extraerDatosPaciente();//--------------------------------------------pendiente
+            }
+        });
     }
 
-    public void LlenarItemsConsulta(){
+    public void LlenarItemsConsulta() {
         m_consulta.cargarItems(v_datosPersonales.jcb_t_consulta);
+    }
+    
+    public void extraerDatosPaciente(){
+        paciente=extraerDatosVista.ExtraerDatosPaciente(v_datosPersonales);
+        System.out.println("sucess full");
     }
 }

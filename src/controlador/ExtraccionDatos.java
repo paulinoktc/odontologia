@@ -101,7 +101,7 @@ public class ExtraccionDatos {
         el_paciente.setNombre(vista.jt_nombre.getText());
         el_paciente.setAp_paterno(vista.jt_ap_paterno.getText());
         el_paciente.setAp_materno(vista.jt_ap_materno.getText());
-        el_paciente.setSexo((char) vista.jcb_sexo.getSelectedItem());
+        el_paciente.setSexo((String.valueOf(vista.jcb_sexo.getSelectedItem())).charAt(0));
         String eage = String.valueOf(vista.jcb_age.getSelectedItem());
         String mes = String.valueOf(vista.jcb_mes.getSelectedItem());
         String dia = String.valueOf(vista.jcb_dia.getSelectedItem());

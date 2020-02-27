@@ -591,7 +591,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JButton jb_add;
+    public javax.swing.JButton jb_add;
     public javax.swing.JRadioButton jb_encia;
     public javax.swing.JButton jb_mas;
     public javax.swing.JButton jb_more_medic;
