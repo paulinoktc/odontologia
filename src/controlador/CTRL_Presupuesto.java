@@ -39,9 +39,7 @@ public class CTRL_Presupuesto {
                 CalcularPrecioTotal();
             }
         });
-        
 
-        
         v_presupuesto.jb_salir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -49,7 +47,7 @@ public class CTRL_Presupuesto {
                 new CTRL_principal();
             }
         });
-        
+
         v_presupuesto.jb_nuevo_paciente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -79,7 +77,6 @@ public class CTRL_Presupuesto {
                 totalNeto += listaPresupuesto[i].getTotal();
                 v_presupuesto.jl_total.setText("$" + totalNeto);
             }
-            
         }
     }
 }

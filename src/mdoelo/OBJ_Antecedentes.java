@@ -18,6 +18,16 @@ public class OBJ_Antecedentes {
     private int id_tratamiento;
     private int id_paciente;
 
+    public OBJ_Antecedentes() {
+    }
+
+    public OBJ_Antecedentes(String higiene_bucal, String alimentacion, int id_tratamiento, int id_paciente) {
+        this.higiene_bucal = higiene_bucal;
+        this.alimentacion = alimentacion;
+        this.id_tratamiento = id_tratamiento;
+        this.id_paciente = id_paciente;
+    }
+
     public int getId_antecedente() {
         return id_antecedente;
     }
@@ -66,5 +76,4 @@ public class OBJ_Antecedentes {
         this.id_paciente = id_paciente;
     }
 
-    
 }

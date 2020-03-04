@@ -7,9 +7,13 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import mdoelo.MODL_Consulta;
+import mdoelo.OBJ_Antecedentes;
 import mdoelo.OBJ_Paciente;
+import mdoelo.OBJ_Relacion;
+import mdoelo.OBJ_Tratamiento;
 import vista.V_DatosPersonales;
 import vista.V_Presupuesto;
 
@@ -23,6 +27,9 @@ public class CTRL_DatosPersonales {
     MODL_Consulta m_consulta;
     OBJ_Paciente paciente;
     ExtraccionDatos extraerDatosVista;
+    OBJ_Tratamiento tratamiento;
+    OBJ_Antecedentes antecedentes;
+    ArrayList<OBJ_Relacion> listaHabitos;
 
     public CTRL_DatosPersonales() {
         v_datosPersonales = new V_DatosPersonales();
@@ -135,9 +142,25 @@ public class CTRL_DatosPersonales {
     public void LlenarItemsConsulta() {
         m_consulta.cargarItems(v_datosPersonales.jcb_t_consulta);
     }
-    
-    public void extraerDatosPaciente(){
-        paciente=extraerDatosVista.ExtraerDatosPaciente(v_datosPersonales);
+
+    public void extraerDatosPaciente() {
+        paciente = extraerDatosVista.ExtraerDatosPaciente(v_datosPersonales);
         System.out.println("sucess full");
+        
+        extraerTratamiento();
+        extraerAntecedentes();
+        ExtraerHabitos();
+        //-----------------------------------------------------------------------extraer datos habitos
+    }
+
+    public void extraerTratamiento() {
+        tratamiento = extraerDatosVista.ExtraerTratamiento(v_datosPersonales);
+    }
+    
+    public void extraerAntecedentes(){
+        antecedentes=extraerDatosVista.ExtraerAntecedentes(v_datosPersonales, tratamiento, 0);//modificar el idpaciente
+    }
+    public void ExtraerHabitos(){
+        listaHabitos=extraerDatosVista.ExtraerDatosHabitos(v_datosPersonales, antecedentes);
     }
 }

@@ -100,7 +100,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jtf_medicamento = new javax.swing.JTextField();
         jtf_hospitalizado = new javax.swing.JTextField();
         jb_add = new javax.swing.JButton();
-        jb_encia = new javax.swing.JRadioButton();
+        jrb_encia = new javax.swing.JRadioButton();
         jrb_lengua = new javax.swing.JRadioButton();
         jrb_carrillo = new javax.swing.JRadioButton();
         jb_more_medic = new javax.swing.JButton();
@@ -429,10 +429,10 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jb_add.setText("Guardar");
         jp_habitos.add(jb_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 360, -1));
 
-        jb_encia.setBackground(new java.awt.Color(94, 117, 116));
-        jb_encia.setForeground(new java.awt.Color(255, 255, 255));
-        jb_encia.setText("Encia");
-        jp_habitos.add(jb_encia, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
+        jrb_encia.setBackground(new java.awt.Color(94, 117, 116));
+        jrb_encia.setForeground(new java.awt.Color(255, 255, 255));
+        jrb_encia.setText("Encia");
+        jp_habitos.add(jrb_encia, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
 
         jrb_lengua.setBackground(new java.awt.Color(94, 117, 116));
         jrb_lengua.setForeground(new java.awt.Color(255, 255, 255));
@@ -570,7 +570,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton BajoTratamiento;
+    public javax.swing.JRadioButton BajoTratamiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -592,18 +592,17 @@ public class V_DatosPersonales extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     public javax.swing.JButton jb_add;
-    public javax.swing.JRadioButton jb_encia;
     public javax.swing.JButton jb_mas;
     public javax.swing.JButton jb_more_medic;
     public javax.swing.JButton jb_salir;
     public javax.swing.JComboBox<String> jcb_age;
-    private javax.swing.JComboBox<String> jcb_alimentacion;
+    public javax.swing.JComboBox<String> jcb_alimentacion;
     public javax.swing.JComboBox<String> jcb_dia;
     public javax.swing.JComboBox<String> jcb_escolaridad;
     public javax.swing.JComboBox<String> jcb_estadoCivil;
     private javax.swing.JComboBox<String> jcb_frenillo;
     private javax.swing.JRadioButton jcb_fuma;
-    private javax.swing.JComboBox<String> jcb_higieneBucal;
+    public javax.swing.JComboBox<String> jcb_higieneBucal;
     public javax.swing.JComboBox<String> jcb_mes;
     public javax.swing.JComboBox<String> jcb_mesesEmbarazo;
     public javax.swing.JComboBox<String> jcb_sexo;
@@ -625,21 +624,22 @@ public class V_DatosPersonales extends javax.swing.JFrame {
     private javax.swing.JRadioButton jrb_apDigestivo;
     private javax.swing.JRadioButton jrb_apRespiratorio;
     private javax.swing.JRadioButton jrb_aparatoCardio;
-    private javax.swing.JRadioButton jrb_brincomania;
+    public javax.swing.JRadioButton jrb_brincomania;
     public javax.swing.JRadioButton jrb_carrillo;
-    private javax.swing.JRadioButton jrb_contracciones;
+    public javax.swing.JRadioButton jrb_contracciones;
     private javax.swing.JRadioButton jrb_desmayos;
     private javax.swing.JRadioButton jrb_diabetes;
     private javax.swing.JRadioButton jrb_drogas;
     public javax.swing.JRadioButton jrb_embarazada;
+    public javax.swing.JRadioButton jrb_encia;
     private javax.swing.JRadioButton jrb_fiebreReumatica;
-    private javax.swing.JRadioButton jrb_habitMoridida;
+    public javax.swing.JRadioButton jrb_habitMoridida;
     private javax.swing.JRadioButton jrb_hipertencion;
     public javax.swing.JRadioButton jrb_hospializado;
     public javax.swing.JRadioButton jrb_lengua;
     public javax.swing.JRadioButton jrb_medicamento;
     private javax.swing.JRadioButton jrb_problemasCardio;
-    private javax.swing.JRadioButton jrb_respiracionBucal;
+    public javax.swing.JRadioButton jrb_respiracionBucal;
     private javax.swing.JRadioButton jrb_sistemNervioso;
     private javax.swing.JRadioButton jrb_tiroides;
     private javax.swing.JRadioButton jrb_vertigos;

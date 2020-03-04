@@ -8,7 +8,10 @@ package controlador;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import mdoelo.MatrizCostos;
+import mdoelo.OBJ_Antecedentes;
 import mdoelo.OBJ_Paciente;
+import mdoelo.OBJ_Relacion;
+import mdoelo.OBJ_Tratamiento;
 import vista.V_DatosPersonales;
 import vista.V_Presupuesto;
 
@@ -19,7 +22,11 @@ import vista.V_Presupuesto;
 public class ExtraccionDatos {
 
     //V_Presupuesto v_presupuesto;
-    MatrizCostos[] listaPresupuesto = null;
+    private MatrizCostos[] listaPresupuesto = null;
+    private ArrayList<OBJ_Relacion> listaHabitos;
+
+    private OBJ_Tratamiento tratamiento;
+    private OBJ_Antecedentes antecedentes;
 
     /**
      * Extrae los datos de la vista presupuestos
@@ -114,5 +121,60 @@ public class ExtraccionDatos {
          * pendientes insertar id_domicilio and id_tegidos
          */
         return el_paciente;
+    }
+
+    /**
+     * Extrae los datos referentes a los habitos
+     *
+     * @param vista Vista de donde se extraeran los datos
+     * @param antecedente Objeto Antecedente donde biene los antecedentes del
+     * paciente
+     */
+    public ArrayList<OBJ_Relacion> ExtraerDatosHabitos(V_DatosPersonales vista, OBJ_Antecedentes antecedente) {
+        listaHabitos = new ArrayList<OBJ_Relacion>();
+        if (vista.jrb_brincomania.isSelected()) {
+            listaHabitos.add(new OBJ_Relacion(vista.jrb_brincomania.getText(), antecedente.getId_antecedente()));
+        }
+
+        if (vista.jrb_contracciones.isSelected()) {
+            listaHabitos.add(new OBJ_Relacion(vista.jrb_contracciones.getText(), antecedente.getId_antecedente()));
+        }
+        if (vista.jrb_habitMoridida.isSelected()) {
+            listaHabitos.add(new OBJ_Relacion(vista.jrb_habitMoridida.getText(), antecedente.getId_antecedente()));
+        }
+        if (vista.jrb_respiracionBucal.isSelected()) {
+            listaHabitos.add(new OBJ_Relacion(vista.jrb_respiracionBucal.getText(), antecedente.getId_antecedente()));
+        }
+        if (vista.jrb_lengua.isSelected()) {
+            listaHabitos.add(new OBJ_Relacion(vista.jrb_lengua.getText(), antecedente.getId_antecedente()));
+        }
+        if (vista.jrb_encia.isSelected()) {
+            listaHabitos.add(new OBJ_Relacion(vista.jrb_encia.getText(), antecedente.getId_antecedente()));
+        }
+        if (vista.jrb_carrillo.isSelected()) {
+            listaHabitos.add(new OBJ_Relacion(vista.jrb_carrillo.getText(), antecedente.getId_antecedente()));
+        }
+        return listaHabitos;
+    }
+
+    public OBJ_Tratamiento ExtraerTratamiento(V_DatosPersonales vista) {
+        tratamiento = new OBJ_Tratamiento(vista.jta_tratamiento.getText(), vista.jta_observaciones.getText());
+        return tratamiento;
+    }
+
+    /**
+     * Extrae los datos de la tabla antecedentes
+     * @param vista Vista donde se encuentran los datos a extraer
+     * @param tratamiento Objeto Tratamiento al que se le extraera el id
+     * @param id_paciente id del paciente al que pertenece el antecedente
+     * @return 
+     */
+    public OBJ_Antecedentes ExtraerAntecedentes(V_DatosPersonales vista, OBJ_Tratamiento tratamiento, int id_paciente) {
+        antecedentes = new OBJ_Antecedentes(
+                String.valueOf(vista.jcb_higieneBucal.getSelectedItem()),
+                String.valueOf(vista.jcb_alimentacion.getSelectedItem()),
+                tratamiento.getId_tratamiento(),
+                id_paciente);
+        return antecedentes;
     }
 }

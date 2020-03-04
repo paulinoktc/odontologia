@@ -11,13 +11,17 @@ package mdoelo;
  */
 public class OBJ_Relacion {
 
+    private String nombreAntecedente;
     private int id_antecedente;
     private int id_nombreAntecedente;
 
-    public OBJ_Relacion() {
+    public OBJ_Relacion(String nombreAntecedente, int id_nombreAntecedente) {
+        this.nombreAntecedente = nombreAntecedente;
+        this.id_nombreAntecedente = id_nombreAntecedente;
     }
 
-    public OBJ_Relacion(int id_antecedente, int id_nombreAntecedente) {
+    public OBJ_Relacion(String nombreAntecedente, int id_antecedente, int id_nombreAntecedente) {
+        this.nombreAntecedente = nombreAntecedente;
         this.id_antecedente = id_antecedente;
         this.id_nombreAntecedente = id_nombreAntecedente;
     }
@@ -38,5 +42,12 @@ public class OBJ_Relacion {
         this.id_nombreAntecedente = id_nombreAntecedente;
     }
 
-    
+    public String getNombreAntecedente() {
+        return nombreAntecedente;
+    }
+
+    public void setNombreAntecedente(String nombreAntecedente) {
+        this.nombreAntecedente = nombreAntecedente;
+    }
+
 }
