@@ -76,4 +76,12 @@ public class OBJ_Antecedentes {
         this.id_paciente = id_paciente;
     }
 
+    public void MostrarElementos() {
+        //System.out.println(id_antecedente);
+        System.out.println(fecha);
+        System.out.println(higiene_bucal);
+        System.out.println(alimentacion);
+        //System.out.println(id_tratamiento);
+        //System.out.println(id_paciente);
+    }
 }

@@ -111,4 +111,17 @@ public class OBJ_Paciente {
         this.id_tejidos = id_tejidos;
     }
 
+    public void MostrarDatos() {
+        //System.out.println(id_cliente);
+        System.out.println(nombre);
+        System.out.println(ap_paterno);
+        System.out.println(ap_materno);
+        System.out.println(sexo);
+        System.out.println(fechaNaciemiento);
+        System.out.println(estadoCivil);
+        System.out.println(ocupacion);
+        System.out.println(escolaridad);
+        //System.out.println(id_domicilio);
+        //System.out.println(id_tejidos);
+    }
 }

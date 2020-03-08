@@ -70,7 +70,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jrb_aparatoCardio = new javax.swing.JRadioButton();
         jrb_apDigestivo = new javax.swing.JRadioButton();
         jrb_sistemNervioso = new javax.swing.JRadioButton();
-        jrb_problemasCardio = new javax.swing.JRadioButton();
+        jrb_probGoaulacion = new javax.swing.JRadioButton();
         jrb_desmayos = new javax.swing.JRadioButton();
         jrb_vertigos = new javax.swing.JRadioButton();
         jrb_diabetes = new javax.swing.JRadioButton();
@@ -296,10 +296,10 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jrb_sistemNervioso.setText("Sistema Nervioso");
         jl_antecedentes.add(jrb_sistemNervioso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
-        jrb_problemasCardio.setBackground(new java.awt.Color(94, 117, 116));
-        jrb_problemasCardio.setForeground(new java.awt.Color(255, 255, 255));
-        jrb_problemasCardio.setText("Probelmas de Goagualacion");
-        jl_antecedentes.add(jrb_problemasCardio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+        jrb_probGoaulacion.setBackground(new java.awt.Color(94, 117, 116));
+        jrb_probGoaulacion.setForeground(new java.awt.Color(255, 255, 255));
+        jrb_probGoaulacion.setText("Probelmas de Goagualacion");
+        jl_antecedentes.add(jrb_probGoaulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
         jrb_desmayos.setBackground(new java.awt.Color(94, 117, 116));
         jrb_desmayos.setForeground(new java.awt.Color(255, 255, 255));
@@ -471,7 +471,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jl_lengua.setText("Lengua");
         jp_habitos.add(jl_lengua, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, -1, 20));
 
-        jcb_frenillo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fremillo" }));
+        jcb_frenillo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Frenillo", "Alta", "Media", "Baja" }));
         jp_habitos.add(jcb_frenillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
 
         jl_mejilla.setBackground(new java.awt.Color(204, 204, 255));
@@ -600,7 +600,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> jcb_dia;
     public javax.swing.JComboBox<String> jcb_escolaridad;
     public javax.swing.JComboBox<String> jcb_estadoCivil;
-    private javax.swing.JComboBox<String> jcb_frenillo;
+    public javax.swing.JComboBox<String> jcb_frenillo;
     private javax.swing.JRadioButton jcb_fuma;
     public javax.swing.JComboBox<String> jcb_higieneBucal;
     public javax.swing.JComboBox<String> jcb_mes;
@@ -621,28 +621,28 @@ public class V_DatosPersonales extends javax.swing.JFrame {
     private javax.swing.JRadioButton jrb_alcohol;
     public javax.swing.JRadioButton jrb_alergias;
     public javax.swing.JRadioButton jrb_anti;
-    private javax.swing.JRadioButton jrb_apDigestivo;
-    private javax.swing.JRadioButton jrb_apRespiratorio;
-    private javax.swing.JRadioButton jrb_aparatoCardio;
+    public javax.swing.JRadioButton jrb_apDigestivo;
+    public javax.swing.JRadioButton jrb_apRespiratorio;
+    public javax.swing.JRadioButton jrb_aparatoCardio;
     public javax.swing.JRadioButton jrb_brincomania;
     public javax.swing.JRadioButton jrb_carrillo;
     public javax.swing.JRadioButton jrb_contracciones;
-    private javax.swing.JRadioButton jrb_desmayos;
-    private javax.swing.JRadioButton jrb_diabetes;
+    public javax.swing.JRadioButton jrb_desmayos;
+    public javax.swing.JRadioButton jrb_diabetes;
     private javax.swing.JRadioButton jrb_drogas;
     public javax.swing.JRadioButton jrb_embarazada;
     public javax.swing.JRadioButton jrb_encia;
-    private javax.swing.JRadioButton jrb_fiebreReumatica;
+    public javax.swing.JRadioButton jrb_fiebreReumatica;
     public javax.swing.JRadioButton jrb_habitMoridida;
-    private javax.swing.JRadioButton jrb_hipertencion;
+    public javax.swing.JRadioButton jrb_hipertencion;
     public javax.swing.JRadioButton jrb_hospializado;
     public javax.swing.JRadioButton jrb_lengua;
     public javax.swing.JRadioButton jrb_medicamento;
-    private javax.swing.JRadioButton jrb_problemasCardio;
+    public javax.swing.JRadioButton jrb_probGoaulacion;
     public javax.swing.JRadioButton jrb_respiracionBucal;
-    private javax.swing.JRadioButton jrb_sistemNervioso;
-    private javax.swing.JRadioButton jrb_tiroides;
-    private javax.swing.JRadioButton jrb_vertigos;
+    public javax.swing.JRadioButton jrb_sistemNervioso;
+    public javax.swing.JRadioButton jrb_tiroides;
+    public javax.swing.JRadioButton jrb_vertigos;
     public javax.swing.JTextField jt_ap_materno;
     public javax.swing.JTextField jt_ap_paterno;
     public javax.swing.JTextField jt_correo;

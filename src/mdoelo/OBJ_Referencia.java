@@ -9,10 +9,15 @@ package mdoelo;
  *
  * @author zomby
  */
-public class OBJ_Domicilio {
+public class OBJ_Referencia {
 
-    private String nombreDomicilio;
     private int id_domicilio;
+    private String nombreDomicilio;
+    private String adicional;
+
+    public OBJ_Referencia(String nombreDomicilio) {
+        this.nombreDomicilio = nombreDomicilio;
+    }
 
     public int getId_domicilio() {
         return id_domicilio;
@@ -29,4 +34,13 @@ public class OBJ_Domicilio {
     public void setNombreDomicilio(String nombreDomicilio) {
         this.nombreDomicilio = nombreDomicilio;
     }
+
+    public String getAdicional() {
+        return adicional;
+    }
+
+    public void setAdicional(String adicional) {
+        this.adicional = adicional;
+    }
+    
 }

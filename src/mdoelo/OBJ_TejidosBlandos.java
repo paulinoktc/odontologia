@@ -74,6 +74,14 @@ public class OBJ_TejidosBlandos {
     public void setLengua(String lengua) {
         this.lengua = lengua;
     }
-    
-    
+
+    public void MostrarDatos() {
+        //System.out.println(id_tejido);
+        System.out.println(frenillo);
+        System.out.println(mejilla);
+        System.out.println(labios);
+        System.out.println(paladar);
+        System.out.println(encia);
+        System.out.println(lengua);
+    }
 }

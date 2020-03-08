@@ -6,11 +6,17 @@
 package controlador;
 
 import java.util.ArrayList;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import mdoelo.MatrizCostos;
 import mdoelo.OBJ_Antecedentes;
+import mdoelo.OBJ_Estado;
 import mdoelo.OBJ_Paciente;
+import mdoelo.OBJ_Padecimiento;
+import mdoelo.OBJ_Referencia;
 import mdoelo.OBJ_Relacion;
+import mdoelo.OBJ_TejidosBlandos;
 import mdoelo.OBJ_Tratamiento;
 import vista.V_DatosPersonales;
 import vista.V_Presupuesto;
@@ -27,6 +33,10 @@ public class ExtraccionDatos {
 
     private OBJ_Tratamiento tratamiento;
     private OBJ_Antecedentes antecedentes;
+    private ArrayList<OBJ_Padecimiento> padecimientos;
+    private OBJ_TejidosBlandos tegidosBlandos;
+    private OBJ_Estado embarazada = null;
+    private OBJ_Estado anticonceptivo;
 
     /**
      * Extrae los datos de la vista presupuestos
@@ -164,10 +174,11 @@ public class ExtraccionDatos {
 
     /**
      * Extrae los datos de la tabla antecedentes
+     *
      * @param vista Vista donde se encuentran los datos a extraer
      * @param tratamiento Objeto Tratamiento al que se le extraera el id
      * @param id_paciente id del paciente al que pertenece el antecedente
-     * @return 
+     * @return
      */
     public OBJ_Antecedentes ExtraerAntecedentes(V_DatosPersonales vista, OBJ_Tratamiento tratamiento, int id_paciente) {
         antecedentes = new OBJ_Antecedentes(
@@ -176,5 +187,71 @@ public class ExtraccionDatos {
                 tratamiento.getId_tratamiento(),
                 id_paciente);
         return antecedentes;
+    }
+
+    public ArrayList<OBJ_Padecimiento> EstraerPadecimientos(V_DatosPersonales vista, OBJ_Paciente paciente) {
+        padecimientos = new ArrayList<OBJ_Padecimiento>();                        //cargar id_ del paciente
+
+        if (vista.jrb_apRespiratorio.isSelected()) {
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_apRespiratorio.getText()));
+        }
+        if (vista.jrb_aparatoCardio.isSelected()) {
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_aparatoCardio.getText()));
+        }
+
+        if (vista.jrb_apDigestivo.isSelected()) {
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_apDigestivo.getText()));
+        }
+        if (vista.jrb_sistemNervioso.isSelected()) {
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_sistemNervioso.getText()));
+        }
+
+        if (vista.jrb_probGoaulacion.isSelected()) {
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_probGoaulacion.getText()));
+        }
+
+        if (vista.jrb_desmayos.isSelected()) {
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_desmayos.getText()));
+        }
+
+        if (vista.jrb_vertigos.isSelected()) {
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_vertigos.getText()));
+        }
+
+        if (vista.jrb_diabetes.isSelected()) {
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_diabetes.getText()));
+        }
+
+        if (vista.jrb_tiroides.isSelected()) {
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_tiroides.getText()));
+        }
+
+        if (vista.jrb_fiebreReumatica.isSelected()) {
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_fiebreReumatica.getText()));
+        }
+        if (vista.jrb_hipertencion.isSelected()) {
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_hipertencion.getText()));
+        }
+        return padecimientos;
+    }
+
+    public OBJ_TejidosBlandos EstraerTegidosBlandos(V_DatosPersonales vista) {
+        tegidosBlandos = new OBJ_TejidosBlandos();
+        tegidosBlandos.setFrenillo(String.valueOf(vista.jcb_frenillo.getSelectedItem()));
+        tegidosBlandos.setMejilla(vista.jtf_mejilla.getText());
+        tegidosBlandos.setLabios(vista.jtf_labios.getText());
+        tegidosBlandos.setPaladar(vista.jtf_paladar.getText());
+        tegidosBlandos.setEncia(vista.jtf_encia.getText());
+        tegidosBlandos.setLengua(vista.jtf_lengua.getText());
+        return tegidosBlandos;
+    }
+
+    public OBJ_Estado EstraerDatosEmbarazo(V_DatosPersonales vista, OBJ_Antecedentes antecedentes) {
+        embarazada = new OBJ_Estado(antecedentes.getId_antecedente(), String.valueOf(vista.jcb_mesesEmbarazo.getSelectedItem()));
+        return embarazada;
+    }
+    
+    public OBJ_Estado ExtraerAntic(JTextField texto,OBJ_Antecedentes antecedente){
+        return new OBJ_Estado(antecedente.getId_antecedente(), texto.getText());
     }
 }

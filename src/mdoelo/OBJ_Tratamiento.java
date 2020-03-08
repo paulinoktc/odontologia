@@ -50,4 +50,10 @@ public class OBJ_Tratamiento {
         this.observaciones = observaciones;
     }
 
+    public void MostrarDatos() {
+        //System.out.println(id_tratamiento);
+        System.out.println(tipoTratamiento);
+        System.out.println(observaciones);
+    }
+
 }
