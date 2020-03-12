@@ -3,21 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controlador;
+package mdoelo;
 
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import mdoelo.MatrizCostos;
-import mdoelo.OBJ_Antecedentes;
-import mdoelo.OBJ_Estado;
-import mdoelo.OBJ_Paciente;
-import mdoelo.OBJ_Padecimiento;
-import mdoelo.OBJ_Referencia;
-import mdoelo.OBJ_Relacion;
-import mdoelo.OBJ_TejidosBlandos;
-import mdoelo.OBJ_Tratamiento;
 import vista.V_DatosPersonales;
 import vista.V_Presupuesto;
 
@@ -29,14 +20,15 @@ public class ExtraccionDatos {
 
     //V_Presupuesto v_presupuesto;
     private MatrizCostos[] listaPresupuesto = null;
-    private ArrayList<OBJ_Relacion> listaHabitos;
 
     private OBJ_Tratamiento tratamiento;
     private OBJ_Antecedentes antecedentes;
-    private ArrayList<OBJ_Padecimiento> padecimientos;
     private OBJ_TejidosBlandos tegidosBlandos;
     private OBJ_Estado embarazada = null;
     private OBJ_Estado anticonceptivo;
+
+    private ArrayList<OBJ_Padecimiento> padecimientos;
+    private ArrayList<OBJ_Relacion> listaHabitos;
 
     /**
      * Extrae los datos de la vista presupuestos
@@ -250,8 +242,20 @@ public class ExtraccionDatos {
         embarazada = new OBJ_Estado(antecedentes.getId_antecedente(), String.valueOf(vista.jcb_mesesEmbarazo.getSelectedItem()));
         return embarazada;
     }
-    
-    public OBJ_Estado ExtraerAntic(JTextField texto,OBJ_Antecedentes antecedente){
+
+    public OBJ_Estado ExtraerAntic(JTextField texto, OBJ_Antecedentes antecedente) {
         return new OBJ_Estado(antecedente.getId_antecedente(), texto.getText());
+    }
+
+    public OBJ_Relacion ExtraerMedicamento(JTextField texto, OBJ_Antecedentes antecedente) {
+        return new OBJ_Relacion(texto.getText(), antecedente.getId_antecedente());
+    }
+
+    public OBJ_Relacion ExtraerAlergia(JTextField texto, OBJ_Antecedentes antecedente) {
+        return new OBJ_Relacion(texto.getText(), antecedente.getId_antecedente());
+    }
+
+    public OBJ_Relacion EstraerConsulta(JComboBox texto, OBJ_Antecedentes antecedente) {
+        return new OBJ_Relacion(String.valueOf(texto.getSelectedItem()), antecedente.getId_antecedente());
     }
 }

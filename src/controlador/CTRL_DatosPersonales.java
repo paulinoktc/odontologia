@@ -6,8 +6,10 @@ los * muestras las tablas que se usan en la base de datos
  */
 package controlador;
 
+import mdoelo.ExtraccionDatos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Array;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import mdoelo.MODL_Consulta;
@@ -27,16 +29,24 @@ public class CTRL_DatosPersonales {
     ExtraccionDatos extraerDatosVista;
     OBJ_Tratamiento tratamiento;
     OBJ_Antecedentes antecedentes;
-    ArrayList<OBJ_Relacion> listaHabitos = null;
     OBJ_Referencia domicilio;
     OBJ_Referencia numTelefono;
     OBJ_Referencia correo = null;
     OBJ_Referencia tutor;
-    ArrayList<OBJ_Padecimiento> listaPadecimienientos = null;
     OBJ_TejidosBlandos tegidosBlandos = null;
     OBJ_Estado embarazada = null;
+    OBJ_Estado anticonceptivo;
+    OBJ_Relacion tipoCionsulta;
+
+    ArrayList<OBJ_Relacion> listaHabitos = null;
+    ArrayList<OBJ_Padecimiento> listaPadecimienientos = null;
+    ArrayList<OBJ_Relacion> listaMedicamentos = null;
+    ArrayList<OBJ_Relacion> listaAlergia = null;
 
     public CTRL_DatosPersonales() {
+        listaMedicamentos = new ArrayList<OBJ_Relacion>();
+        listaAlergia = new ArrayList<OBJ_Relacion>();
+
         v_datosPersonales = new V_DatosPersonales();
         extraerDatosVista = new ExtraccionDatos();
         agregarActions();
@@ -161,8 +171,9 @@ public class CTRL_DatosPersonales {
         EstraerTelefono();
         EstraerCorreo();
         EstraerTutor();
-        EstraerTegidosBlandos();
+        EstraerTejidosBlandos();
         EstraerPadecimientos();
+        ExtraeAnticonc();
 
         System.out.println("sucess full");
     }
@@ -201,7 +212,7 @@ public class CTRL_DatosPersonales {
         listaPadecimienientos = extraerDatosVista.EstraerPadecimientos(v_datosPersonales, paciente);
     }                                                                           //padeci_paciente*
 
-    public void EstraerTegidosBlandos() {
+    public void EstraerTejidosBlandos() {
         tegidosBlandos = extraerDatosVista.EstraerTegidosBlandos(v_datosPersonales);//tejidos_blandos*
     }
 
@@ -209,4 +220,23 @@ public class CTRL_DatosPersonales {
         embarazada = extraerDatosVista.EstraerDatosEmbarazo(v_datosPersonales, antecedentes);//embarazada*
     }
 
+    public void ExtraeAnticonc() {                                              //anticonc
+        anticonceptivo = extraerDatosVista.ExtraerAntic(v_datosPersonales.jtf_anti, antecedentes);
+    }
+
+    /**
+     * Agrega los medicamentos de la vista al Array de OBJ_Relacion de
+     * medicamentos
+     */
+    public void AgregarMedicamentos() {                                          //anteced_medicam*
+        listaMedicamentos.add(extraerDatosVista.ExtraerMedicamento(v_datosPersonales.jtf_medicamento, antecedentes));
+    }
+
+    public void AgregarAlergias() {                                             //anteced_alergias
+        listaAlergia.add(extraerDatosVista.ExtraerAlergia(v_datosPersonales.jtf_alergias, antecedentes));
+    }
+
+    public void ExtraerConsulta() {                                             //tipo_consulta
+        tipoCionsulta = extraerDatosVista.EstraerConsulta(v_datosPersonales.jcb_t_consulta, antecedentes);
+    }
 }
