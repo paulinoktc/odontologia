@@ -37,7 +37,8 @@ public class CTRL_DatosPersonales {
     OBJ_Estado embarazada = null;
     OBJ_Estado anticonceptivo;
     OBJ_Relacion tipoCionsulta;
-
+    
+    
     ArrayList<OBJ_Relacion> listaHabitos = null;
     ArrayList<OBJ_Padecimiento> listaPadecimienientos = null;
     ArrayList<OBJ_Relacion> listaMedicamentos = null;
@@ -148,7 +149,7 @@ public class CTRL_DatosPersonales {
         v_datosPersonales.jb_add.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                extraerDatosPaciente();//--------------------------------------------pendiente
+                RecopilarDatos();//--------------------------------------------pendiente
             }
         });
     }
@@ -157,25 +158,33 @@ public class CTRL_DatosPersonales {
         m_consulta.cargarItems(v_datosPersonales.jcb_t_consulta);
     }
 
-    public void extraerDatosPaciente() {
-        paciente = extraerDatosVista.ExtraerDatosPaciente(v_datosPersonales);
+    public void RecopilarDatos() {
         System.out.println("sucess full");
-        paciente.MostrarDatos();
+//        paciente.MostrarDatos();
 
-        ExtraerTratamiento();
-        tratamiento.MostrarDatos();
-        ExtraerAntecedentes();
-        antecedentes.MostrarElementos();
-        ExtraerHabitos();
         EstraerDomicilio();
-        EstraerTelefono();
-        EstraerCorreo();
-        EstraerTutor();
         EstraerTejidosBlandos();
+        ExtraerPaciente();
+        ExtraerTratamiento();
+        ExtraerAntecedentes();
+        EstraerCorreo();
+        EstraerTelefono();
+        EstraerTutor();
         EstraerPadecimientos();
+        ExtraerEmbarazo();
         ExtraeAnticonc();
+        ExtraerTipoConsulta();
+        ExtraerHabitos();
+        AgregarMedicamentos();
+        AgregarAlergias();
+        
 
         System.out.println("sucess full");
+    }
+
+    public void ExtraerPaciente() {
+        paciente = extraerDatosVista.ExtraerDatosPaciente(v_datosPersonales);
+
     }
 
     public void ExtraerTratamiento() {
@@ -236,7 +245,7 @@ public class CTRL_DatosPersonales {
         listaAlergia.add(extraerDatosVista.ExtraerAlergia(v_datosPersonales.jtf_alergias, antecedentes));
     }
 
-    public void ExtraerConsulta() {                                             //tipo_consulta
+    public void ExtraerTipoConsulta() {                                             //tipo_consulta
         tipoCionsulta = extraerDatosVista.EstraerConsulta(v_datosPersonales.jcb_t_consulta, antecedentes);
     }
 }
