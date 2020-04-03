@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mdoelo;
+package modelo;
 
 /**
  *
@@ -50,4 +50,11 @@ public class OBJ_Relacion {
         this.nombreAntecedente = nombreAntecedente;
     }
 
+    public void mostrarDAtos() {
+        System.out.println("Datos Relacion");
+        System.out.println(nombreAntecedente);
+        System.out.println(id_antecedente);
+        System.out.println(id_nombreAntecedente);
+
+    }
 }

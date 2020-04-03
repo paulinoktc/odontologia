@@ -5,12 +5,12 @@
  */
 package controlador;
 
-import mdoelo.ExtraccionDatos;
+import modelo.ExtraccionDatos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Action;
 import javax.swing.JOptionPane;
-import mdoelo.MatrizCostos;
+import modelo.MatrizCostos;
 import vista.V_Presupuesto;
 
 /**

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mdoelo;
+package modelo;
 
 /**
  *
@@ -77,11 +77,12 @@ public class OBJ_Antecedentes {
     }
 
     public void MostrarElementos() {
-        //System.out.println(id_antecedente);
+        System.out.println("Datos antecedentes");
+        System.out.println("antecedente: "+id_antecedente);
         System.out.println(fecha);
         System.out.println(higiene_bucal);
         System.out.println(alimentacion);
-        //System.out.println(id_tratamiento);
-        //System.out.println(id_paciente);
+        System.out.println("tratamiendo: "+id_tratamiento);
+        System.out.println("paciente: "+id_paciente);
     }
 }

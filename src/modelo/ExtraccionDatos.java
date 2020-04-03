@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mdoelo;
+package modelo;
 
 import java.util.ArrayList;
 import javax.swing.JComboBox;
@@ -185,44 +185,44 @@ public class ExtraccionDatos {
         padecimientos = new ArrayList<OBJ_Padecimiento>();                        //cargar id_ del paciente
 
         if (vista.jrb_apRespiratorio.isSelected()) {
-            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_apRespiratorio.getText()));
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_paciente(), vista.jrb_apRespiratorio.getText()));
         }
         if (vista.jrb_aparatoCardio.isSelected()) {
-            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_aparatoCardio.getText()));
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_paciente(), vista.jrb_aparatoCardio.getText()));
         }
 
         if (vista.jrb_apDigestivo.isSelected()) {
-            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_apDigestivo.getText()));
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_paciente(), vista.jrb_apDigestivo.getText()));
         }
         if (vista.jrb_sistemNervioso.isSelected()) {
-            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_sistemNervioso.getText()));
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_paciente(), vista.jrb_sistemNervioso.getText()));
         }
 
         if (vista.jrb_probGoaulacion.isSelected()) {
-            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_probGoaulacion.getText()));
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_paciente(), vista.jrb_probGoaulacion.getText()));
         }
 
         if (vista.jrb_desmayos.isSelected()) {
-            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_desmayos.getText()));
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_paciente(), vista.jrb_desmayos.getText()));
         }
 
         if (vista.jrb_vertigos.isSelected()) {
-            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_vertigos.getText()));
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_paciente(), vista.jrb_vertigos.getText()));
         }
 
         if (vista.jrb_diabetes.isSelected()) {
-            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_diabetes.getText()));
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_paciente(), vista.jrb_diabetes.getText()));
         }
 
         if (vista.jrb_tiroides.isSelected()) {
-            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_tiroides.getText()));
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_paciente(), vista.jrb_tiroides.getText()));
         }
 
         if (vista.jrb_fiebreReumatica.isSelected()) {
-            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_fiebreReumatica.getText()));
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_paciente(), vista.jrb_fiebreReumatica.getText()));
         }
         if (vista.jrb_hipertencion.isSelected()) {
-            padecimientos.add(new OBJ_Padecimiento(paciente.getId_cliente(), vista.jrb_hipertencion.getText()));
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_paciente(), vista.jrb_hipertencion.getText()));
         }
         return padecimientos;
     }
@@ -238,24 +238,28 @@ public class ExtraccionDatos {
         return tegidosBlandos;
     }
 
-    public OBJ_Estado EstraerDatosEmbarazo(V_DatosPersonales vista, OBJ_Antecedentes antecedentes) {
-        embarazada = new OBJ_Estado(antecedentes.getId_antecedente(), String.valueOf(vista.jcb_mesesEmbarazo.getSelectedItem()));
-        return embarazada;
+    public OBJ_Estado EstraerDatosEmbarazo(V_DatosPersonales vista) {
+        return new OBJ_Estado(String.valueOf(vista.jcb_mesesEmbarazo.getSelectedItem()));
     }
 
-    public OBJ_Estado ExtraerAntic(JTextField texto, OBJ_Antecedentes antecedente) {
-        return new OBJ_Estado(antecedente.getId_antecedente(), texto.getText());
+    public OBJ_Referencia ExtraerAntic(JTextField texto) {
+        return new OBJ_Referencia(texto.getText());
     }
 
-    public OBJ_Relacion ExtraerMedicamento(JTextField texto, OBJ_Antecedentes antecedente) {
-        return new OBJ_Relacion(texto.getText(), antecedente.getId_antecedente());
+    public OBJ_Referencia ExtraerMedicamento(JTextField texto) {
+        return new OBJ_Referencia(texto.getText());
+
     }
 
-    public OBJ_Relacion ExtraerAlergia(JTextField texto, OBJ_Antecedentes antecedente) {
-        return new OBJ_Relacion(texto.getText(), antecedente.getId_antecedente());
+    public OBJ_Referencia ExtraerAlergia(JTextField texto) {
+        return new OBJ_Referencia(texto.getText());
     }
 
     public OBJ_Relacion EstraerConsulta(JComboBox texto, OBJ_Antecedentes antecedente) {
         return new OBJ_Relacion(String.valueOf(texto.getSelectedItem()), antecedente.getId_antecedente());
+    }
+    
+    public OBJ_Referencia ExtraeEsteElemento(JTextField texto){
+        return new OBJ_Referencia(texto.getText());
     }
 }

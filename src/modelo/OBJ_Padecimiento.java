@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mdoelo;
+package modelo;
 
 /**
  *
@@ -17,7 +17,7 @@ public class OBJ_Padecimiento {
 
     public OBJ_Padecimiento(int id_paciente, String nombre_padecimiento) {
         this.id_paciente = id_paciente;
-        this.nombre_padecimiento=nombre_padecimiento;
+        this.nombre_padecimiento = nombre_padecimiento;
     }
 
     public int getId_paciente() {
@@ -44,4 +44,10 @@ public class OBJ_Padecimiento {
         this.nombre_padecimiento = nombre_padecimiento;
     }
 
+    public void mostrarDatos() {
+        System.out.println("Datos padeimientos");
+        System.out.println(id_paciente);
+        System.out.println(id_padecimiento);
+        System.out.println(nombre_padecimiento);
+    }
 }

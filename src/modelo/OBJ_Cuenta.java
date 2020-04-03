@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mdoelo;
+package modelo;
 
 /**
  *
@@ -46,6 +46,13 @@ public class OBJ_Cuenta {
 
     public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
+    }
+
+    public void mostraDatos() {
+        System.out.println("OBJ_Abono");
+        System.out.println(cantidad);
+        System.out.println("cuenta" + id_cuenta);
+        System.out.println("paciente: " + id_paciente);
     }
 
 }

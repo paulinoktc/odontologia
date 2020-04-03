@@ -17,9 +17,9 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class Main {
 
     public static void main(String[] args) {
-      //  vistaUI();
+        //  vistaUI();
         //new CTRL_login();
-       new CTRL_principal();
+        new CTRL_principal();
     }
 
 }

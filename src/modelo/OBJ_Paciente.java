@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mdoelo;
+package modelo;
 
 /**
  *
@@ -11,7 +11,7 @@ package mdoelo;
  */
 public class OBJ_Paciente {
 
-    private int id_cliente;
+    private int id_paciente;
     private String nombre;
     private String ap_paterno;
     private String ap_materno;
@@ -20,15 +20,13 @@ public class OBJ_Paciente {
     private String estadoCivil;
     private String ocupacion;
     private String escolaridad;
-    private int id_domicilio;
-    private int id_tejidos;
 
-    public int getId_cliente() {
-        return id_cliente;
+    public int getId_paciente() {
+        return id_paciente;
     }
 
-    public void setId_cliente(int id_cliente) {
-        this.id_cliente = id_cliente;
+    public void setId_paciente(int id_paciente) {
+        this.id_paciente = id_paciente;
     }
 
     public String getNombre() {
@@ -95,24 +93,9 @@ public class OBJ_Paciente {
         this.escolaridad = escolaridad;
     }
 
-    public int getId_domicilio() {
-        return id_domicilio;
-    }
-
-    public void setId_domicilio(int id_domicilio) {
-        this.id_domicilio = id_domicilio;
-    }
-
-    public int getId_tejidos() {
-        return id_tejidos;
-    }
-
-    public void setId_tejidos(int id_tejidos) {
-        this.id_tejidos = id_tejidos;
-    }
-
     public void MostrarDatos() {
-        //System.out.println(id_cliente);
+        System.out.println("Datos paciente");
+        System.out.println("id "+id_paciente);
         System.out.println(nombre);
         System.out.println(ap_paterno);
         System.out.println(ap_materno);
@@ -121,7 +104,5 @@ public class OBJ_Paciente {
         System.out.println(estadoCivil);
         System.out.println(ocupacion);
         System.out.println(escolaridad);
-        //System.out.println(id_domicilio);
-        //System.out.println(id_tejidos);
     }
 }

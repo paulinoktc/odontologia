@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mdoelo;
+package modelo;
 
 /**
  *
@@ -11,40 +11,33 @@ package mdoelo;
  */
 public class OBJ_Referencia {
 
-    private int id_domicilio;
-    private String nombreDomicilio;
-    private String adicional;
+    private int id_antecedente;
+    private String nombre;
 
-    public OBJ_Referencia(String nombreDomicilio) {
-        this.nombreDomicilio = nombreDomicilio;
-    }
-
-    public int getId_domicilio() {
-        return id_domicilio;
+    public OBJ_Referencia(String nombre) {
+        this.nombre = nombre;
+        this.id_antecedente=id_antecedente;
     }
 
-    public void setId_domicilio(int id_domicilio) {
-        this.id_domicilio = id_domicilio;
+    public int getId_antecedente() {
+        return id_antecedente;
     }
 
-    public String getNombreDomicilio() {
-        return nombreDomicilio;
+    public void setId_antecedente(int id_antecedente) {
+        this.id_antecedente = id_antecedente;
     }
 
-    public void setNombreDomicilio(String nombreDomicilio) {
-        this.nombreDomicilio = nombreDomicilio;
+    public String getNombre() {
+        return nombre;
     }
 
-    public String getAdicional() {
-        return adicional;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setAdicional(String adicional) {
-        this.adicional = adicional;
+    public void mostrarDatos(){
+        System.out.println("Datos referencia");
+        System.out.println("antecedente "+id_antecedente);
+        System.out.println(nombre);
     }
-    
-    public void prints(){
-        System.out.println(nombreDomicilio);
-    }
-    
 }

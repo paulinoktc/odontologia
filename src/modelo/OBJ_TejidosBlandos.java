@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mdoelo;
+package modelo;
 
 /**
  *
@@ -12,6 +12,7 @@ package mdoelo;
 public class OBJ_TejidosBlandos {
 
     private int id_tejido;
+    private int id_paciente;
     private String frenillo;
     private String mejilla;
     private String labios;
@@ -25,6 +26,14 @@ public class OBJ_TejidosBlandos {
 
     public void setId_tejido(int id_tejido) {
         this.id_tejido = id_tejido;
+    }
+
+    public int getId_paciente() {
+        return id_paciente;
+    }
+
+    public void setId_paciente(int id_paciente) {
+        this.id_paciente = id_paciente;
     }
 
     public String getFrenillo() {
@@ -76,12 +85,15 @@ public class OBJ_TejidosBlandos {
     }
 
     public void MostrarDatos() {
-        //System.out.println(id_tejido);
+        System.out.println("Datos Tejidos Blandos");
+        System.out.println(id_tejido);
+        System.out.println(id_paciente);
         System.out.println(frenillo);
         System.out.println(mejilla);
         System.out.println(labios);
         System.out.println(paladar);
         System.out.println(encia);
         System.out.println(lengua);
+
     }
 }

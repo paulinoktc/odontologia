@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mdoelo;
+package modelo;
 
 /**
  *
@@ -51,7 +51,8 @@ public class OBJ_Tratamiento {
     }
 
     public void MostrarDatos() {
-        //System.out.println(id_tratamiento);
+        System.out.println("Datos Tratamiento");
+        System.out.println(id_tratamiento);
         System.out.println(tipoTratamiento);
         System.out.println(observaciones);
     }

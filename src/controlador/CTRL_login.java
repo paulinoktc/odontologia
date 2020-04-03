@@ -11,8 +11,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.Action;
 import javax.swing.JOptionPane;
-import mdoelo.Conexion;
-import mdoelo.MODL_Login;
+import modelo.Conexion;
+import modelo.MODL_Login;
 import vista.V_login;
 
 /**
