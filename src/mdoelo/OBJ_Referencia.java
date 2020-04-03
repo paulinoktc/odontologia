@@ -43,4 +43,8 @@ public class OBJ_Referencia {
         this.adicional = adicional;
     }
     
+    public void prints(){
+        System.out.println(nombreDomicilio);
+    }
+    
 }

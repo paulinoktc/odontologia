@@ -9,22 +9,21 @@ package controlador;
 import mdoelo.ExtraccionDatos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Array;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import mdoelo.MODL_Consulta;
 import mdoelo.*;
 import vista.V_DatosPersonales;
-import vista.V_Presupuesto;
 
 /**
  *
- * @author ZOMBY
+ * @author Paulino
  */
 public class CTRL_DatosPersonales {
 
     V_DatosPersonales v_datosPersonales;
     MODL_Consulta m_consulta;
+    MODL_TejidosBlandos mdl_tejidos;
+    MODL_Domicilio mdl_domicilio;
     OBJ_Paciente paciente;
     ExtraccionDatos extraerDatosVista;
     OBJ_Tratamiento tratamiento;
@@ -53,6 +52,13 @@ public class CTRL_DatosPersonales {
         agregarActions();
         v_datosPersonales.setDefaultCloseOperation(0);
         LlenarItemsConsulta();
+        setModels();
+        
+    }
+    
+    public void setModels(){
+        mdl_tejidos=new MODL_TejidosBlandos();
+        mdl_domicilio=new MODL_Domicilio();
     }
 
     /**
@@ -163,7 +169,9 @@ public class CTRL_DatosPersonales {
 //        paciente.MostrarDatos();
 
         EstraerDomicilio();
+        
         EstraerTejidosBlandos();
+        
         ExtraerPaciente();
         ExtraerTratamiento();
         ExtraerAntecedentes();
@@ -178,6 +186,7 @@ public class CTRL_DatosPersonales {
         AgregarMedicamentos();
         AgregarAlergias();
         
+        GuardarDatos();
 
         System.out.println("sucess full");
     }
@@ -202,6 +211,7 @@ public class CTRL_DatosPersonales {
 
     public void EstraerDomicilio() {
         domicilio = new OBJ_Referencia(v_datosPersonales.jt_domicilio.getText());//domicilio*
+        domicilio.prints();
     }
 
     public void EstraerTelefono() {//-------------------------------------------crearArrayList de objetos
@@ -241,11 +251,18 @@ public class CTRL_DatosPersonales {
         listaMedicamentos.add(extraerDatosVista.ExtraerMedicamento(v_datosPersonales.jtf_medicamento, antecedentes));
     }
 
-    public void AgregarAlergias() {                                             //anteced_alergias
+    public void AgregarAlergias() {                                             //anteced_alergias*
         listaAlergia.add(extraerDatosVista.ExtraerAlergia(v_datosPersonales.jtf_alergias, antecedentes));
     }
 
-    public void ExtraerTipoConsulta() {                                             //tipo_consulta
+    public void ExtraerTipoConsulta() {                                             //tipo_consulta*
         tipoCionsulta = extraerDatosVista.EstraerConsulta(v_datosPersonales.jcb_t_consulta, antecedentes);
+    }
+    public void GuardarDatos(){
+       // mdl_domicilio.ExtraerUltimoID(domicilio);
+        mdl_domicilio.GuardarDomicilioDB(domicilio);
+       // mdl_tejidos.ExtraerUltimoID(tegidosBlandos);
+        mdl_tejidos.GuardarTejidosDB(tegidosBlandos);
+        
     }
 }

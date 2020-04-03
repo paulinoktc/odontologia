@@ -31,7 +31,7 @@ public class CTRL_Cobrar {
         v_cobrar.jb_salir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new CTRL_principal();
+                new CTRL_BuscarPaciente();
                 v_cobrar.dispose();
             }
         });
