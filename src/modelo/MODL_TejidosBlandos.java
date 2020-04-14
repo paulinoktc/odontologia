@@ -5,6 +5,8 @@
  */
 package modelo;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -18,26 +20,22 @@ import java.util.logging.Logger;
 public class MODL_TejidosBlandos {
 
     public void GuardarTejidosDB(OBJ_TejidosBlandos tejido) {
+        
+        Conexion conexion=new Conexion();
+    Connection conectar=conexion.crearConexion();
         try {
-            Statement state = new Conexion().crearConexion().createStatement();
-            state.executeUpdate("INSERT INTO tejidos_blandos("
-                    + "id_paciente,"
-                    + "frenillo,"
-                    + "mejilla,"
-                    + "labios,"
-                    + "paladar,"
-                    + "encia,"
-                    + "lengua) VALUES("
-                    + +tejido.getId_paciente()+",'"
-                    + tejido.getFrenillo() + "','"
-                    + tejido.getMejilla() + "','"
-                    + tejido.getLabios() + "','"
-                    + tejido.getPaladar() + "','"
-                    + tejido.getEncia() + "','"
-                    + tejido.getLengua() + "')");
-            state.close();
+            CallableStatement llamada=conectar.prepareCall("{call saveTejidos(?,?,?,?,?,?,?)}");//---paciente
+            llamada.setString(1, tejido.getId_paciente());
+            llamada.setString(2, tejido.getFrenillo());
+            llamada.setString(3, tejido.getMejilla());
+            llamada.setString(4, tejido.getLabios());
+            llamada.setString(5, tejido.getPaladar());
+            llamada.setString(6, tejido.getEncia());
+            llamada.setString(7, tejido.getLengua());
+            llamada.execute();
+            
         } catch (SQLException ex) {
-            Logger.getLogger(MODL_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MODL_TejidosBlandos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

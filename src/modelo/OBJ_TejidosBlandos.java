@@ -12,7 +12,7 @@ package modelo;
 public class OBJ_TejidosBlandos {
 
     private int id_tejido;
-    private int id_paciente;
+    private String id_paciente;
     private String frenillo;
     private String mejilla;
     private String labios;
@@ -28,11 +28,11 @@ public class OBJ_TejidosBlandos {
         this.id_tejido = id_tejido;
     }
 
-    public int getId_paciente() {
+    public String getId_paciente() {
         return id_paciente;
     }
 
-    public void setId_paciente(int id_paciente) {
+    public void setId_paciente(String id_paciente) {
         this.id_paciente = id_paciente;
     }
 

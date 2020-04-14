@@ -9,59 +9,38 @@ package controlador;
 import modelo.OBJ_Antecedentes;
 import modelo.OBJ_Paciente;
 import modelo.MODL_Antecedentes;
-import modelo.OBJ_Referencia;
 import modelo.MODL_TejidosBlandos;
-import modelo.OBJ_Tratamiento;
-import modelo.OBJ_Domicilio;
 import modelo.OBJ_TejidosBlandos;
 import modelo.MODL_Paciente;
-import modelo.OBJ_Relacion;
-import modelo.MODL_Domicilio;
-import modelo.OBJ_Padecimiento;
-import modelo.MODL_Tratamiento;
-import modelo.OBJ_Estado;
 import modelo.ExtraccionDatos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import modelo.MODL_Consulta;
-import modelo.MODL_Estados;
-import modelo.MODL_Referencia;
-import modelo.MODL_Relacion;
+import modelo.MODL_EstadoPaciente;
+import modelo.OBJ_EstadoPaciente;
+import modelo.OBJ_Padecimiento;
+import modelo.OBJ_Referencia;
+import modelo.OBJ_Relacion;
 import vista.V_DatosPersonales;
 
-/**
- *
- * @author Paulino
- */
 public class CTRL_DatosPersonales {
 
     V_DatosPersonales v_datosPersonales;
     //--------------------------------------------------------------------------Modelos
     MODL_Consulta mdl_consulta;
     MODL_TejidosBlandos mdl_tejidos;
-    MODL_Domicilio mdl_domicilio;
     MODL_Paciente mdl_paciente;
-    MODL_Tratamiento mdl_tratamiento;
     MODL_Antecedentes mdl_antecedente;
-    MODL_Referencia mdl_referencia;
-    MODL_Estados mdl_estado;
+    MODL_EstadoPaciente mdl_estado;
     //--------------------------------------------------------------------------Objetos
     OBJ_Paciente paciente;
     ExtraccionDatos extraerDatosVista;
-    OBJ_Tratamiento tratamiento;
     OBJ_Antecedentes antecedentes;
-    OBJ_Domicilio domicilio;
-
-    OBJ_Referencia numTelefono;
-    OBJ_Referencia correo = null;
-    OBJ_Referencia tutor;
-    OBJ_Referencia hospitalizado;
     OBJ_Referencia anticonceptivo;
-    
+    OBJ_EstadoPaciente embarazada = null;
     OBJ_TejidosBlandos tegidosBlandos = null;
-    OBJ_Estado embarazada = null;
-    OBJ_Relacion tipoCionsulta;
+    OBJ_Referencia hospitalizado;
     //--------------------------------------------------------------------------Listas
     ArrayList<OBJ_Relacion> listaHabitos = null;
     ArrayList<OBJ_Padecimiento> listaPadecimienientos = null;
@@ -83,12 +62,9 @@ public class CTRL_DatosPersonales {
 
     public void setModels() {
         mdl_tejidos = new MODL_TejidosBlandos();
-        mdl_domicilio = new MODL_Domicilio();
         mdl_paciente = new MODL_Paciente();
-        mdl_tratamiento = new MODL_Tratamiento();
         mdl_antecedente = new MODL_Antecedentes();
-        mdl_referencia = new MODL_Referencia();
-        mdl_estado=new MODL_Estados();
+        mdl_estado = new MODL_EstadoPaciente();
     }
 
     /**
@@ -196,29 +172,25 @@ public class CTRL_DatosPersonales {
 
     public void RecopilarDatos() {
 //-------------------------------------------datos obligatorios
-        EstraerDomicilio();
-        EstraerTejidosBlandos();
-
         ExtraerPaciente();
-        ExtraerTratamiento();
-        ExtraerAntecedentes();
-        
-        GuardarDatosPimarios();//-----------------------------------------------guardando datos primarios
 
-        EstraerCorreo();
-        EstraerTelefono();
-        EstraerTutor();
-        EstraerPadecimientos();
+        mdl_paciente.guardarDatosPaciente(paciente);
+        EstraerTejidosBlandos();
+        ExtraerAntecedentes();
+        mdl_antecedente.GuardarAntecedente(antecedentes);
+        antecedentes.setId_antecedente(mdl_antecedente.getIdAntecedente(antecedentes));
+
+        System.out.println(antecedentes.getId_antecedente());
+
         ExtraerEmbarazo();
-        ExtraeAnticonc();
-        ExtraerTipoConsulta();
+        EstraerPadecimientos();
+        antecedentes.setId_consulta(mdl_antecedente.getIdConsulta(antecedentes));
+        mdl_antecedente.saveTipoConsulta(antecedentes);
+        ExtraeAnticonc();//this
         ExtraerHabitos();
         AgregarMedicamentos();
         AgregarAlergias();
         ExtraerHospitalizado();
-        
-        GuardarDatosSecundarios();
-
     }
 
     public void ExtraerPaciente() {
@@ -226,30 +198,10 @@ public class CTRL_DatosPersonales {
 
     }
 
-    public void ExtraerTratamiento() {
-        tratamiento = extraerDatosVista.ExtraerTratamiento(v_datosPersonales);  //tabla tratamiento*
-    }
-
     public void ExtraerAntecedentes() {                                         //tabla antecedentes*
         //----------------------------------------------------------------------cargar fecha desde sql
-        antecedentes = extraerDatosVista.ExtraerAntecedentes(v_datosPersonales, tratamiento, 0);//modificar el idpaciente
-    }
-
-    public void EstraerDomicilio() {
-        domicilio = new OBJ_Domicilio(v_datosPersonales.jt_domicilio.getText());//domicilio*
-    }
-
-    public void EstraerTelefono() {//-------------------------------------------crearArrayList de objetos
-        numTelefono = new OBJ_Referencia(v_datosPersonales.jt_telefono.getText());//telefono*
-    }
-
-    public void EstraerCorreo() {
-        correo = new OBJ_Referencia(v_datosPersonales.jt_correo.getText()); // --pendiente borrar anterior
-    }                                                                           //correo*
-
-    public void EstraerTutor() {
-        tutor = new OBJ_Referencia(v_datosPersonales.jt_representante.getText());//borrar anterior
-    }                                                                           //tutor*
+        antecedentes = extraerDatosVista.ExtraerAntecedentes(v_datosPersonales, paciente.getId_paciente());//modificar el idpaciente
+    }                                                                        //tutor*
 
     public void EstraerTejidosBlandos() {
         tegidosBlandos = extraerDatosVista.EstraerTegidosBlandos(v_datosPersonales);//tejidos_blandos*
@@ -286,15 +238,12 @@ public class CTRL_DatosPersonales {
         listaHabitos = extraerDatosVista.ExtraerDatosHabitos(v_datosPersonales, antecedentes);//anteced_habit*
     }
 
-    public void ExtraerTipoConsulta() {                                             //tipo_consulta*
-        tipoCionsulta = extraerDatosVista.EstraerConsulta(v_datosPersonales.jcb_t_consulta, antecedentes);
-    }
-    
-    public void ExtraerHospitalizado(){
-        hospitalizado=extraerDatosVista.ExtraeEsteElemento(v_datosPersonales.jtf_hospitalizado);
+    public void ExtraerHospitalizado() {
+        hospitalizado = extraerDatosVista.ExtraeEsteElemento(v_datosPersonales.jtf_hospitalizado);
         hospitalizado.setId_antecedente(antecedentes.getId_antecedente());
     }
 
+    /*
     public void GuardarDatosPimarios() {
         // mdl_domicilio.ExtraerUltimoID(domicilio);
         mdl_paciente.GuardarDatospacienteDB(paciente);
@@ -319,21 +268,16 @@ public class CTRL_DatosPersonales {
         antecedentes.setId_antecedente(Integer.parseInt(mdl_antecedente.getUltimoId()));
 
     }
-
-    public void GuardarDatosSecundarios() {
-        //AgregarIdListas();
-       // antecedentes.MostrarElementos();
-
-        //mdl_referencia.GuardarListaMedicamentos(listaMedicamentos);
-
-      //  mdl_referencia.GuardarListaAlergia(listaAlergia);
-        
-        //mdl_estado.GuardarEmbarazoDB(embarazada);
-       // mdl_referencia.GuardarHospitalizado(hospitalizado);
-       
-       //mdl_referencia.GuardarAnticoncp(anticonceptivo);
-    }
-
+     */
+    //  public void GuardarDatosSecundarios() {
+    //AgregarIdListas();
+    // antecedentes.MostrarElementos();
+    //mdl_referencia.GuardarListaMedicamentos(listaMedicamentos);
+    //  mdl_referencia.GuardarListaAlergia(listaAlergia);
+    //mdl_estado.GuardarEmbarazoDB(embarazada);
+    // mdl_referencia.GuardarHospitalizado(hospitalizado);
+    //mdl_referencia.GuardarAnticoncp(anticonceptivo);
+    //}
     public void AgregarIdListas() {
         for (OBJ_Referencia listMedic : listaMedicamentos) {
             listMedic.setId_antecedente(antecedentes.getId_antecedente());

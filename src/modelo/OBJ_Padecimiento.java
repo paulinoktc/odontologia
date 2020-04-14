@@ -10,21 +10,21 @@ package modelo;
  * @author zomby
  */
 public class OBJ_Padecimiento {
-
-    private int id_paciente;
+    
+    private String id_paciente;
     private int id_padecimiento;
     private String nombre_padecimiento;
 
-    public OBJ_Padecimiento(int id_paciente, String nombre_padecimiento) {
+    public OBJ_Padecimiento(String id_paciente, String nombre_padecimiento) {
         this.id_paciente = id_paciente;
         this.nombre_padecimiento = nombre_padecimiento;
     }
 
-    public int getId_paciente() {
+    public String getId_paciente() {
         return id_paciente;
     }
 
-    public void setId_paciente(int id_paciente) {
+    public void setId_paciente(String id_paciente) {
         this.id_paciente = id_paciente;
     }
 

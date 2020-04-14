@@ -1,20 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 
-/**
- *
- * @author zomby
- */
-public class OBJ_Estado {
+
+public class OBJ_EstadoPaciente {
 
     private int id_antecedente;
     private String estado;
 
-    public OBJ_Estado(String meses) {
+    public OBJ_EstadoPaciente(String meses) {
         this.estado = meses;
     }
 
@@ -41,3 +33,4 @@ public class OBJ_Estado {
         
     }
 }
+

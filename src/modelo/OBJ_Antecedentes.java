@@ -1,30 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelo;
 
-/**
- *
- * @author zomby
- */
 public class OBJ_Antecedentes {
 
     private int id_antecedente;
     private String fecha;
     private String higiene_bucal;
     private String alimentacion;
-    private int id_tratamiento;
-    private int id_paciente;
-
+    private String id_paciente;
+    private String motivo_visita;
+    
+    
+    private int id_consulta;
+    private String tipo_tratamiento;
+    private String observaciones;
+    
+    
     public OBJ_Antecedentes() {
+        
     }
 
-    public OBJ_Antecedentes(String higiene_bucal, String alimentacion, int id_tratamiento, int id_paciente) {
+    public OBJ_Antecedentes(String higiene_bucal, String alimentacion, String id_paciente) {
         this.higiene_bucal = higiene_bucal;
         this.alimentacion = alimentacion;
-        this.id_tratamiento = id_tratamiento;
         this.id_paciente = id_paciente;
     }
 
@@ -60,29 +58,54 @@ public class OBJ_Antecedentes {
         this.alimentacion = alimentacion;
     }
 
-    public int getId_tratamiento() {
-        return id_tratamiento;
-    }
 
-    public void setId_tratamiento(int id_tratamiento) {
-        this.id_tratamiento = id_tratamiento;
-    }
-
-    public int getId_paciente() {
+    public String getId_paciente() {
         return id_paciente;
     }
 
-    public void setId_paciente(int id_paciente) {
+    public void setId_paciente(String id_paciente) {
         this.id_paciente = id_paciente;
     }
 
+    public int getId_consulta() {
+        return id_consulta;
+    }
+
+    public void setId_consulta(int tipo_consulta) {
+        this.id_consulta = tipo_consulta;
+    }
+
+    public String getTipo_tratamiento() {
+        return tipo_tratamiento;
+    }
+
+    public void setTipo_tratamiento(String tipo_tratamiento) {
+        this.tipo_tratamiento = tipo_tratamiento;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
+    }
+
+    public String getMotivo_visita() {
+        return motivo_visita;
+    }
+
+    public void setMotivo_visita(String motivo_visita) {
+        this.motivo_visita = motivo_visita;
+    }
+
+    
     public void MostrarElementos() {
         System.out.println("Datos antecedentes");
         System.out.println("antecedente: "+id_antecedente);
         System.out.println(fecha);
         System.out.println(higiene_bucal);
         System.out.println(alimentacion);
-        System.out.println("tratamiendo: "+id_tratamiento);
         System.out.println("paciente: "+id_paciente);
     }
 }

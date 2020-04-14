@@ -20,10 +20,8 @@ public class OBJ_Abonos {
     public OBJ_Abonos() {
     }
 
-    public OBJ_Abonos(int id_abono, double cantidad, String fecha, int id_paciente, int id_cuenta) {
-        this.id_abono = id_abono;
+    public OBJ_Abonos(double cantidad,int id_paciente, int id_cuenta) {
         this.cantidad = cantidad;
-        this.fecha = fecha;
         this.id_paciente = id_paciente;
         this.id_cuenta = id_cuenta;
     }

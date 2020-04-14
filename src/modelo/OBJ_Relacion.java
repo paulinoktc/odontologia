@@ -10,6 +10,7 @@ package modelo;
  * @author zomby
  */
 public class OBJ_Relacion {
+    
 
     private String nombreAntecedente;
     private int id_antecedente;
@@ -58,3 +59,4 @@ public class OBJ_Relacion {
 
     }
 }
+

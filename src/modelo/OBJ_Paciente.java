@@ -5,27 +5,35 @@
  */
 package modelo;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 /**
  *
  * @author zomby
  */
 public class OBJ_Paciente {
 
-    private int id_paciente;
+    private String id_paciente;
     private String nombre;
     private String ap_paterno;
     private String ap_materno;
-    private char sexo;
+    private String sexo;
     private String fechaNaciemiento;
     private String estadoCivil;
     private String ocupacion;
     private String escolaridad;
 
-    public int getId_paciente() {
+    private String domicilio;
+    private String telefono;
+    private String correo;
+    private String tutor;
+
+    public String getId_paciente() {
         return id_paciente;
     }
 
-    public void setId_paciente(int id_paciente) {
+    public void setId_paciente(String id_paciente) {
         this.id_paciente = id_paciente;
     }
 
@@ -53,11 +61,11 @@ public class OBJ_Paciente {
         this.ap_materno = ap_materno;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
@@ -93,9 +101,53 @@ public class OBJ_Paciente {
         this.escolaridad = escolaridad;
     }
 
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getDomicilio() {
+        return domicilio;
+    }
+
+    public void setDomicilio(String domicilio) {
+        this.domicilio = domicilio;
+    }
+
+    public String getTutor() {
+        return tutor;
+    }
+
+    public void setTutor(String tutor) {
+        this.tutor = tutor;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String creatIDPaciente(String iniciales) {
+        String nuevoId = "";//iniciales;
+        LocalDateTime datetime = LocalDateTime.now();
+        DateTimeFormatter ldt = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        nuevoId += datetime.format(ldt);
+        nuevoId = nuevoId.replaceAll("\\-", "");
+        nuevoId = nuevoId.replaceAll("\\:", "");
+        nuevoId = nuevoId.replaceAll("\\ ", "");
+        System.out.println(nuevoId);
+        return nuevoId;
+    }
+
     public void MostrarDatos() {
         System.out.println("Datos paciente");
-        System.out.println("id "+id_paciente);
+        System.out.println("id " + id_paciente);
         System.out.println(nombre);
         System.out.println(ap_paterno);
         System.out.println(ap_materno);
@@ -104,5 +156,10 @@ public class OBJ_Paciente {
         System.out.println(estadoCivil);
         System.out.println(ocupacion);
         System.out.println(escolaridad);
+        System.out.println(telefono);
+        System.out.println(domicilio);
+        System.out.println(tutor);
+        System.out.println(correo);
+
     }
 }

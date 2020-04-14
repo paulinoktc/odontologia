@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Esta clase lleva el control de los estados del paciente 
+ * embarazada, 
+ * hospitalizado y tratamiento
  */
 package modelo;
 
@@ -15,9 +15,9 @@ import java.util.logging.Logger;
  *
  * @author zomby
  */
-public class MODL_Estados {
+public class MODL_EstadoPaciente {
 
-    public void GuardarEmbarazoDB(OBJ_Estado estadoEmbarazo) {
+    public void GuardarEmbarazoDB(OBJ_EstadoPaciente estadoEmbarazo) {
         try {
             Statement state = new Conexion().crearConexion().createStatement();
 

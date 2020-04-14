@@ -21,14 +21,7 @@ public class ExtraccionDatos {
     //V_Presupuesto v_presupuesto;
     private MatrizCostos[] listaPresupuesto = null;
 
-    private OBJ_Tratamiento tratamiento;
-    private OBJ_Antecedentes antecedentes;
     private OBJ_TejidosBlandos tegidosBlandos;
-    private OBJ_Estado embarazada = null;
-    private OBJ_Estado anticonceptivo;
-
-    private ArrayList<OBJ_Padecimiento> padecimientos;
-    private ArrayList<OBJ_Relacion> listaHabitos;
 
     /**
      * Extrae los datos de la vista presupuestos
@@ -107,10 +100,11 @@ public class ExtraccionDatos {
 
     public OBJ_Paciente ExtraerDatosPaciente(V_DatosPersonales vista) {
         OBJ_Paciente el_paciente = new OBJ_Paciente();
+        el_paciente.setId_paciente(el_paciente.creatIDPaciente("ininciales pendientes de mandar"));
         el_paciente.setNombre(vista.jt_nombre.getText());
         el_paciente.setAp_paterno(vista.jt_ap_paterno.getText());
         el_paciente.setAp_materno(vista.jt_ap_materno.getText());
-        el_paciente.setSexo((String.valueOf(vista.jcb_sexo.getSelectedItem())).charAt(0));
+        el_paciente.setSexo((String.valueOf(vista.jcb_sexo.getSelectedItem())));
         String eage = String.valueOf(vista.jcb_age.getSelectedItem());
         String mes = String.valueOf(vista.jcb_mes.getSelectedItem());
         String dia = String.valueOf(vista.jcb_dia.getSelectedItem());
@@ -119,9 +113,12 @@ public class ExtraccionDatos {
         el_paciente.setEstadoCivil(String.valueOf(vista.jcb_estadoCivil.getSelectedItem()));
         el_paciente.setOcupacion(vista.jtf_ocupacion.getText());
         el_paciente.setEscolaridad(String.valueOf(vista.jcb_escolaridad.getSelectedItem()));
-        /**
-         * pendientes insertar id_domicilio and id_tegidos
-         */
+
+        el_paciente.setTelefono(vista.jt_telefono.getText());
+        el_paciente.setDomicilio(vista.jt_domicilio.getText());
+        el_paciente.setTutor(vista.jt_representante.getText());
+        el_paciente.setCorreo(vista.jt_correo.getText());
+
         return el_paciente;
     }
 
@@ -131,9 +128,10 @@ public class ExtraccionDatos {
      * @param vista Vista de donde se extraeran los datos
      * @param antecedente Objeto Antecedente donde biene los antecedentes del
      * paciente
+     * @return 
      */
     public ArrayList<OBJ_Relacion> ExtraerDatosHabitos(V_DatosPersonales vista, OBJ_Antecedentes antecedente) {
-        listaHabitos = new ArrayList<OBJ_Relacion>();
+        ArrayList<OBJ_Relacion> listaHabitos = new ArrayList<OBJ_Relacion>();
         if (vista.jrb_brincomania.isSelected()) {
             listaHabitos.add(new OBJ_Relacion(vista.jrb_brincomania.getText(), antecedente.getId_antecedente()));
         }
@@ -159,11 +157,6 @@ public class ExtraccionDatos {
         return listaHabitos;
     }
 
-    public OBJ_Tratamiento ExtraerTratamiento(V_DatosPersonales vista) {
-        tratamiento = new OBJ_Tratamiento(vista.jta_tratamiento.getText(), vista.jta_observaciones.getText());
-        return tratamiento;
-    }
-
     /**
      * Extrae los datos de la tabla antecedentes
      *
@@ -172,17 +165,16 @@ public class ExtraccionDatos {
      * @param id_paciente id del paciente al que pertenece el antecedente
      * @return
      */
-    public OBJ_Antecedentes ExtraerAntecedentes(V_DatosPersonales vista, OBJ_Tratamiento tratamiento, int id_paciente) {
-        antecedentes = new OBJ_Antecedentes(
+    public OBJ_Antecedentes ExtraerAntecedentes(V_DatosPersonales vista, String id_paciente) {
+        OBJ_Antecedentes antecedentes = new OBJ_Antecedentes(
                 String.valueOf(vista.jcb_higieneBucal.getSelectedItem()),
                 String.valueOf(vista.jcb_alimentacion.getSelectedItem()),
-                tratamiento.getId_tratamiento(),
                 id_paciente);
         return antecedentes;
     }
 
     public ArrayList<OBJ_Padecimiento> EstraerPadecimientos(V_DatosPersonales vista, OBJ_Paciente paciente) {
-        padecimientos = new ArrayList<OBJ_Padecimiento>();                        //cargar id_ del paciente
+        ArrayList<OBJ_Padecimiento> padecimientos = new ArrayList<OBJ_Padecimiento>();                        //cargar id_ del paciente
 
         if (vista.jrb_apRespiratorio.isSelected()) {
             padecimientos.add(new OBJ_Padecimiento(paciente.getId_paciente(), vista.jrb_apRespiratorio.getText()));
@@ -224,6 +216,9 @@ public class ExtraccionDatos {
         if (vista.jrb_hipertencion.isSelected()) {
             padecimientos.add(new OBJ_Padecimiento(paciente.getId_paciente(), vista.jrb_hipertencion.getText()));
         }
+        if (padecimientos.size() <= 0) {
+            return null;
+        }
         return padecimientos;
     }
 
@@ -238,8 +233,8 @@ public class ExtraccionDatos {
         return tegidosBlandos;
     }
 
-    public OBJ_Estado EstraerDatosEmbarazo(V_DatosPersonales vista) {
-        return new OBJ_Estado(String.valueOf(vista.jcb_mesesEmbarazo.getSelectedItem()));
+    public OBJ_EstadoPaciente EstraerDatosEmbarazo(V_DatosPersonales vista) {
+        return new OBJ_EstadoPaciente(String.valueOf(vista.jcb_mesesEmbarazo.getSelectedItem()));
     }
 
     public OBJ_Referencia ExtraerAntic(JTextField texto) {
@@ -255,11 +250,8 @@ public class ExtraccionDatos {
         return new OBJ_Referencia(texto.getText());
     }
 
-    public OBJ_Relacion EstraerConsulta(JComboBox texto, OBJ_Antecedentes antecedente) {
-        return new OBJ_Relacion(String.valueOf(texto.getSelectedItem()), antecedente.getId_antecedente());
-    }
-    
-    public OBJ_Referencia ExtraeEsteElemento(JTextField texto){
+    public OBJ_Referencia ExtraeEsteElemento(JTextField texto) {
         return new OBJ_Referencia(texto.getText());
     }
+
 }
