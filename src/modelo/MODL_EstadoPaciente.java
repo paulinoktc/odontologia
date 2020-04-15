@@ -1,10 +1,12 @@
 /**
- * Esta clase lleva el control de los estados del paciente 
- * embarazada, 
+ * Esta clase lleva el control de los estados del paciente
+ * embarazada,
  * hospitalizado y tratamiento
  */
 package modelo;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -17,17 +19,37 @@ import java.util.logging.Logger;
  */
 public class MODL_EstadoPaciente {
 
-    public void GuardarEmbarazoDB(OBJ_EstadoPaciente estadoEmbarazo) {
+    public void GuardarEmbarazo(OBJ_EstadoPaciente embarazada) {
         try {
-            Statement state = new Conexion().crearConexion().createStatement();
+            Conexion cn = new Conexion();
+            Connection cc = cn.crearConexion();
 
-            state.executeUpdate("INSERT INTO embarazada(id_antecedente,dias) VALUES("
-                    + estadoEmbarazo.getId_antecedente() + ",'"
-                    + estadoEmbarazo.getEstado() + "')");
+            cc.setAutoCommit(false);
+            CallableStatement llamada = cc.prepareCall("{call saveEmbarazo(?,?)}");
+            llamada.setInt(1, embarazada.getId_antecedente());
+            llamada.setString(2, embarazada.getEstado());
+            llamada.execute();
 
-            state.close();
+            cc.commit();
         } catch (SQLException ex) {
-            Logger.getLogger(MODL_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MODL_Antecedentes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+        public void GuardarHospitalizado(OBJ_EstadoPaciente hospitalizado) {
+        try {
+            Conexion cn = new Conexion();
+            Connection cc = cn.crearConexion();
+
+            cc.setAutoCommit(false);
+            CallableStatement llamada = cc.prepareCall("{call saveHospitalizado(?,?)}");
+            llamada.setInt(1, hospitalizado.getId_antecedente());
+            llamada.setString(2, hospitalizado.getEstado());
+            llamada.execute();
+
+            cc.commit();
+        } catch (SQLException ex) {
+            Logger.getLogger(MODL_Antecedentes.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

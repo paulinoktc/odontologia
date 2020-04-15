@@ -20,11 +20,13 @@ import java.util.logging.Logger;
 public class MODL_TejidosBlandos {
 
     public void GuardarTejidosDB(OBJ_TejidosBlandos tejido) {
+
+        Conexion conexion = new Conexion();
+        Connection conectar = conexion.crearConexion();
         
-        Conexion conexion=new Conexion();
-    Connection conectar=conexion.crearConexion();
         try {
-            CallableStatement llamada=conectar.prepareCall("{call saveTejidos(?,?,?,?,?,?,?)}");//---paciente
+            conectar.setAutoCommit(false);
+            CallableStatement llamada = conectar.prepareCall("{call saveTejidos(?,?,?,?,?,?,?)}");//---paciente
             llamada.setString(1, tejido.getId_paciente());
             llamada.setString(2, tejido.getFrenillo());
             llamada.setString(3, tejido.getMejilla());
@@ -33,23 +35,9 @@ public class MODL_TejidosBlandos {
             llamada.setString(6, tejido.getEncia());
             llamada.setString(7, tejido.getLengua());
             llamada.execute();
-            
+            conectar.commit();
         } catch (SQLException ex) {
             Logger.getLogger(MODL_TejidosBlandos.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    public String getUltimoId() {
-
-        String id = "";
-        try {
-            ResultSet result = new Conexion().crearConexion().createStatement().executeQuery("SELECT id_tejidos FROM tejidos_blandos");
-            while (result != null & result.next()) {
-                id = result.getString("id_tejidos");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(MODL_TejidosBlandos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return id;
     }
 }

@@ -25,11 +25,11 @@ public class MODL_Antecedentes {
     public void GuardarAntecedente(OBJ_Antecedentes antecedente) {
         try {
             cc.setAutoCommit(false);
-            CallableStatement llamada = cc.prepareCall("{call saveAntecedentes(?,?,?)}");
+            CallableStatement llamada = cc.prepareCall("{call saveAntecedentes(?,?,?,?)}");
             llamada.setString(1, antecedente.getHigiene_bucal());
             llamada.setString(2, antecedente.getAlimentacion());
             llamada.setString(3, antecedente.getId_paciente());
-
+            llamada.setString(4, antecedente.getMotivo_visita());
             llamada.execute();
 
             cc.commit();
@@ -53,10 +53,10 @@ public class MODL_Antecedentes {
             llamada.setInt(1, antecedente.getId_antecedente());
             llamada.setInt(2, antecedente.getId_consulta());
 
-           llamada.execute();
-           
-           cc.commit();
-            
+            llamada.execute();
+
+            cc.commit();
+
         } catch (SQLException ex) {
             try {
                 cc.rollback();
@@ -86,13 +86,13 @@ public class MODL_Antecedentes {
         }
         return id;
     }
-    
-    public int getIdConsulta(OBJ_Antecedentes antecedente) {
+
+    public int getIdConsulta(String nombre_consulta) {
 
         int id = 0;
         try {
             ResultSet result = new Conexion().crearConexion().createStatement().executeQuery(
-                    "SELECT id_consulta FROM consulta where nombre_consulta='" + antecedente.getId_consulta() + "'");
+                    "SELECT id_consulta FROM consulta where nombre_consulta='" + nombre_consulta+ "'");
             while (result != null & result.next()) {
                 id = result.getInt("id_consulta");
             }
@@ -101,5 +101,5 @@ public class MODL_Antecedentes {
         }
         return id;
     }
-    
+
 }

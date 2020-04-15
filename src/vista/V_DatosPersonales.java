@@ -283,7 +283,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
 
         jrb_aparatoCardio.setBackground(new java.awt.Color(94, 117, 116));
         jrb_aparatoCardio.setForeground(new java.awt.Color(255, 255, 255));
-        jrb_aparatoCardio.setText("Aparato Cardiovascular");
+        jrb_aparatoCardio.setText("Aparato Cardiobascular");
         jl_antecedentes.add(jrb_aparatoCardio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         jrb_apDigestivo.setBackground(new java.awt.Color(94, 117, 116));
@@ -298,7 +298,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
 
         jrb_probGoaulacion.setBackground(new java.awt.Color(94, 117, 116));
         jrb_probGoaulacion.setForeground(new java.awt.Color(255, 255, 255));
-        jrb_probGoaulacion.setText("Probelmas de Goagualacion");
+        jrb_probGoaulacion.setText("Problemas de Coagulacion");
         jl_antecedentes.add(jrb_probGoaulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
         jrb_desmayos.setBackground(new java.awt.Color(94, 117, 116));
@@ -334,10 +334,10 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jrb_embarazada.setBackground(new java.awt.Color(94, 117, 116));
         jrb_embarazada.setForeground(new java.awt.Color(255, 255, 255));
         jrb_embarazada.setText("Ebarazada");
-        jl_antecedentes.add(jrb_embarazada, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, -1, -1));
+        jl_antecedentes.add(jrb_embarazada, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, -1, -1));
 
         jcb_mesesEmbarazo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Meses", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
-        jl_antecedentes.add(jcb_mesesEmbarazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, -1, -1));
+        jl_antecedentes.add(jcb_mesesEmbarazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 570, -1, -1));
 
         jcb_fuma.setBackground(new java.awt.Color(94, 117, 116));
         jcb_fuma.setForeground(new java.awt.Color(255, 255, 255));
@@ -360,18 +360,18 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jrb_alergias.setForeground(new java.awt.Color(255, 255, 255));
         jrb_alergias.setText("Alergias");
         jl_antecedentes.add(jrb_alergias, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, -1));
-        jl_antecedentes.add(jtf_alergias, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 140, 20));
+        jl_antecedentes.add(jtf_alergias, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, 140, 20));
 
         jrb_anti.setBackground(new java.awt.Color(94, 117, 116));
         jrb_anti.setForeground(new java.awt.Color(255, 255, 255));
         jrb_anti.setText("Anticonceptivo");
-        jl_antecedentes.add(jrb_anti, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, -1, -1));
-        jl_antecedentes.add(jtf_anti, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, 140, -1));
+        jl_antecedentes.add(jrb_anti, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, -1, -1));
+        jl_antecedentes.add(jtf_anti, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, 140, -1));
 
         jcb_higieneBucal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Higiene Bucal", "Buena", "Mala" }));
-        jl_antecedentes.add(jcb_higieneBucal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, -1, -1));
+        jl_antecedentes.add(jcb_higieneBucal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, -1, -1));
 
-        getContentPane().add(jl_antecedentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, 300, 660));
+        getContentPane().add(jl_antecedentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, 280, 650));
 
         jp_habitos.setBackground(new java.awt.Color(94, 117, 116));
         jp_habitos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -423,8 +423,8 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jrb_hospializado.setForeground(new java.awt.Color(255, 255, 255));
         jrb_hospializado.setText("Ha Sido Hospitalizado");
         jp_habitos.add(jrb_hospializado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
-        jp_habitos.add(jtf_medicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 170, -1));
-        jp_habitos.add(jtf_hospitalizado, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 160, -1));
+        jp_habitos.add(jtf_medicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 170, -1));
+        jp_habitos.add(jtf_hospitalizado, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 170, -1));
 
         jb_add.setText("Guardar");
         jp_habitos.add(jb_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 360, -1));
@@ -445,7 +445,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jp_habitos.add(jrb_carrillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, -1, -1));
 
         jb_more_medic.setText("+");
-        jp_habitos.add(jb_more_medic, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, -1, -1));
+        jp_habitos.add(jb_more_medic, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, -1, -1));
 
         jb_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar_40_40.png"))); // NOI18N
         jb_salir.setBorder(null);
@@ -453,7 +453,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jb_salir.setContentAreaFilled(false);
         jb_salir.setFocusPainted(false);
         jb_salir.setFocusable(false);
-        jp_habitos.add(jb_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 40, 40));
+        jp_habitos.add(jb_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 40, 40));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -514,7 +514,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
 
         jp_habitos.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, 340, -1));
 
-        getContentPane().add(jp_habitos, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, -1, 660));
+        getContentPane().add(jp_habitos, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 0, 420, 660));
 
         jp_odontograma.setBackground(new java.awt.Color(94, 117, 116));
         jp_odontograma.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

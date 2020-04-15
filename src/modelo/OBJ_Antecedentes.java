@@ -20,10 +20,11 @@ public class OBJ_Antecedentes {
         
     }
 
-    public OBJ_Antecedentes(String higiene_bucal, String alimentacion, String id_paciente) {
+    public OBJ_Antecedentes(String higiene_bucal, String alimentacion, String id_paciente,String motivo) {
         this.higiene_bucal = higiene_bucal;
         this.alimentacion = alimentacion;
         this.id_paciente = id_paciente;
+        this.motivo_visita=motivo;
     }
 
     public int getId_antecedente() {

@@ -21,8 +21,6 @@ public class ExtraccionDatos {
     //V_Presupuesto v_presupuesto;
     private MatrizCostos[] listaPresupuesto = null;
 
-    private OBJ_TejidosBlandos tegidosBlandos;
-
     /**
      * Extrae los datos de la vista presupuestos
      *
@@ -128,7 +126,7 @@ public class ExtraccionDatos {
      * @param vista Vista de donde se extraeran los datos
      * @param antecedente Objeto Antecedente donde biene los antecedentes del
      * paciente
-     * @return 
+     * @return
      */
     public ArrayList<OBJ_Relacion> ExtraerDatosHabitos(V_DatosPersonales vista, OBJ_Antecedentes antecedente) {
         ArrayList<OBJ_Relacion> listaHabitos = new ArrayList<OBJ_Relacion>();
@@ -169,7 +167,11 @@ public class ExtraccionDatos {
         OBJ_Antecedentes antecedentes = new OBJ_Antecedentes(
                 String.valueOf(vista.jcb_higieneBucal.getSelectedItem()),
                 String.valueOf(vista.jcb_alimentacion.getSelectedItem()),
-                id_paciente);
+                id_paciente,
+                vista.jt_motiv_visita.getText()
+        );
+        antecedentes.setTipo_tratamiento(vista.jta_tratamiento.getText());
+        antecedentes.setObservaciones(vista.jta_observaciones.getText());
         return antecedentes;
     }
 
@@ -222,19 +224,16 @@ public class ExtraccionDatos {
         return padecimientos;
     }
 
-    public OBJ_TejidosBlandos EstraerTegidosBlandos(V_DatosPersonales vista) {
-        tegidosBlandos = new OBJ_TejidosBlandos();
-        tegidosBlandos.setFrenillo(String.valueOf(vista.jcb_frenillo.getSelectedItem()));
-        tegidosBlandos.setMejilla(vista.jtf_mejilla.getText());
-        tegidosBlandos.setLabios(vista.jtf_labios.getText());
-        tegidosBlandos.setPaladar(vista.jtf_paladar.getText());
-        tegidosBlandos.setEncia(vista.jtf_encia.getText());
-        tegidosBlandos.setLengua(vista.jtf_lengua.getText());
-        return tegidosBlandos;
-    }
-
-    public OBJ_EstadoPaciente EstraerDatosEmbarazo(V_DatosPersonales vista) {
-        return new OBJ_EstadoPaciente(String.valueOf(vista.jcb_mesesEmbarazo.getSelectedItem()));
+    public OBJ_TejidosBlandos EstraerTegidosBlandos(V_DatosPersonales vista, String id_paciente) {
+        OBJ_TejidosBlandos tejidosBlandos = new OBJ_TejidosBlandos();
+        tejidosBlandos.setId_paciente(id_paciente);
+        tejidosBlandos.setFrenillo(String.valueOf(vista.jcb_frenillo.getSelectedItem()));
+        tejidosBlandos.setMejilla(vista.jtf_mejilla.getText());
+        tejidosBlandos.setLabios(vista.jtf_labios.getText());
+        tejidosBlandos.setPaladar(vista.jtf_paladar.getText());
+        tejidosBlandos.setEncia(vista.jtf_encia.getText());
+        tejidosBlandos.setLengua(vista.jtf_lengua.getText());
+        return tejidosBlandos;
     }
 
     public OBJ_Referencia ExtraerAntic(JTextField texto) {
@@ -250,8 +249,11 @@ public class ExtraccionDatos {
         return new OBJ_Referencia(texto.getText());
     }
 
-    public OBJ_Referencia ExtraeEsteElemento(JTextField texto) {
-        return new OBJ_Referencia(texto.getText());
+    public OBJ_EstadoPaciente ExtraeEsteElemento(int id_antecedente, String texto) {
+        if (texto.isEmpty()) {
+            return null;
+        }
+        return new OBJ_EstadoPaciente(id_antecedente, texto);
     }
 
 }
