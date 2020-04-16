@@ -8,7 +8,9 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.event.AncestorListener;
+import modelo.MODL_Ventas;
 import modelo.OBJ_Reglones;
 import vista.V_Cobrar;
 
@@ -26,9 +28,6 @@ public class CTRL_Cobrar {
         agregarActions();
         String[] otro = {"", ""};
         v_cobrar.defModel.addRow(concepto);
-        v_cobrar.defModel.addRow(otro);
-        v_cobrar.defModel.addRow(otro);
-        v_cobrar.defModel.addRow(otro);
         v_cobrar.setVisible(true);
     }
 
@@ -54,28 +53,46 @@ public class CTRL_Cobrar {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 v_cobrar.jtab_venta.moveColumn(0, 0);
-                ExtraElementosTB();
+                ArrayList<OBJ_Reglones> saveList = ExtraElementosTB();
+                v_cobrar.jl_total_pagar.setText("$" + calcularTotal(saveList));
+                new MODL_Ventas().SaveVentas(saveList);
             }
         });
-        
+        v_cobrar.jb_rm.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                v_cobrar.defModel.removeRow(v_cobrar.defModel.getRowCount() - 1);
+            }
+        });
+
+        v_cobrar.jb_add.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                String[] add = {""};
+                v_cobrar.defModel.addRow(add);
+            }
+        });
 
     }
 
-    public void ExtraElementosTB() {
+    public ArrayList<OBJ_Reglones> ExtraElementosTB() {
         ArrayList<OBJ_Reglones> reglones = new ArrayList<>();
         int columnas = v_cobrar.defModel.getColumnCount();
         int filas = v_cobrar.defModel.getRowCount();
         for (int i = 0; i < filas; i++) {
-                String uno=(String) v_cobrar.defModel.getValueAt(i, 0);
-                String dos=(String) v_cobrar.defModel.getValueAt(i, 1);
-                System.out.println(uno+" "+dos);
-  //          reglones.add(new OBJ_Reglones(
-//                    String.valueOf(v_cobrar.defModel.getValueAt(i, 0)),
-//                    Double.parseDouble(String.valueOf(v_cobrar.defModel.getValueAt(i, 1)))));
+            String uno = (String) v_cobrar.defModel.getValueAt(i, 0);
+            double dos = Double.parseDouble(String.valueOf(v_cobrar.defModel.getValueAt(i, 1)).trim());
+            reglones.add(new OBJ_Reglones(uno, dos));
         }
-        
-        
+        return reglones;
+    }
 
+    public double calcularTotal(ArrayList<OBJ_Reglones> reglones) {
+        double total = 0;
+        for (OBJ_Reglones ventas : reglones) {
+            total += ventas.getCantidad();
+        }
+        return total;
     }
 
 }

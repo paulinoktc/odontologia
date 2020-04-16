@@ -44,6 +44,8 @@ public DefaultTableModel defModel;
         jtab_venta = new javax.swing.JTable();
         jl_total_pagar = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jb_add = new javax.swing.JButton();
+        jb_rm = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -101,6 +103,12 @@ public DefaultTableModel defModel;
         jLabel4.setText("TOTAL:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
 
+        jb_add.setText("jButton1");
+        jPanel1.add(jb_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
+
+        jb_rm.setText("jButton2");
+        jPanel1.add(jb_rm, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 400));
 
         pack();
@@ -146,6 +154,8 @@ public DefaultTableModel defModel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JButton jb_abonar;
+    public javax.swing.JButton jb_add;
+    public javax.swing.JButton jb_rm;
     public javax.swing.JButton jb_salir;
     public javax.swing.JLabel jl_nombre;
     public javax.swing.JLabel jl_titulo;
