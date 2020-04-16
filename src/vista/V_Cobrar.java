@@ -5,17 +5,23 @@
  */
 package vista;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ZOMBY
  */
 public class V_Cobrar extends javax.swing.JFrame {
-
+public DefaultTableModel defModel;
     /**
      * Creates new form V_Cobrar
      */
     public V_Cobrar() {
         initComponents();
+        defModel=new DefaultTableModel();
+        defModel.addColumn("Concepto");
+        defModel.addColumn("Cantidad");
+        this.jtab_venta.setModel(defModel);
         this.setLocationRelativeTo(null);
     }
 

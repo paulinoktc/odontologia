@@ -59,7 +59,8 @@ public class CTRL_Presupuesto {
         v_presupuesto.jb_cobrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new CTRL_Cobrar();
+                String[]concepto={"Revicion"};
+                new CTRL_Cobrar(concepto);
                 v_presupuesto.dispose();
             }
         });

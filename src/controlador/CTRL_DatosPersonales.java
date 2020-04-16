@@ -126,13 +126,23 @@ public class CTRL_DatosPersonales {
             }
         });
 
+        v_datosPersonales.jb_addAlegia.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                v_datosPersonales.jtf_alergias.setText("");
+            }
+        });
         v_datosPersonales.jrb_alergias.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (v_datosPersonales.jrb_alergias.isSelected()) {
+                    v_datosPersonales.jb_addAlegia.setVisible(true);
                     v_datosPersonales.jtf_alergias.setVisible(true);
+
                 } else {
                     v_datosPersonales.jtf_alergias.setVisible(false);
+                    v_datosPersonales.jb_addAlegia.setVisible(false);
+                    v_datosPersonales.jtf_alergias.setText("");
                 }
             }
         });
@@ -144,6 +154,7 @@ public class CTRL_DatosPersonales {
                     v_datosPersonales.jtf_anti.setVisible(true);
                 } else {
                     v_datosPersonales.jtf_anti.setVisible(false);
+                    v_datosPersonales.jtf_anti.setText("");
                 }
             }
         });
@@ -154,8 +165,17 @@ public class CTRL_DatosPersonales {
                 if (v_datosPersonales.jrb_hospializado.isSelected()) {
                     v_datosPersonales.jtf_hospitalizado.setVisible(true);
                 } else {
+                    v_datosPersonales.jtf_hospitalizado.setText("");
                     v_datosPersonales.jtf_hospitalizado.setVisible(false);
                 }
+            }
+        });
+        
+        v_datosPersonales.jb_more_medic.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                AgregarMedicamentos();
+                v_datosPersonales.jtf_medicamento.setText("");
             }
         });
 
@@ -164,19 +184,20 @@ public class CTRL_DatosPersonales {
             public void actionPerformed(ActionEvent e) {
                 if (v_datosPersonales.jrb_medicamento.isSelected()) {
                     v_datosPersonales.jtf_medicamento.setVisible(true);
+                    v_datosPersonales.jb_more_medic.setVisible(true);
                 } else {
                     v_datosPersonales.jtf_medicamento.setVisible(false);
+                    v_datosPersonales.jb_more_medic.setVisible(false);
+                    v_datosPersonales.jtf_medicamento.setText("");
                 }
             }
         });
         v_datosPersonales.jb_add.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                if (!new Validador(v_datosPersonales).validarEspaciosPaciente()) {
+                if (new Validador(v_datosPersonales).validarEspaciosPaciente()) {
                     JOptionPane.showMessageDialog(null, "Todos los espacios son obligatorios");
-                } else if (new Validador(v_datosPersonales).revisaJCombobox()) {
-                    System.out.println("no more");
-                } else {
+                } else if (!new Validador(v_datosPersonales).revisaJCombobox()) {
                     RecopilarDatos();
                 }
             }
@@ -202,20 +223,21 @@ public class CTRL_DatosPersonales {
 
         EstraerPadecimientos();
         ExtraerEmbarazo();
-        AgregarAlergias();
 
         ExtraeAnticonc();
-        AgregarMedicamentos();
         ExtraerHospitalizado();
         ExtraerHabitos();
 
-        AgregarIdListas();
         guardaDatosSecundarios();
 
     }
 
     public void guardaDatosSecundarios() {
         if (listaPadecimienientos.size() != 0) {
+            for (OBJ_Padecimiento listaPad : listaPadecimienientos) {
+                listaPad.setId_padecimiento(mdl_padecimiento.getIdPadecimiento(listaPad));
+                System.out.println(listaPad.getId_paciente() + " nombre: " + listaPad.getNombre_padecimiento() + " id " + listaPad.getId_padecimiento());
+            }
             mdl_padecimiento.saveListaPadecimientos(listaPadecimienientos);
         }
         if (embarazada != null) {
@@ -225,15 +247,27 @@ public class CTRL_DatosPersonales {
             new MODL_EstadoPaciente().GuardarHospitalizado(hospitalizado);
         }
         if (listaAlergia.size() != 0) {
+
+            for (OBJ_Referencia listAler : listaAlergia) {
+                listAler.setId_antecedente(antecedentes.getId_antecedente());
+            }
             new MODL_ReferenciaTB().saveLisAlergias(listaAlergia);
         }
         if (anticonceptivo != null) {
             new MODL_ReferenciaTB().saveAntic(anticonceptivo);
         }
         if (listaHabitos.size() != 0) {
+
+            for (OBJ_Relacion listaHabit : listaHabitos) {
+                listaHabit.setId_Relacion(new MODL_RelacionTB().getIdPaHabito(listaHabit));
+            }
             new MODL_RelacionTB().saveListHabitos(listaHabitos);
         }
         if (listaMedicamentos.size() != 0) {
+
+            for (OBJ_Referencia listaMedic : listaMedicamentos) {
+                listaMedic.setId_antecedente(antecedentes.getId_antecedente());
+            }
             new MODL_ReferenciaTB().saveListMedicamento(listaMedicamentos);
         }
 
@@ -287,24 +321,4 @@ public class CTRL_DatosPersonales {
     public void ExtraerHospitalizado() {
         hospitalizado = extraerDatosVista.ExtraeEsteElemento(antecedentes.getId_antecedente(), v_datosPersonales.jtf_hospitalizado.getText());
     }
-
-    public void AgregarIdListas() {
-        for (OBJ_Padecimiento listaPad : listaPadecimienientos) {
-            listaPad.setId_padecimiento(mdl_padecimiento.getIdPadecimiento(listaPad));
-            System.out.println(listaPad.getId_paciente() + " nombre: " + listaPad.getNombre_padecimiento() + " id " + listaPad.getId_padecimiento());
-        }
-        for (OBJ_Referencia listAler : listaAlergia) {
-            listAler.setId_antecedente(antecedentes.getId_antecedente());
-        }
-        for (OBJ_Relacion listaHabit : listaHabitos) {
-            listaHabit.setId_Relacion(new MODL_RelacionTB().getIdPaHabito(listaHabit));
-
-            System.out.println(listaHabit.getId_Relacion() + " nombre: " + listaHabit.getNombre() + " ant: " + listaHabit.getId_antecedente());
-        }
-        for (OBJ_Referencia listaMedic : listaMedicamentos) {
-            listaMedic.setId_antecedente(antecedentes.getId_antecedente());
-        }
-
-    }
-
 }

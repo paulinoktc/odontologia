@@ -7,6 +7,9 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import modelo.MODL_Paciente;
+import modelo.OBJ_Paciente;
 import vista.V_BuscarPaciente;
 import vista.V_Cobrar;
 import vista.V_RegistrarCita;
@@ -59,12 +62,27 @@ public class CTRL_BuscarPaciente {
                 new CTRL_HistorialCompleto();
             }
         });
-        
+
         v_buscarPaciente.jb_buscar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                //-------------------------------------------------------------------
+                buscarPaciente();
             }
         });
+    }
+
+    public void buscarPaciente() {
+        v_buscarPaciente.jcb_select_paciente.removeAllItems();
+        ArrayList<OBJ_Paciente> listaPacientes = new MODL_Paciente().buscarIdPaciente(v_buscarPaciente.jcb_buscar_por.getSelectedIndex(), v_buscarPaciente.jtf_dato_a_buscar.getText());
+        for (OBJ_Paciente listPacient : listaPacientes) {
+            v_buscarPaciente.jcb_select_paciente.addItem(
+                    listPacient.getId_paciente() + " "
+                    + listPacient.getNombre() + " "
+                    + listPacient.getAp_paterno() + " "
+                    + listPacient.getAp_materno() + " " 
+                    + listPacient.getTelefono()
+            );
+
+        }
     }
 }

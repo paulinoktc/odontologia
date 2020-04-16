@@ -22,47 +22,40 @@ public class Validador {
 
     public boolean validarEspaciosPaciente() {
         boolean faltanDatos = false;
-        if (!vista.jt_nombre.getText().isEmpty()) {
+        if (vista.jt_nombre.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingresa Nombre");
             faltanDatos = true;
-        }
-        if (!vista.jt_ap_paterno.getText().isEmpty()) {
-
+        } else if (vista.jt_ap_paterno.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingresa Apellido Paterno");
             faltanDatos = true;
-        }
-        if (!vista.jt_ap_materno.getText().isEmpty()) {
-
+        } else if (vista.jt_ap_materno.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "ingresa apellido materno");
             faltanDatos = true;
-        }
-        if (!vista.jtf_ocupacion.getText().isEmpty()) {
-
+        } else if (vista.jtf_ocupacion.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingresa Ocupacion");
             faltanDatos = true;
-        }
-
-        if (!vista.jt_telefono.getText().isEmpty()) {
-
+        } else if (vista.jt_telefono.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Numero De Telefono");
             faltanDatos = true;
-        }
-        if (!vista.jt_domicilio.getText().isEmpty()) {
-
+        } else if (vista.jt_telefono.getText().length() < 10) {
+            JOptionPane.showMessageDialog(null, "Numemero Muy corto");
             faltanDatos = true;
-        }
-
-        if (!vista.jt_representante.getText().isEmpty()) {
-
+        } else if (vista.jt_telefono.getText().length() > 10) {
+            JOptionPane.showMessageDialog(null, "El numero Muy grande");
             faltanDatos = true;
-        }
-        if (!vista.jt_motiv_visita.getText().isEmpty()) {
-
+        } else if (vista.jt_domicilio.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Domicilio?");
             faltanDatos = true;
-        }
-
-        if (!vista.jt_correo.getText().isEmpty()) {
-
+        } else if (vista.jt_representante.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingresa Representante");
             faltanDatos = true;
-        }
-
-        if (!vista.jta_tratamiento.getText().isEmpty()) {
-
+        } else if (vista.jt_motiv_visita.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Motivo de visita?");
+            faltanDatos = true;
+        } else if (vista.jt_correo.getText().isEmpty()) {
+            vista.jt_correo.setText("no definido!");
+        } else if (vista.jta_tratamiento.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Escribe Tratamiento!");
             faltanDatos = true;
         }
 
@@ -94,5 +87,4 @@ public class Validador {
         }
         return false;
     }
-
 }

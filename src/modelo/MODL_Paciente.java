@@ -131,19 +131,19 @@ public class MODL_Paciente {
     public String usarScript(int buscaX, String palabra) {
         String script = "";
         switch (buscaX) {
-            case 1:
+            case 0:
                 script = buscaXnombre + palabra + "';";
                 break;
-            case 2:
+            case 1:
                 script = buscaXpaterno + palabra + "';";
                 break;
-            case 3:
+            case 2:
                 script = buscaXmaterno + palabra + "';";
                 break;
-            case 4:
+            case 3:
                 script = buscaXtel + palabra + "';";
                 break;
-            case 5:
+            case 4:
                 script = buscaXid + palabra + "';";
                 break;
         }
