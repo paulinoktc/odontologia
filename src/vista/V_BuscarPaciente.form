@@ -50,10 +50,10 @@
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="5">
                 <StringItem index="0" value="Nombre"/>
-                <StringItem index="1" value="Telefono"/>
-                <StringItem index="2" value="Num. Paciente"/>
-                <StringItem index="3" value="Apellido Paterno"/>
-                <StringItem index="4" value="Apellido Materno"/>
+                <StringItem index="1" value="Apellido Paterno"/>
+                <StringItem index="2" value="Apellido Materno"/>
+                <StringItem index="3" value="Telefono"/>
+                <StringItem index="4" value="Num. Paciente"/>
               </StringArray>
             </Property>
           </Properties>
@@ -90,7 +90,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="180" y="70" width="230" height="30"/>
+              <AbsoluteConstraints x="200" y="70" width="230" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -220,7 +220,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="20" y="160" width="390" height="-1"/>
+              <AbsoluteConstraints x="10" y="160" width="470" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

@@ -59,5 +59,12 @@ public class CTRL_BuscarPaciente {
                 new CTRL_HistorialCompleto();
             }
         });
+        
+        v_buscarPaciente.jb_buscar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                //-------------------------------------------------------------------
+            }
+        });
     }
 }

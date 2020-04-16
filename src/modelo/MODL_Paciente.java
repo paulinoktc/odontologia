@@ -7,8 +7,10 @@ package modelo;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,6 +19,31 @@ import java.util.logging.Logger;
  * @author zomby
  */
 public class MODL_Paciente {
+
+    private String buscaXnombre = "select  paciente.id_paciente, paciente.nombre,paciente.ap_apellido,paciente.am_apellido,paciente.sexo,paciente.fecha_nacimiento,paciente.estadoCivil,paciente.ocupacion,paciente.escolaridad,telefono.num_tel "
+            + "from paciente INNER JOIN telefono "
+            + "WHERE telefono.id_paciente=paciente.id_paciente "
+            + "AND paciente.nombre ='";
+
+    private String buscaXtel = "select  paciente.id_paciente, paciente.nombre,paciente.ap_apellido,paciente.am_apellido,paciente.sexo,paciente.fecha_nacimiento,paciente.estadoCivil,paciente.ocupacion,paciente.escolaridad,telefono.num_tel "
+            + "from paciente INNER JOIN telefono "
+            + "WHERE telefono.id_paciente=paciente.id_paciente "
+            + "AND telefono.num_tel ='";
+
+    private String buscaXpaterno = "select  paciente.id_paciente, paciente.nombre,paciente.ap_apellido,telefono.num_tel  "
+            + "from paciente INNER JOIN telefono "
+            + "WHERE telefono.id_paciente=paciente.id_paciente "
+            + "AND paciente.ap_apellido ='";
+
+    private String buscaXmaterno = "select  paciente.id_paciente, paciente.nombre,paciente.ap_apellido,telefono.num_tel  "
+            + "from paciente INNER JOIN telefono "
+            + "WHERE telefono.id_paciente=paciente.id_paciente "
+            + "AND paciente.am_apellido ='";
+
+    private String buscaXid = "select  paciente.id_paciente, paciente.nombre,paciente.ap_apellido,telefono.num_tel  "
+            + "from paciente INNER JOIN telefono "
+            + "WHERE telefono.id_paciente=paciente.id_paciente "
+            + "AND paciente.id_paciente ='";
 
     Conexion cn = new Conexion();
     Connection cc = cn.crearConexion();
@@ -69,4 +96,61 @@ public class MODL_Paciente {
         }
     }
 
+    public ArrayList<OBJ_Paciente> buscarIdPaciente(int buscarPor, String texto) {
+        ArrayList<OBJ_Paciente> listaPacientes = new ArrayList<>();
+        OBJ_Paciente el_paciente = new OBJ_Paciente();
+        try {
+            Conexion cn = new Conexion();
+            Connection cc = cn.crearConexion();
+
+            PreparedStatement ps = cc.prepareStatement(usarScript(buscarPor, texto));
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                listaPacientes.add(new OBJ_Paciente(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10))
+                );
+               // listaPacientes.get(0).MostrarDatos();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MODL_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listaPacientes;
+    }
+
+    public String usarScript(int buscaX, String palabra) {
+        String script = "";
+        switch (buscaX) {
+            case 1:
+                script = buscaXnombre + palabra + "';";
+                break;
+            case 2:
+                script = buscaXpaterno + palabra + "';";
+                break;
+            case 3:
+                script = buscaXmaterno + palabra + "';";
+                break;
+            case 4:
+                script = buscaXtel + palabra + "';";
+                break;
+            case 5:
+                script = buscaXid + palabra + "';";
+                break;
+        }
+        return script;
+    }
+
+    public static void main(String[] args) {
+        new MODL_Paciente().buscarIdPaciente(4, "7899807891");
+    }
 }

@@ -10,11 +10,12 @@ package modelo;
  * @author zomby
  */
 public class OBJ_Referencia {
-    
+
     private int id_antecedente;
     private String nombre;
 
-    public OBJ_Referencia(String nombre) {
+    public OBJ_Referencia(int id_antecedente, String nombre) {
+        this.id_antecedente = id_antecedente;
         this.nombre = nombre;
     }
 
@@ -34,9 +35,9 @@ public class OBJ_Referencia {
         this.nombre = nombre;
     }
 
-    public void mostrarDatos(){
+    public void mostrarDatos() {
         System.out.println("Datos referencia");
-        System.out.println("antecedente "+id_antecedente);
+        System.out.println("antecedente " + id_antecedente);
         System.out.println(nombre);
     }
 }

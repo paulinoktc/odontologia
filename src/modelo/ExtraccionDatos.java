@@ -130,10 +130,12 @@ public class ExtraccionDatos {
      */
     public ArrayList<OBJ_Relacion> ExtraerDatosHabitos(V_DatosPersonales vista, OBJ_Antecedentes antecedente) {
         ArrayList<OBJ_Relacion> listaHabitos = new ArrayList<OBJ_Relacion>();
+        System.out.println("dentro habit: "+antecedente.getId_antecedente());
+        
+        
         if (vista.jrb_brincomania.isSelected()) {
             listaHabitos.add(new OBJ_Relacion(vista.jrb_brincomania.getText(), antecedente.getId_antecedente()));
         }
-
         if (vista.jrb_contracciones.isSelected()) {
             listaHabitos.add(new OBJ_Relacion(vista.jrb_contracciones.getText(), antecedente.getId_antecedente()));
         }
@@ -152,6 +154,7 @@ public class ExtraccionDatos {
         if (vista.jrb_carrillo.isSelected()) {
             listaHabitos.add(new OBJ_Relacion(vista.jrb_carrillo.getText(), antecedente.getId_antecedente()));
         }
+        
         return listaHabitos;
     }
 
@@ -218,9 +221,17 @@ public class ExtraccionDatos {
         if (vista.jrb_hipertencion.isSelected()) {
             padecimientos.add(new OBJ_Padecimiento(paciente.getId_paciente(), vista.jrb_hipertencion.getText()));
         }
-        if (padecimientos.size() <= 0) {
-            return null;
+        if (vista.jrb_fuma.isSelected()) {
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_paciente(), vista.jrb_fuma.getText()));
         }
+        if (vista.jrb_alcohol.isSelected()) {
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_paciente(), vista.jrb_alcohol.getText()));
+        }
+        if (vista.jrb_drogas.isSelected()) {
+            padecimientos.add(new OBJ_Padecimiento(paciente.getId_paciente(), vista.jrb_drogas.getText()));
+        }
+        
+        
         return padecimientos;
     }
 
@@ -236,19 +247,11 @@ public class ExtraccionDatos {
         return tejidosBlandos;
     }
 
-    public OBJ_Referencia ExtraerAntic(JTextField texto) {
-        return new OBJ_Referencia(texto.getText());
+    public OBJ_Referencia ExtraeReferencia(int id_antecedente,JTextField texto) {
+        if(texto.getText().isEmpty())return null;
+        return new OBJ_Referencia(id_antecedente,texto.getText());
     }
-
-    public OBJ_Referencia ExtraerMedicamento(JTextField texto) {
-        return new OBJ_Referencia(texto.getText());
-
-    }
-
-    public OBJ_Referencia ExtraerAlergia(JTextField texto) {
-        return new OBJ_Referencia(texto.getText());
-    }
-
+    
     public OBJ_EstadoPaciente ExtraeEsteElemento(int id_antecedente, String texto) {
         if (texto.isEmpty()) {
             return null;

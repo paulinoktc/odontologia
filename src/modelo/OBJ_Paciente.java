@@ -29,6 +29,22 @@ public class OBJ_Paciente {
     private String correo;
     private String tutor;
 
+    public OBJ_Paciente() {
+    }
+
+    public OBJ_Paciente(String id_paciente, String nombre, String ap_paterno, String ap_materno, String sexo, String fechaNaciemiento, String estadoCivil, String ocupacion, String escolaridad, String telefono) {
+        this.id_paciente = id_paciente;
+        this.nombre = nombre;
+        this.ap_paterno = ap_paterno;
+        this.ap_materno = ap_materno;
+        this.sexo = sexo;
+        this.fechaNaciemiento = fechaNaciemiento;
+        this.estadoCivil = estadoCivil;
+        this.ocupacion = ocupacion;
+        this.escolaridad = escolaridad;
+        this.telefono = telefono;
+    }
+
     public String getId_paciente() {
         return id_paciente;
     }

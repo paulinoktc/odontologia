@@ -54,14 +54,14 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jcb_buscar_por.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jcb_buscar_por.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Telefono", "Num. Paciente", "Apellido Paterno", "Apellido Materno" }));
+        jcb_buscar_por.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Apellido Paterno", "Apellido Materno", "Telefono", "Num. Paciente" }));
         jPanel1.add(jcb_buscar_por, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 30));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 90, 30));
 
         jtf_dato_a_buscar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jPanel1.add(jtf_dato_a_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 230, 30));
+        jPanel1.add(jtf_dato_a_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 230, 30));
 
         jb_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar_50_50.png"))); // NOI18N
         jb_buscar.setBorder(null);
@@ -99,7 +99,7 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
         jPanel1.add(jl_cuenta_credito, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, -1, -1));
 
         jcb_select_paciente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel1.add(jcb_select_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 390, -1));
+        jPanel1.add(jcb_select_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 470, -1));
 
         jb_hist_complet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Archivo_80_80.png"))); // NOI18N
         jb_hist_complet.setBorder(null);

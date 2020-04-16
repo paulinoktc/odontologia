@@ -20,6 +20,8 @@ import javax.swing.JOptionPane;
 import modelo.MODL_Consulta;
 import modelo.MODL_EstadoPaciente;
 import modelo.MODL_Padecimiento;
+import modelo.MODL_ReferenciaTB;
+import modelo.MODL_RelacionTB;
 import modelo.OBJ_EstadoPaciente;
 import modelo.OBJ_Padecimiento;
 import modelo.OBJ_Referencia;
@@ -47,8 +49,8 @@ public class CTRL_DatosPersonales {
     OBJ_TejidosBlandos tegidosBlandos = null;
 
     //--------------------------------------------------------------------------Listas
-    ArrayList<OBJ_Referencia> listaMedicamentos = null;
     ArrayList<OBJ_Referencia> listaAlergia = null;
+    ArrayList<OBJ_Referencia> listaMedicamentos = null;
     OBJ_Referencia anticonceptivo;
 
     ArrayList<OBJ_Relacion> listaHabitos = null;
@@ -199,13 +201,13 @@ public class CTRL_DatosPersonales {
         mdl_tejidos.GuardarTejidosDB(tegidosBlandos);
 
         EstraerPadecimientos();
-        ExtraerEmbarazo();//this
+        ExtraerEmbarazo();
+        AgregarAlergias();
 
         ExtraeAnticonc();
-        ExtraerHabitos();
         AgregarMedicamentos();
-        AgregarAlergias();
         ExtraerHospitalizado();
+        ExtraerHabitos();
 
         AgregarIdListas();
         guardaDatosSecundarios();
@@ -219,9 +221,22 @@ public class CTRL_DatosPersonales {
         if (embarazada != null) {
             new MODL_EstadoPaciente().GuardarEmbarazo(embarazada);
         }
-        if(hospitalizado!=null){
+        if (hospitalizado != null) {
             new MODL_EstadoPaciente().GuardarHospitalizado(hospitalizado);
         }
+        if (listaAlergia.size() != 0) {
+            new MODL_ReferenciaTB().saveLisAlergias(listaAlergia);
+        }
+        if (anticonceptivo != null) {
+            new MODL_ReferenciaTB().saveAntic(anticonceptivo);
+        }
+        if (listaHabitos.size() != 0) {
+            new MODL_RelacionTB().saveListHabitos(listaHabitos);
+        }
+        if (listaMedicamentos.size() != 0) {
+            new MODL_ReferenciaTB().saveListMedicamento(listaMedicamentos);
+        }
+
     }
 
     public void ExtraerPaciente() {
@@ -239,13 +254,12 @@ public class CTRL_DatosPersonales {
     }
 
     public void ExtraerEmbarazo() {
-        embarazada = extraerDatosVista.ExtraeEsteElemento(antecedentes.getId_antecedente(),String.valueOf(v_datosPersonales.jcb_mesesEmbarazo.getSelectedItem()));//embarazada*
+        embarazada = extraerDatosVista.ExtraeEsteElemento(antecedentes.getId_antecedente(), String.valueOf(v_datosPersonales.jcb_mesesEmbarazo.getSelectedItem()));//embarazada*
         embarazada.setId_antecedente(antecedentes.getId_antecedente());         //------------estableciendo el Id antecedente                
     }
 
     public void ExtraeAnticonc() {                                              //anticonc
-        anticonceptivo = extraerDatosVista.ExtraerAntic(v_datosPersonales.jtf_anti);
-        anticonceptivo.setId_antecedente(antecedentes.getId_antecedente());
+        anticonceptivo = extraerDatosVista.ExtraeReferencia(antecedentes.getId_antecedente(), v_datosPersonales.jtf_anti);
     }
 
     /**
@@ -253,11 +267,11 @@ public class CTRL_DatosPersonales {
      * medicamentos
      */
     public void AgregarMedicamentos() {                                          //anteced_medicam*
-        listaMedicamentos.add(extraerDatosVista.ExtraerMedicamento(v_datosPersonales.jtf_medicamento));
+        listaMedicamentos.add(extraerDatosVista.ExtraeReferencia(antecedentes.getId_antecedente(), v_datosPersonales.jtf_medicamento));
     }
 
     public void AgregarAlergias() {                                             //anteced_alergias*
-        listaAlergia.add(extraerDatosVista.ExtraerAlergia(v_datosPersonales.jtf_alergias));
+        listaAlergia.add(extraerDatosVista.ExtraeReferencia(antecedentes.getId_antecedente(), v_datosPersonales.jtf_alergias));
     }
 
     public void EstraerPadecimientos() {
@@ -271,20 +285,26 @@ public class CTRL_DatosPersonales {
     }
 
     public void ExtraerHospitalizado() {
-        hospitalizado = extraerDatosVista.ExtraeEsteElemento(antecedentes.getId_antecedente(),v_datosPersonales.jtf_hospitalizado.getText());
+        hospitalizado = extraerDatosVista.ExtraeEsteElemento(antecedentes.getId_antecedente(), v_datosPersonales.jtf_hospitalizado.getText());
     }
 
     public void AgregarIdListas() {
-        for (OBJ_Referencia listMedic : listaMedicamentos) {
-            listMedic.setId_antecedente(antecedentes.getId_antecedente());
-        }
-        for (OBJ_Referencia listAler : listaAlergia) {
-            listAler.setId_antecedente(antecedentes.getId_antecedente());
-        }
         for (OBJ_Padecimiento listaPad : listaPadecimienientos) {
             listaPad.setId_padecimiento(mdl_padecimiento.getIdPadecimiento(listaPad));
             System.out.println(listaPad.getId_paciente() + " nombre: " + listaPad.getNombre_padecimiento() + " id " + listaPad.getId_padecimiento());
         }
+        for (OBJ_Referencia listAler : listaAlergia) {
+            listAler.setId_antecedente(antecedentes.getId_antecedente());
+        }
+        for (OBJ_Relacion listaHabit : listaHabitos) {
+            listaHabit.setId_Relacion(new MODL_RelacionTB().getIdPaHabito(listaHabit));
+
+            System.out.println(listaHabit.getId_Relacion() + " nombre: " + listaHabit.getNombre() + " ant: " + listaHabit.getId_antecedente());
+        }
+        for (OBJ_Referencia listaMedic : listaMedicamentos) {
+            listaMedic.setId_antecedente(antecedentes.getId_antecedente());
+        }
+
     }
 
 }
