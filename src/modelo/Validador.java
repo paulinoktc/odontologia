@@ -6,6 +6,7 @@
 package modelo;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import vista.V_DatosPersonales;
 
 /**
@@ -31,6 +32,8 @@ public class Validador {
         } else if (vista.jt_ap_materno.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "ingresa apellido materno");
             faltanDatos = true;
+        } else if (((JTextField) vista.jd_fechcaNacimiento.getDateEditor().getUiComponent()).getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Fecha de nacimieno?");
         } else if (vista.jtf_ocupacion.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Ingresa Ocupacion");
             faltanDatos = true;
@@ -82,7 +85,13 @@ public class Validador {
             JOptionPane.showMessageDialog(null, "Selecciona tipo de Alimentacion");
             return true;
         } else if (vista.jcb_frenillo.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null, "Selecciona tipo de freni");
+            JOptionPane.showMessageDialog(null, "Selecciona tipo de frenillo");
+            return true;
+        } else if (vista.jrb_embarazada.isSelected() & vista.jcb_mesesEmbarazo.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Selecciona Meses embarazo");
+            return true;
+        }else if(vista.jrb_hospializado.isSelected() & vista.jtf_hospitalizado.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Selecciona motivo de hopitalizacion");
             return true;
         }
         return false;

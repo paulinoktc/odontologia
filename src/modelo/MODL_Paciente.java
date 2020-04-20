@@ -30,25 +30,25 @@ public class MODL_Paciente {
             + "WHERE telefono.id_paciente=paciente.id_paciente "
             + "AND telefono.num_tel ='";
 
-    private String buscaXpaterno = "select  paciente.id_paciente, paciente.nombre,paciente.ap_apellido,telefono.num_tel  "
+    private String buscaXpaterno = "select  paciente.id_paciente, paciente.nombre,paciente.ap_apellido,paciente.am_apellido,paciente.sexo,paciente.fecha_nacimiento,paciente.estadoCivil,paciente.ocupacion,paciente.escolaridad,telefono.num_tel "
             + "from paciente INNER JOIN telefono "
             + "WHERE telefono.id_paciente=paciente.id_paciente "
             + "AND paciente.ap_apellido ='";
 
-    private String buscaXmaterno = "select  paciente.id_paciente, paciente.nombre,paciente.ap_apellido,telefono.num_tel  "
+    private String buscaXmaterno = "select  paciente.id_paciente, paciente.nombre,paciente.ap_apellido,paciente.am_apellido,paciente.sexo,paciente.fecha_nacimiento,paciente.estadoCivil,paciente.ocupacion,paciente.escolaridad,telefono.num_tel "
             + "from paciente INNER JOIN telefono "
             + "WHERE telefono.id_paciente=paciente.id_paciente "
             + "AND paciente.am_apellido ='";
 
-    private String buscaXid = "select  paciente.id_paciente, paciente.nombre,paciente.ap_apellido,telefono.num_tel  "
+    private String buscaXid = "select  paciente.id_paciente, paciente.nombre,paciente.ap_apellido,paciente.am_apellido,paciente.sexo,paciente.fecha_nacimiento,paciente.estadoCivil,paciente.ocupacion,paciente.escolaridad,telefono.num_tel "
             + "from paciente INNER JOIN telefono "
             + "WHERE telefono.id_paciente=paciente.id_paciente "
             + "AND paciente.id_paciente ='";
 
-    Conexion cn = new Conexion();
-    Connection cc = cn.crearConexion();
-
     public void guardarDatosPaciente(OBJ_Paciente paciente) {
+        Conexion cn = new Conexion();
+        Connection cc = cn.crearConexion();
+
         try {
             cc.setAutoCommit(false);
             CallableStatement llamada = cc.prepareCall("{call guardaPaciente(?,?,?,?,?,?,?,?,?)}");//---paciente
@@ -120,8 +120,10 @@ public class MODL_Paciente {
                         rs.getString(9),
                         rs.getString(10))
                 );
-               // listaPacientes.get(0).MostrarDatos();
+
             }
+            System.out.println(listaPacientes.size());
+            rs.close();
         } catch (SQLException ex) {
             Logger.getLogger(MODL_Paciente.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -150,7 +152,23 @@ public class MODL_Paciente {
         return script;
     }
 
-    public static void main(String[] args) {
-        new MODL_Paciente().buscarIdPaciente(4, "7899807891");
+    public void AtenderPaciente(String id_paciente, String fecha) {
+        try {
+            Conexion cn = new Conexion();
+            Connection cc = cn.crearConexion();
+            cc.setAutoCommit(false);
+
+            CallableStatement llamada = cc.prepareCall("{call atenderPaciente(?,?)}");
+
+            llamada.setString(1, id_paciente);
+            llamada.setString(2, fecha);
+            llamada.execute();
+
+            cc.commit();
+        } catch (SQLException ex) {
+
+            Logger.getLogger(MODL_Antecedentes.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
+
 }

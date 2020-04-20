@@ -8,6 +8,7 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import modelo.MODL_Paciente;
 import modelo.OBJ_Paciente;
 import vista.V_BuscarPaciente;
@@ -21,7 +22,7 @@ import vista.V_RegistrarCita;
 public class CTRL_BuscarPaciente {
 
     V_BuscarPaciente v_buscarPaciente;
-    V_RegistrarCita v_regitra_cita;
+    private ArrayList<OBJ_Paciente> listaPacientes;
 
     public CTRL_BuscarPaciente() {
         v_buscarPaciente = new V_BuscarPaciente();
@@ -51,8 +52,15 @@ public class CTRL_BuscarPaciente {
         v_buscarPaciente.jb_add_cita.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new CTRL_AgendarCita();
-                v_buscarPaciente.dispose();
+                if (v_buscarPaciente.jcb_select_paciente.getItemCount() != 0) {
+                    String nombre=listaPacientes.get(v_buscarPaciente.jcb_select_paciente.getSelectedIndex()).getNombre()+
+                            " "+listaPacientes.get(v_buscarPaciente.jcb_select_paciente.getSelectedIndex()).getAp_paterno()
+                            +" "+listaPacientes.get(v_buscarPaciente.jcb_select_paciente.getSelectedIndex()).getAp_materno();
+                    new CTRL_AgendarCita(nombre).setId_paciente(listaPacientes.get(v_buscarPaciente.jcb_select_paciente.getSelectedIndex()).getId_paciente());
+                    v_buscarPaciente.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Primero debes buscar un paciente");
+                }
             }
         });
         v_buscarPaciente.jb_hist_complet.addActionListener(new ActionListener() {
@@ -71,18 +79,43 @@ public class CTRL_BuscarPaciente {
         });
     }
 
-    public void buscarPaciente() {
-        v_buscarPaciente.jcb_select_paciente.removeAllItems();
-        ArrayList<OBJ_Paciente> listaPacientes = new MODL_Paciente().buscarIdPaciente(v_buscarPaciente.jcb_buscar_por.getSelectedIndex(), v_buscarPaciente.jtf_dato_a_buscar.getText());
+    public void mostrarPacientePredefinido() {
         for (OBJ_Paciente listPacient : listaPacientes) {
             v_buscarPaciente.jcb_select_paciente.addItem(
                     listPacient.getId_paciente() + " "
                     + listPacient.getNombre() + " "
                     + listPacient.getAp_paterno() + " "
-                    + listPacient.getAp_materno() + " " 
+                    + listPacient.getAp_materno() + " "
                     + listPacient.getTelefono()
             );
 
         }
+    }
+
+    public void buscarPaciente() {
+        v_buscarPaciente.jcb_select_paciente.removeAllItems();
+        listaPacientes = new MODL_Paciente().buscarIdPaciente(v_buscarPaciente.jcb_buscar_por.getSelectedIndex(), v_buscarPaciente.jtf_dato_a_buscar.getText());
+        if (listaPacientes.size() != 0) {
+            for (OBJ_Paciente listPacient : listaPacientes) {
+                v_buscarPaciente.jcb_select_paciente.addItem(
+                        listPacient.getId_paciente() + " "
+                        + listPacient.getNombre() + " "
+                        + listPacient.getAp_paterno() + " "
+                        + listPacient.getAp_materno() + " "
+                        + listPacient.getTelefono()
+                );
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontraron coincidencias");
+        }
+    }
+
+    public void addPacientePredefinido(OBJ_Paciente pacienteDefault) {
+        listaPacientes = new ArrayList<>();
+        listaPacientes.add(pacienteDefault);
+        mostrarPacientePredefinido();
+        v_buscarPaciente.jtf_dato_a_buscar.setText(pacienteDefault.getNombre());
+
     }
 }

@@ -46,7 +46,6 @@ public class MODL_EstadoPaciente {
             llamada.setInt(1, hospitalizado.getId_antecedente());
             llamada.setString(2, hospitalizado.getEstado());
             llamada.execute();
-
             cc.commit();
         } catch (SQLException ex) {
             Logger.getLogger(MODL_Antecedentes.class.getName()).log(Level.SEVERE, null, ex);

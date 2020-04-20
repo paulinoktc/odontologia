@@ -14,8 +14,7 @@ public class OBJ_Referencia {
     private int id_antecedente;
     private String nombre;
 
-    public OBJ_Referencia(int id_antecedente, String nombre) {
-        this.id_antecedente = id_antecedente;
+    public OBJ_Referencia( String nombre) {
         this.nombre = nombre;
     }
 

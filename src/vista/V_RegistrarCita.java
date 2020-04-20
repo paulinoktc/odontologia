@@ -32,14 +32,12 @@ public class V_RegistrarCita extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jcb_dia = new javax.swing.JComboBox<>();
-        jcb_eage = new javax.swing.JComboBox<>();
-        jcb_mes = new javax.swing.JComboBox<>();
+        jl_nombreCompleto = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jtf_motivo = new javax.swing.JTextField();
         jb_listo = new javax.swing.JButton();
         jb_salir = new javax.swing.JButton();
+        jd_fecha = new com.toedter.calendar.JDateChooser();
 
         jComboBox3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mes", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
@@ -54,35 +52,23 @@ public class V_RegistrarCita extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Motivo");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Registrar Cita");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Nombre Paciente Apellidos");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, -1, -1));
-
-        jcb_dia.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jcb_dia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        jPanel1.add(jcb_dia, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
-
-        jcb_eage.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jcb_eage.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Año", "2020", "2021", "2022", "2023", "2024" }));
-        jPanel1.add(jcb_eage, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, -1, -1));
-
-        jcb_mes.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jcb_mes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mes", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-        jPanel1.add(jcb_mes, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, -1, -1));
+        jl_nombreCompleto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jl_nombreCompleto.setForeground(new java.awt.Color(255, 255, 255));
+        jl_nombreCompleto.setText("Nombre Paciente Apellidos");
+        jPanel1.add(jl_nombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Fecha");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, -1, -1));
-        jPanel1.add(jtf_motivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 310, 80));
+        jPanel1.add(jtf_motivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 310, 80));
 
         jb_listo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agendar_40_40.png"))); // NOI18N
         jb_listo.setBorder(null);
@@ -90,7 +76,7 @@ public class V_RegistrarCita extends javax.swing.JFrame {
         jb_listo.setContentAreaFilled(false);
         jb_listo.setFocusPainted(false);
         jb_listo.setFocusable(false);
-        jPanel1.add(jb_listo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 40, 40));
+        jPanel1.add(jb_listo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 40, 40));
 
         jb_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar_40_40.png"))); // NOI18N
         jb_salir.setBorder(null);
@@ -100,7 +86,11 @@ public class V_RegistrarCita extends javax.swing.JFrame {
         jb_salir.setFocusable(false);
         jPanel1.add(jb_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 40, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 350));
+        jd_fecha.setDateFormatString("yyyy-MM-d");
+        jd_fecha.setFont(new java.awt.Font("Arimo", 0, 18)); // NOI18N
+        jPanel1.add(jd_fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 310, 40));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -144,14 +134,12 @@ public class V_RegistrarCita extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JButton jb_listo;
     public javax.swing.JButton jb_salir;
-    public javax.swing.JComboBox<String> jcb_dia;
-    public javax.swing.JComboBox<String> jcb_eage;
-    public javax.swing.JComboBox<String> jcb_mes;
+    public com.toedter.calendar.JDateChooser jd_fecha;
+    public javax.swing.JLabel jl_nombreCompleto;
     public javax.swing.JTextField jtf_motivo;
     // End of variables declaration//GEN-END:variables
 }

@@ -48,7 +48,8 @@ public class MODL_ReferenciaTB {
         }
 
     }
-        public void saveListMedicamento(ArrayList<OBJ_Referencia> listaAlergia) {
+
+    public void saveListMedicamento(ArrayList<OBJ_Referencia> listaAlergia) {
         try {
             Conexion cn = new Conexion();
             Connection cc = cn.crearConexion();
@@ -59,6 +60,7 @@ public class MODL_ReferenciaTB {
                 llamada.setInt(1, lista.getId_antecedente());
                 llamada.setString(2, lista.getNombre());
                 llamada.execute();
+                System.out.println(lista.getId_antecedente() + " " + lista.getNombre());
             }
 
             cc.commit();

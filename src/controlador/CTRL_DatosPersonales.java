@@ -42,7 +42,7 @@ public class CTRL_DatosPersonales {
     MODL_Padecimiento mdl_padecimiento;
     //--------------------------------------------------------------------------Objetos
     OBJ_Paciente paciente;
-    OBJ_Antecedentes antecedentes;
+    OBJ_Antecedentes antecedPaciente;
     OBJ_EstadoPaciente embarazada = null;
     OBJ_EstadoPaciente hospitalizado;
 
@@ -94,6 +94,8 @@ public class CTRL_DatosPersonales {
         v_datosPersonales.jtf_hospitalizado.setVisible(false);
         v_datosPersonales.jtf_medicamento.setVisible(false);
         v_datosPersonales.jrb_embarazada.setVisible(false);
+        v_datosPersonales.jb_more_medic.setVisible(false);
+        v_datosPersonales.jb_addAlegia.setVisible(false);
         v_datosPersonales.setVisible(true);
 
         v_datosPersonales.jcb_sexo.addActionListener(new ActionListener() {
@@ -129,6 +131,7 @@ public class CTRL_DatosPersonales {
         v_datosPersonales.jb_addAlegia.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
+                AgregarAlergias();
                 v_datosPersonales.jtf_alergias.setText("");
             }
         });
@@ -170,7 +173,7 @@ public class CTRL_DatosPersonales {
                 }
             }
         });
-        
+
         v_datosPersonales.jb_more_medic.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -199,6 +202,8 @@ public class CTRL_DatosPersonales {
                     JOptionPane.showMessageDialog(null, "Todos los espacios son obligatorios");
                 } else if (!new Validador(v_datosPersonales).revisaJCombobox()) {
                     RecopilarDatos();
+                    new CTRL_BuscarPaciente().addPacientePredefinido(paciente);
+                    v_datosPersonales.dispose();
                 }
             }
         });
@@ -213,21 +218,18 @@ public class CTRL_DatosPersonales {
         ExtraerPaciente();
         mdl_paciente.guardarDatosPaciente(paciente);
         ExtraerAntecedentes();
-        mdl_antecedente.GuardarAntecedente(antecedentes);
-        antecedentes.setId_antecedente(mdl_antecedente.getIdAntecedente(antecedentes));
+        mdl_antecedente.GuardarAntecedente(antecedPaciente);
+        antecedPaciente.setId_antecedente(mdl_antecedente.getIdAntecedente(antecedPaciente));
         EstraerTejidosBlandos();
-        antecedentes.setId_consulta(mdl_antecedente.getIdConsulta(String.valueOf(v_datosPersonales.jcb_t_consulta.getSelectedItem())));
-        System.out.println(antecedentes.getId_antecedente());
-        mdl_antecedente.saveTipoConsulta(antecedentes);
+        antecedPaciente.setId_consulta(mdl_antecedente.getIdConsulta(String.valueOf(v_datosPersonales.jcb_t_consulta.getSelectedItem())));
+        System.out.println(antecedPaciente.getId_antecedente());
+        mdl_antecedente.saveTipoConsulta(antecedPaciente);
         mdl_tejidos.GuardarTejidosDB(tegidosBlandos);
-
         EstraerPadecimientos();
         ExtraerEmbarazo();
-
         ExtraeAnticonc();
         ExtraerHospitalizado();
         ExtraerHabitos();
-
         guardaDatosSecundarios();
 
     }
@@ -247,13 +249,15 @@ public class CTRL_DatosPersonales {
             new MODL_EstadoPaciente().GuardarHospitalizado(hospitalizado);
         }
         if (listaAlergia.size() != 0) {
-
+            System.out.println("dentro de alergia");
             for (OBJ_Referencia listAler : listaAlergia) {
-                listAler.setId_antecedente(antecedentes.getId_antecedente());
+                listAler.setId_antecedente(antecedPaciente.getId_antecedente());
             }
             new MODL_ReferenciaTB().saveLisAlergias(listaAlergia);
         }
         if (anticonceptivo != null) {
+            System.out.println("guardando anticonceptivo");
+            anticonceptivo.setId_antecedente(antecedPaciente.getId_antecedente());
             new MODL_ReferenciaTB().saveAntic(anticonceptivo);
         }
         if (listaHabitos.size() != 0) {
@@ -264,9 +268,9 @@ public class CTRL_DatosPersonales {
             new MODL_RelacionTB().saveListHabitos(listaHabitos);
         }
         if (listaMedicamentos.size() != 0) {
-
+            System.out.println("se encuentra dentro de medicamentos");
             for (OBJ_Referencia listaMedic : listaMedicamentos) {
-                listaMedic.setId_antecedente(antecedentes.getId_antecedente());
+                listaMedic.setId_antecedente(antecedPaciente.getId_antecedente());
             }
             new MODL_ReferenciaTB().saveListMedicamento(listaMedicamentos);
         }
@@ -278,9 +282,9 @@ public class CTRL_DatosPersonales {
 
     }
 
-    public void ExtraerAntecedentes() {                                         //tabla antecedentes*
+    public void ExtraerAntecedentes() {                                         //tabla antecedPaciente*
         //----------------------------------------------------------------------cargar fecha desde sql
-        antecedentes = extraerDatosVista.ExtraerAntecedentes(v_datosPersonales, paciente.getId_paciente());//modificar el idpaciente
+        antecedPaciente = extraerDatosVista.ExtraerAntecedentes(v_datosPersonales, paciente.getId_paciente());//modificar el idpaciente
     }                                                                        //tutor*
 
     public void EstraerTejidosBlandos() {
@@ -288,12 +292,12 @@ public class CTRL_DatosPersonales {
     }
 
     public void ExtraerEmbarazo() {
-        embarazada = extraerDatosVista.ExtraeEsteElemento(antecedentes.getId_antecedente(), String.valueOf(v_datosPersonales.jcb_mesesEmbarazo.getSelectedItem()));//embarazada*
-        embarazada.setId_antecedente(antecedentes.getId_antecedente());         //------------estableciendo el Id antecedente                
+        embarazada = extraerDatosVista.ExtraeEsteElemento(String.valueOf(v_datosPersonales.jcb_mesesEmbarazo.getSelectedItem()));//embarazada*
+        embarazada.setId_antecedente(antecedPaciente.getId_antecedente());         //------------estableciendo el Id antecedente                
     }
 
     public void ExtraeAnticonc() {                                              //anticonc
-        anticonceptivo = extraerDatosVista.ExtraeReferencia(antecedentes.getId_antecedente(), v_datosPersonales.jtf_anti);
+        anticonceptivo = extraerDatosVista.ExtraeReferencia(v_datosPersonales.jtf_anti);
     }
 
     /**
@@ -301,11 +305,15 @@ public class CTRL_DatosPersonales {
      * medicamentos
      */
     public void AgregarMedicamentos() {                                          //anteced_medicam*
-        listaMedicamentos.add(extraerDatosVista.ExtraeReferencia(antecedentes.getId_antecedente(), v_datosPersonales.jtf_medicamento));
+        System.out.println("Agregando medicamento");
+        listaMedicamentos.add(extraerDatosVista.ExtraeReferencia(v_datosPersonales.jtf_medicamento));
+        System.out.println(v_datosPersonales.jtf_medicamento.getText());
     }
 
     public void AgregarAlergias() {                                             //anteced_alergias*
-        listaAlergia.add(extraerDatosVista.ExtraeReferencia(antecedentes.getId_antecedente(), v_datosPersonales.jtf_alergias));
+        System.out.println("Agregando alergia");
+        listaAlergia.add(extraerDatosVista.ExtraeReferencia(v_datosPersonales.jtf_alergias));
+        System.out.println(v_datosPersonales.jtf_alergias.getText());
     }
 
     public void EstraerPadecimientos() {
@@ -315,10 +323,14 @@ public class CTRL_DatosPersonales {
     }                                                                           //padeci_paciente*
 
     public void ExtraerHabitos() {//--------------------------------------------enviar id antecedente
-        listaHabitos = extraerDatosVista.ExtraerDatosHabitos(v_datosPersonales, antecedentes);//anteced_habit*
+        listaHabitos = extraerDatosVista.ExtraerDatosHabitos(v_datosPersonales, antecedPaciente);//anteced_habit*
     }
 
     public void ExtraerHospitalizado() {
-        hospitalizado = extraerDatosVista.ExtraeEsteElemento(antecedentes.getId_antecedente(), v_datosPersonales.jtf_hospitalizado.getText());
+        if(v_datosPersonales.jtf_hospitalizado.getText().isEmpty()){
+            
+        }
+        hospitalizado = extraerDatosVista.ExtraeEsteElemento(v_datosPersonales.jtf_hospitalizado.getText());
+        hospitalizado.setId_antecedente(antecedPaciente.getId_antecedente());
     }
 }

@@ -103,10 +103,7 @@ public class ExtraccionDatos {
         el_paciente.setAp_paterno(vista.jt_ap_paterno.getText());
         el_paciente.setAp_materno(vista.jt_ap_materno.getText());
         el_paciente.setSexo((String.valueOf(vista.jcb_sexo.getSelectedItem())));
-        String eage = String.valueOf(vista.jcb_age.getSelectedItem());
-        String mes = String.valueOf(vista.jcb_mes.getSelectedItem());
-        String dia = String.valueOf(vista.jcb_dia.getSelectedItem());
-        String fechaNaciemiento = eage + "-" + mes + "-" + dia;
+        String fechaNaciemiento =((JTextField) vista.jd_fechcaNacimiento.getDateEditor().getUiComponent()).getText();
         el_paciente.setFechaNaciemiento(fechaNaciemiento);
         el_paciente.setEstadoCivil(String.valueOf(vista.jcb_estadoCivil.getSelectedItem()));
         el_paciente.setOcupacion(vista.jtf_ocupacion.getText());
@@ -247,16 +244,16 @@ public class ExtraccionDatos {
         return tejidosBlandos;
     }
 
-    public OBJ_Referencia ExtraeReferencia(int id_antecedente,JTextField texto) {
+    public OBJ_Referencia ExtraeReferencia(JTextField texto) {
         if(texto.getText().isEmpty())return null;
-        return new OBJ_Referencia(id_antecedente,texto.getText());
+        return new OBJ_Referencia(texto.getText());
     }
     
-    public OBJ_EstadoPaciente ExtraeEsteElemento(int id_antecedente, String texto) {
+    public OBJ_EstadoPaciente ExtraeEsteElemento(String texto) {
         if (texto.isEmpty()) {
             return null;
         }
-        return new OBJ_EstadoPaciente(id_antecedente, texto);
+        return new OBJ_EstadoPaciente(texto);
     }
 
 }

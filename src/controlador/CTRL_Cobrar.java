@@ -44,7 +44,7 @@ public class CTRL_Cobrar {
         v_cobrar.jb_salir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new CTRL_BuscarPaciente();
+                new CTRL_principal();
                 v_cobrar.dispose();
             }
         });
@@ -52,16 +52,29 @@ public class CTRL_Cobrar {
         v_cobrar.jb_abonar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                v_cobrar.jtab_venta.moveColumn(0, 0);
-                ArrayList<OBJ_Reglones> saveList = ExtraElementosTB();
-                v_cobrar.jl_total_pagar.setText("$" + calcularTotal(saveList));
-                new MODL_Ventas().SaveVentas(saveList);
+                try {
+                    v_cobrar.jtab_venta.moveColumn(0, 0);
+                    ArrayList<OBJ_Reglones> saveList = ExtraElementosTB();
+                    double total=calcularTotal(saveList);
+                    v_cobrar.jl_total_pagar.setText("$" + total);
+                    new MODL_Ventas().SaveVentas(saveList);
+                    JOptionPane.showMessageDialog(null, "Cobrar: $"+total);
+                    JOptionPane.showMessageDialog(null, "Cobro exitoso!");
+                    new CTRL_principal();
+                    
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "El cuadro deve estar completamente lleno\n o borra reglones que no uses");
+                }
             }
         });
         v_cobrar.jb_rm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
+                try{
                 v_cobrar.defModel.removeRow(v_cobrar.defModel.getRowCount() - 1);
+                }catch (Exception e){
+                    JOptionPane.showMessageDialog(null, "No hay mas reglones");
+                }
             }
         });
 
@@ -75,7 +88,7 @@ public class CTRL_Cobrar {
 
     }
 
-    public ArrayList<OBJ_Reglones> ExtraElementosTB() {
+    public ArrayList<OBJ_Reglones> ExtraElementosTB() throws NumberFormatException {
         ArrayList<OBJ_Reglones> reglones = new ArrayList<>();
         int columnas = v_cobrar.defModel.getColumnCount();
         int filas = v_cobrar.defModel.getRowCount();

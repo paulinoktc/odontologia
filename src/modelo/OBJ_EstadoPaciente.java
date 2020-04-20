@@ -6,9 +6,8 @@ public class OBJ_EstadoPaciente {
     private int id_antecedente;
     private String estado;
 
-    public OBJ_EstadoPaciente(int id_antecedente,String meses) {
+    public OBJ_EstadoPaciente(String meses) {
         this.estado = meses;
-        this.id_antecedente=id_antecedente;
     }
 
     public int getId_antecedente() {

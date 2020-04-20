@@ -51,9 +51,6 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jcb_estadoCivil = new javax.swing.JComboBox<>();
         jcb_escolaridad = new javax.swing.JComboBox<>();
-        jcb_dia = new javax.swing.JComboBox<>();
-        jcb_mes = new javax.swing.JComboBox<>();
-        jcb_age = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
         jt_motiv_visita = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
@@ -64,6 +61,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jl_domicilio = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jta_tratamiento = new javax.swing.JTextArea();
+        jd_fechcaNacimiento = new com.toedter.calendar.JDateChooser();
         jl_antecedentes = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jrb_apRespiratorio = new javax.swing.JRadioButton();
@@ -215,15 +213,6 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jcb_escolaridad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ESCOLARIDAD", "PREESCOLAR", "PRIMARIA", "SECUNDARIA", "BACHILLERATO", "MEDIA SUPERIOR", "CARRERA", " " }));
         jp_datosPersonales.add(jcb_escolaridad, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, -1, -1));
 
-        jcb_dia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        jp_datosPersonales.add(jcb_dia, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
-
-        jcb_mes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mes", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-        jp_datosPersonales.add(jcb_mes, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, -1));
-
-        jcb_age.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Año", "2020", "2021", "2022", "2023", "2024" }));
-        jp_datosPersonales.add(jcb_age, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, -1, -1));
-
         jLabel14.setBackground(new java.awt.Color(204, 204, 255));
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -265,6 +254,9 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jta_tratamiento);
 
         jp_datosPersonales.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, 250, -1));
+
+        jd_fechcaNacimiento.setDateFormatString("yyyy-MM-d");
+        jp_datosPersonales.add(jd_fechcaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 150, -1));
 
         getContentPane().add(jp_datosPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 350));
 
@@ -607,17 +599,15 @@ public class V_DatosPersonales extends javax.swing.JFrame {
     public javax.swing.JButton jb_mas;
     public javax.swing.JButton jb_more_medic;
     public javax.swing.JButton jb_salir;
-    public javax.swing.JComboBox<String> jcb_age;
     public javax.swing.JComboBox<String> jcb_alimentacion;
-    public javax.swing.JComboBox<String> jcb_dia;
     public javax.swing.JComboBox<String> jcb_escolaridad;
     public javax.swing.JComboBox<String> jcb_estadoCivil;
     public javax.swing.JComboBox<String> jcb_frenillo;
     public javax.swing.JComboBox<String> jcb_higieneBucal;
-    public javax.swing.JComboBox<String> jcb_mes;
     public javax.swing.JComboBox<String> jcb_mesesEmbarazo;
     public javax.swing.JComboBox<String> jcb_sexo;
     public javax.swing.JComboBox<String> jcb_t_consulta;
+    public com.toedter.calendar.JDateChooser jd_fechcaNacimiento;
     private javax.swing.JLabel jl_Encia;
     private javax.swing.JLabel jl_Paladar;
     private javax.swing.JPanel jl_antecedentes;

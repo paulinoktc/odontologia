@@ -75,28 +75,28 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Cuenta");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 70, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 70, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Abonar");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, -1, 20));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 400, -1, 20));
 
         jLabel4.setBackground(new java.awt.Color(204, 204, 255));
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Selecciona Paciente");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 150, 30));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 180, 30));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("BUSCAR PACIENTE");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
 
         jl_cuenta_credito.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jl_cuenta_credito.setForeground(new java.awt.Color(255, 255, 255));
         jl_cuenta_credito.setText("$1500");
-        jPanel1.add(jl_cuenta_credito, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, -1, -1));
+        jPanel1.add(jl_cuenta_credito, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, -1, -1));
 
         jcb_select_paciente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel1.add(jcb_select_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 470, -1));
@@ -107,7 +107,7 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
         jb_hist_complet.setContentAreaFilled(false);
         jb_hist_complet.setFocusPainted(false);
         jb_hist_complet.setFocusable(false);
-        jPanel1.add(jb_hist_complet, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 80, 80));
+        jPanel1.add(jb_hist_complet, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 80, 80));
 
         jb_add_cita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Agenda_80_80.png"))); // NOI18N
         jb_add_cita.setBorder(null);
@@ -115,7 +115,7 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
         jb_add_cita.setContentAreaFilled(false);
         jb_add_cita.setFocusPainted(false);
         jb_add_cita.setFocusable(false);
-        jPanel1.add(jb_add_cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 80, 80));
+        jPanel1.add(jb_add_cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 80, 80));
 
         jb_abonar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Cobrar_80_80.png"))); // NOI18N
         jb_abonar.setBorder(null);
@@ -123,7 +123,7 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
         jb_abonar.setContentAreaFilled(false);
         jb_abonar.setFocusPainted(false);
         jb_abonar.setFocusable(false);
-        jPanel1.add(jb_abonar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 80, 80));
+        jPanel1.add(jb_abonar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, 80, 80));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -143,7 +143,7 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
         jb_salir.setFocusable(false);
         jPanel1.add(jb_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 40, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 530));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
