@@ -22,12 +22,11 @@ public class CTRL_Cobrar {
 
     V_Cobrar v_cobrar;
 
-//---------------------------------pendiente de mandar un objeto
-    public CTRL_Cobrar(String[] concepto) {
+    public CTRL_Cobrar(String[] concepto, String nombre) {
         v_cobrar = new V_Cobrar();
         agregarActions();
-        String[] otro = {"", ""};
         v_cobrar.defModel.addRow(concepto);
+        v_cobrar.jl_nombre.setText("Nombre: " + nombre);
         v_cobrar.setVisible(true);
     }
 
@@ -49,30 +48,12 @@ public class CTRL_Cobrar {
             }
         });
 
-        v_cobrar.jb_abonar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                try {
-                    v_cobrar.jtab_venta.moveColumn(0, 0);
-                    ArrayList<OBJ_Reglones> saveList = ExtraElementosTB();
-                    double total=calcularTotal(saveList);
-                    v_cobrar.jl_total_pagar.setText("$" + total);
-                    new MODL_Ventas().SaveVentas(saveList);
-                    JOptionPane.showMessageDialog(null, "Cobrar: $"+total);
-                    JOptionPane.showMessageDialog(null, "Cobro exitoso!");
-                    new CTRL_principal();
-                    
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, "El cuadro deve estar completamente lleno\n o borra reglones que no uses");
-                }
-            }
-        });
         v_cobrar.jb_rm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                try{
-                v_cobrar.defModel.removeRow(v_cobrar.defModel.getRowCount() - 1);
-                }catch (Exception e){
+                try {
+                    v_cobrar.defModel.removeRow(v_cobrar.defModel.getRowCount() - 1);
+                } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, "No hay mas reglones");
                 }
             }
@@ -81,11 +62,36 @@ public class CTRL_Cobrar {
         v_cobrar.jb_add.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                String[] add = {""};
+                String[] add = {"1","2"};
                 v_cobrar.defModel.addRow(add);
             }
         });
 
+    }
+
+    public void botonComartidoCobrar() {
+
+        v_cobrar.jb_cobrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                try {
+                    v_cobrar.jtab_venta.moveColumn(0, 0);
+                    ArrayList<OBJ_Reglones> saveList = ExtraElementosTB();
+                    double total = calcularTotal(saveList);
+                    v_cobrar.jl_total_pagar.setText("$" + total);
+
+                    if (JOptionPane.showConfirmDialog(null, "Cobrar: $" + total) == 0) {
+                        JOptionPane.showMessageDialog(null, "Cobro exitoso!");
+                        new MODL_Ventas().SaveVentas(saveList);
+                        new CTRL_principal();
+                        v_cobrar.dispose();
+                    }
+
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "El cuadro deve estar completamente lleno\n o borra reglones que no uses");
+                }
+            }
+        });
     }
 
     public ArrayList<OBJ_Reglones> ExtraElementosTB() throws NumberFormatException {

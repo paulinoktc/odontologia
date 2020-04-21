@@ -37,8 +37,7 @@ public DefaultTableModel defModel;
         jPanel1 = new javax.swing.JPanel();
         jl_titulo = new javax.swing.JLabel();
         jl_nombre = new javax.swing.JLabel();
-        jtf_datos_ref = new javax.swing.JTextField();
-        jb_abonar = new javax.swing.JButton();
+        jb_cobrar = new javax.swing.JButton();
         jb_salir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtab_venta = new javax.swing.JTable();
@@ -58,17 +57,14 @@ public DefaultTableModel defModel;
         jl_titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jl_titulo.setForeground(new java.awt.Color(255, 255, 255));
         jl_titulo.setText("Registrar Venta");
-        jPanel1.add(jl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 160, -1));
+        jPanel1.add(jl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 220, -1));
 
         jl_nombre.setBackground(new java.awt.Color(255, 255, 255));
         jl_nombre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jl_nombre.setForeground(new java.awt.Color(255, 255, 255));
         jl_nombre.setText("NOMBRE:");
-        jPanel1.add(jl_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 90, -1));
-
-        jtf_datos_ref.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPanel1.add(jtf_datos_ref, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 340, 30));
-        jPanel1.add(jb_abonar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 100, 60));
+        jPanel1.add(jl_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 430, -1));
+        jPanel1.add(jb_cobrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 260, 50));
 
         jb_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar_40_40.png"))); // NOI18N
         jb_salir.setBorder(null);
@@ -96,18 +92,18 @@ public DefaultTableModel defModel;
         jl_total_pagar.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jl_total_pagar.setForeground(new java.awt.Color(255, 255, 255));
         jl_total_pagar.setText("$0.0");
-        jPanel1.add(jl_total_pagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 130, -1));
+        jPanel1.add(jl_total_pagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 270, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("TOTAL:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
 
-        jb_add.setText("jButton1");
-        jPanel1.add(jb_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
+        jb_add.setText("+");
+        jPanel1.add(jb_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 30, 30));
 
-        jb_rm.setText("jButton2");
-        jPanel1.add(jb_rm, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, -1, -1));
+        jb_rm.setText("-");
+        jPanel1.add(jb_rm, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 30, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 400));
 
@@ -153,14 +149,13 @@ public DefaultTableModel defModel;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JButton jb_abonar;
     public javax.swing.JButton jb_add;
+    public javax.swing.JButton jb_cobrar;
     public javax.swing.JButton jb_rm;
     public javax.swing.JButton jb_salir;
     public javax.swing.JLabel jl_nombre;
     public javax.swing.JLabel jl_titulo;
     public javax.swing.JLabel jl_total_pagar;
     public javax.swing.JTable jtab_venta;
-    public javax.swing.JTextField jtf_datos_ref;
     // End of variables declaration//GEN-END:variables
 }

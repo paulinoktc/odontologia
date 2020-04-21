@@ -60,7 +60,7 @@ public class CTRL_Presupuesto {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String[]concepto={"Consulta"};
-                new CTRL_Cobrar(concepto);
+                new CTRL_Cobrar(concepto,"Al mostrador").botonComartidoCobrar();
                 v_presupuesto.dispose();
             }
         });
