@@ -122,7 +122,6 @@ public class MODL_Paciente {
                 );
 
             }
-            System.out.println(listaPacientes.size());
             rs.close();
         } catch (SQLException ex) {
             Logger.getLogger(MODL_Paciente.class.getName()).log(Level.SEVERE, null, ex);

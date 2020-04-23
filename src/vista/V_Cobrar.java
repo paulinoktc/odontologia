@@ -57,13 +57,13 @@ public DefaultTableModel defModel;
         jl_titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jl_titulo.setForeground(new java.awt.Color(255, 255, 255));
         jl_titulo.setText("Registrar Venta");
-        jPanel1.add(jl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 220, -1));
+        jPanel1.add(jl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 220, -1));
 
         jl_nombre.setBackground(new java.awt.Color(255, 255, 255));
         jl_nombre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jl_nombre.setForeground(new java.awt.Color(255, 255, 255));
         jl_nombre.setText("NOMBRE:");
-        jPanel1.add(jl_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 430, -1));
+        jPanel1.add(jl_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 430, -1));
         jPanel1.add(jb_cobrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 260, 50));
 
         jb_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar_40_40.png"))); // NOI18N

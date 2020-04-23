@@ -27,6 +27,7 @@ import modelo.OBJ_Padecimiento;
 import modelo.OBJ_Referencia;
 import modelo.OBJ_Relacion;
 import modelo.Validador;
+import odontograma.ManipulaOdontograma;
 import vista.V_DatosPersonales;
 
 public class CTRL_DatosPersonales {
@@ -55,6 +56,7 @@ public class CTRL_DatosPersonales {
 
     ArrayList<OBJ_Relacion> listaHabitos = null;
     ArrayList<OBJ_Padecimiento> listaPadecimienientos = null;
+    ManipulaOdontograma odontograma;
 
     public CTRL_DatosPersonales() {
         listaMedicamentos = new ArrayList<>();
@@ -64,6 +66,8 @@ public class CTRL_DatosPersonales {
 
         agregarActions();
         v_datosPersonales.setDefaultCloseOperation(0);
+        odontograma = new ManipulaOdontograma(v_datosPersonales);
+
         LlenarItemsConsulta();
         setModels();
 
@@ -202,6 +206,7 @@ public class CTRL_DatosPersonales {
                     JOptionPane.showMessageDialog(null, "Todos los espacios son obligatorios");
                 } else if (!new Validador(v_datosPersonales).revisaJCombobox()) {
                     RecopilarDatos();
+                    odontograma.guarda(paciente.getId_paciente());
                     new CTRL_BuscarPaciente().addPacientePredefinido(paciente);
                     v_datosPersonales.dispose();
                 }
@@ -327,10 +332,10 @@ public class CTRL_DatosPersonales {
     }
 
     public void ExtraerHospitalizado() {
-        if(v_datosPersonales.jtf_hospitalizado.getText().isEmpty()){
-            
+        if (!v_datosPersonales.jtf_hospitalizado.getText().isEmpty()) {
+            hospitalizado = extraerDatosVista.ExtraeEsteElemento(v_datosPersonales.jtf_hospitalizado.getText());
+            hospitalizado.setId_antecedente(antecedPaciente.getId_antecedente());
         }
-        hospitalizado = extraerDatosVista.ExtraeEsteElemento(v_datosPersonales.jtf_hospitalizado.getText());
-        hospitalizado.setId_antecedente(antecedPaciente.getId_antecedente());
+
     }
 }

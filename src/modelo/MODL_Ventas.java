@@ -42,7 +42,6 @@ public class MODL_Ventas {
 
     public double validaCredito(String id_paciente) {
         double cantidaCuenta = 0;
-        System.out.println(id_paciente + " valida credito");
         try {
             Conexion cn = new Conexion();
             Connection cc = cn.crearConexion();

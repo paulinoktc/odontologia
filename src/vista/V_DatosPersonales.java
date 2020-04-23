@@ -5,11 +5,26 @@
  */
 package vista;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+
 /**
  *
  * @author ZOMBY
  */
 public class V_DatosPersonales extends javax.swing.JFrame {
+
+    Graphics2D jPanelGraphics;
+    BufferedImage buffer;
+
+    public void setPanel(Graphics2D jPanelGraphics) {
+        this.jPanelGraphics = jPanelGraphics;
+    }
+
+    public void setBuffer(BufferedImage buffer) {
+        this.buffer = buffer;
+    }
 
     /**
      * Creates new form V_DatosPersonales
@@ -17,7 +32,13 @@ public class V_DatosPersonales extends javax.swing.JFrame {
     public V_DatosPersonales() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+
+    }
+
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+        jPanelGraphics.drawImage(buffer, 0, 0, null);
     }
 
     /**
@@ -121,7 +142,6 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jta_observaciones = new javax.swing.JTextArea();
         jp_odontograma = new javax.swing.JPanel();
-        jl_paradontograma = new javax.swing.JLabel();
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
@@ -519,13 +539,6 @@ public class V_DatosPersonales extends javax.swing.JFrame {
 
         jp_odontograma.setBackground(new java.awt.Color(94, 117, 116));
         jp_odontograma.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jl_paradontograma.setBackground(new java.awt.Color(204, 204, 255));
-        jl_paradontograma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/odonto.png"))); // NOI18N
-        jl_paradontograma.setFocusable(false);
-        jl_paradontograma.setRequestFocusEnabled(false);
-        jp_odontograma.add(jl_paradontograma, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 560, 280));
-
         getContentPane().add(jp_odontograma, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 610, 300));
 
         pack();
@@ -615,10 +628,9 @@ public class V_DatosPersonales extends javax.swing.JFrame {
     private javax.swing.JLabel jl_labios;
     private javax.swing.JLabel jl_lengua;
     private javax.swing.JLabel jl_mejilla;
-    public javax.swing.JLabel jl_paradontograma;
     private javax.swing.JPanel jp_datosPersonales;
     private javax.swing.JPanel jp_habitos;
-    private javax.swing.JPanel jp_odontograma;
+    public javax.swing.JPanel jp_odontograma;
     public javax.swing.JRadioButton jrb_alcohol;
     public javax.swing.JRadioButton jrb_alergias;
     public javax.swing.JRadioButton jrb_anti;

@@ -7,6 +7,9 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.MODL_Paciente;
@@ -84,6 +87,30 @@ public class CTRL_BuscarPaciente {
                 revalidarBusqueda();
             }
         });
+
+        v_buscarPaciente.jtf_dato_a_buscar.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent ke) {
+                String enter = "\n";
+                if (enter.equalsIgnoreCase(ke.getKeyChar() + "")) {
+                    revalidarBusqueda();
+
+                }
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent ke) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent ke) {
+
+            }
+
+        });
+
         v_buscarPaciente.jb_credito.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -138,7 +165,6 @@ public class CTRL_BuscarPaciente {
         try {
             double cantidadAnt = new MODL_Ventas().validaCredito(
                     listaPacientes.get(v_buscarPaciente.jcb_select_paciente.getSelectedIndex()).getId_paciente());
-            System.out.println("-----------------------------" + cantidadAnt);
             String id_paciente = listaPacientes.get(v_buscarPaciente.jcb_select_paciente.getSelectedIndex()).getId_paciente();
             double cantidad = Double.parseDouble(JOptionPane.showInputDialog("Ingresa cantidad"));
 
