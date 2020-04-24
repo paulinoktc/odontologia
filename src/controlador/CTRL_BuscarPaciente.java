@@ -66,6 +66,7 @@ public class CTRL_BuscarPaciente {
                     String nombre = listaPacientes.get(v_buscarPaciente.jcb_select_paciente.getSelectedIndex()).getNombre()
                             + " " + listaPacientes.get(v_buscarPaciente.jcb_select_paciente.getSelectedIndex()).getAp_paterno()
                             + " " + listaPacientes.get(v_buscarPaciente.jcb_select_paciente.getSelectedIndex()).getAp_materno();
+
                     new CTRL_AgendarCita(nombre).setId_paciente(listaPacientes.get(v_buscarPaciente.jcb_select_paciente.getSelectedIndex()).getId_paciente());
                     v_buscarPaciente.dispose();
                 } else {
@@ -76,8 +77,14 @@ public class CTRL_BuscarPaciente {
         v_buscarPaciente.jb_hist_complet.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                v_buscarPaciente.dispose();
-                new CTRL_HistorialCompleto();
+
+                if (v_buscarPaciente.jcb_select_paciente.getItemCount() != 0) {
+                    String id = listaPacientes.get(v_buscarPaciente.jcb_select_paciente.getSelectedIndex()).getId_paciente();
+                    new CTRL_HistorialCompleto(id);
+                    v_buscarPaciente.dispose();
+
+                }
+
             }
         });
 
@@ -201,7 +208,7 @@ public class CTRL_BuscarPaciente {
 
     public void buscarPaciente() {
         v_buscarPaciente.jcb_select_paciente.removeAllItems();
-        listaPacientes = new MODL_Paciente().buscarIdPaciente(v_buscarPaciente.jcb_buscar_por.getSelectedIndex(), v_buscarPaciente.jtf_dato_a_buscar.getText());
+        listaPacientes = new MODL_Paciente().buscarPacientes(v_buscarPaciente.jcb_buscar_por.getSelectedIndex(), v_buscarPaciente.jtf_dato_a_buscar.getText());
         if (listaPacientes.size() != 0) {
             for (OBJ_Paciente listPacient : listaPacientes) {
                 v_buscarPaciente.jcb_select_paciente.addItem(

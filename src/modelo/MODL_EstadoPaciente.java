@@ -19,6 +19,9 @@ import java.util.logging.Logger;
  */
 public class MODL_EstadoPaciente {
 
+    private String scr_embarazada = "SELECT meses FROM embarazada WHERE id_antecedente=";
+    private String scr_hospitalizado = "SELECT motivo FROM hospitalizado WHERE id_antecedente=";
+
     public void GuardarEmbarazo(OBJ_EstadoPaciente embarazada) {
         try {
             Conexion cn = new Conexion();
@@ -35,8 +38,8 @@ public class MODL_EstadoPaciente {
             Logger.getLogger(MODL_Antecedentes.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-        public void GuardarHospitalizado(OBJ_EstadoPaciente hospitalizado) {
+
+    public void GuardarHospitalizado(OBJ_EstadoPaciente hospitalizado) {
         try {
             Conexion cn = new Conexion();
             Connection cc = cn.crearConexion();

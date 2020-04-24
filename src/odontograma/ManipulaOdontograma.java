@@ -54,9 +54,8 @@ public class ManipulaOdontograma {
     }
 
     private void carga() {
-        File fichero = new File("/home/zomby/Escritorio/odontograma.png");//jFileChooser1.getSelectedFile();
+        File fichero = new File("/home/zomby/Escritorio/odontograma.png");
         String nombre = fichero.getName();
-        //System.out.println(fichero.getPath());
         BufferedImage imagen = null;
         try {
             imagen = ImageIO.read(fichero);
@@ -70,7 +69,7 @@ public class ManipulaOdontograma {
     public void guarda(String nombre) {
         //String nombres = "nuevoEdit.png";
 
-        File fichero = new File("/home/zomby/Escritorio/" + nombre+".png");// jFileChooser1.getSelectedFile();
+        File fichero = new File("/home/zomby/Escritorio/" + nombre + ".png");// jFileChooser1.getSelectedFile();
 
         String extension = "png";
         try {
@@ -89,19 +88,23 @@ public class ManipulaOdontograma {
     }
 
     private void dibujaCuadro(MouseEvent evt) {
-        int x = evt.getX();
-        int y = evt.getY();
-        if (evt.isMetaDown()) {
+        try {
+            int x = evt.getX();
+            int y = evt.getY();
+            if (evt.isMetaDown()) {
 
-        } else {
-            if (!clickIzquierdo(x, y)) {
-                int nombre = Integer.parseInt(JOptionPane.showInputDialog("Ingresa cantidad"));
-                nodo_.add(new Nodo(x, y, nombre));
-                inicializaBuffer();
-                carga();
-                pintarCuadros();
+            } else {
+                if (!clickIzquierdo(x, y)) {
+                    int nombre = Integer.parseInt(JOptionPane.showInputDialog("Ingresa cantidad"));
+                    nodo_.add(new Nodo(x, y, nombre));
+                    inicializaBuffer();
+                    carga();
+                    pintarCuadros();
 
+                }
             }
+        } catch (Exception e) {
+
         }
         bufferGraphics.drawImage(buffer2, 0, 0, null);
 

@@ -51,7 +51,7 @@ public class CTRL_principal {
             @Override
             public void actionPerformed(ActionEvent e) {
                 v_principal.dispose();
-                new CNTRL_ListaAgenda();
+                new CTRL_ListaAgenda();
             }
         });
         
@@ -59,7 +59,7 @@ public class CTRL_principal {
             @Override
             public void actionPerformed(ActionEvent e) {
                 v_principal.dispose();
-                new CNTRL_Venta();
+                new CTRL_Venta();
             }
         });
         

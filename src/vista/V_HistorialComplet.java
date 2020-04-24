@@ -35,6 +35,7 @@ public class V_HistorialComplet extends javax.swing.JFrame {
         jta_AllData = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jcb_fechas = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -47,19 +48,22 @@ public class V_HistorialComplet extends javax.swing.JFrame {
         jPanel1.add(jb_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
 
         jta_AllData.setColumns(20);
+        jta_AllData.setFont(new java.awt.Font("Courier Pitch", 1, 14)); // NOI18N
         jta_AllData.setRows(5);
         jScrollPane1.setViewportView(jta_AllData);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 400, 410));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 400, 410));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/odonto.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 400, 150));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 400, 150));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Odontograma:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 650));
+        jPanel1.add(jcb_fechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 260, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -105,6 +109,7 @@ public class V_HistorialComplet extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JButton jb_salir;
-    private javax.swing.JTextArea jta_AllData;
+    public javax.swing.JComboBox<String> jcb_fechas;
+    public javax.swing.JTextArea jta_AllData;
     // End of variables declaration//GEN-END:variables
 }

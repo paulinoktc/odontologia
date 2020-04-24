@@ -19,11 +19,11 @@ import vista.V_Cobrar;
  *
  * @author ZOMBY
  */
-public class CNTRL_Venta {
+public class CTRL_Venta {
 
     V_Cobrar v_ventasDia;
 
-    public CNTRL_Venta() {
+    public CTRL_Venta() {
         v_ventasDia = new V_Cobrar();
         agregarActions();
         AjustarVentana();

@@ -12,6 +12,11 @@ import java.util.logging.Logger;
 
 public class MODL_Padecimiento {
 
+    private String scr_padecimientos = "SELECT padecimiento.nombre_padecimiento "
+            + "FROM padecimiento INNER JOIN padeci_paciente "
+            + "WHERE padecimiento.id_padecimiento=padeci_paciente.id_padecimiento "
+            + "AND padeci_paciente.id_paciente='";
+
     public int getIdPadecimiento(OBJ_Padecimiento nombre_consulta) {
 
         int id = 0;
@@ -37,15 +42,35 @@ public class MODL_Padecimiento {
             CallableStatement llamada = cc.prepareCall("{call savePadecimientos(?,?)}");
 
             for (OBJ_Padecimiento lista : listaPadecimienientos) {
-                llamada.setString(1,lista.getId_paciente());
-                llamada.setInt(2,lista.getId_padecimiento());
+                llamada.setString(1, lista.getId_paciente());
+                llamada.setInt(2, lista.getId_padecimiento());
                 llamada.execute();
             }
 
             cc.commit();
         } catch (SQLException ex) {
-            
+
             Logger.getLogger(MODL_Antecedentes.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public ArrayList<String> getListaPadecimientos(String id_paciente) {
+
+        ArrayList<String> listaPadecimiento = new ArrayList<>();
+        try {
+            Conexion cn = new Conexion();
+            Connection cc = cn.crearConexion();
+            PreparedStatement ps = cc.prepareStatement(scr_padecimientos + id_paciente + "';");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                listaPadecimiento.add(rs.getString(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MODL_Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return listaPadecimiento;
+    }
+
 }

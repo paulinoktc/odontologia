@@ -1,4 +1,3 @@
-
 package modelo;
 
 public class OBJ_Antecedentes {
@@ -9,22 +8,21 @@ public class OBJ_Antecedentes {
     private String alimentacion;
     private String id_paciente;
     private String motivo_visita;
-    
-    
+
     private int id_consulta;
     private String tipo_tratamiento;
     private String observaciones;
-    
-    
+    private String tipoConsulta;
+
     public OBJ_Antecedentes() {
-        
+
     }
 
-    public OBJ_Antecedentes(String higiene_bucal, String alimentacion, String id_paciente,String motivo) {
+    public OBJ_Antecedentes(String higiene_bucal, String alimentacion, String id_paciente, String motivo) {
         this.higiene_bucal = higiene_bucal;
         this.alimentacion = alimentacion;
         this.id_paciente = id_paciente;
-        this.motivo_visita=motivo;
+        this.motivo_visita = motivo;
     }
 
     public int getId_antecedente() {
@@ -58,7 +56,6 @@ public class OBJ_Antecedentes {
     public void setAlimentacion(String alimentacion) {
         this.alimentacion = alimentacion;
     }
-
 
     public String getId_paciente() {
         return id_paciente;
@@ -100,13 +97,22 @@ public class OBJ_Antecedentes {
         this.motivo_visita = motivo_visita;
     }
 
+    public String getTipoConsulta() {
+        return tipoConsulta;
+    }
+
+    public void setTipoConsulta(String tipoConsulta) {
+        this.tipoConsulta = tipoConsulta;
+    }
     
+    
+
     public void MostrarElementos() {
         System.out.println("Datos antecedentes");
-        System.out.println("antecedente: "+id_antecedente);
+        System.out.println("antecedente: " + id_antecedente);
         System.out.println(fecha);
         System.out.println(higiene_bucal);
         System.out.println(alimentacion);
-        System.out.println("paciente: "+id_paciente);
+        System.out.println("paciente: " + id_paciente);
     }
 }

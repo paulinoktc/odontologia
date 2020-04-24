@@ -20,13 +20,13 @@ import vista.V_RegistrarCita;
  *
  * @author ZOMBY
  */
-public class CNTRL_ListaAgenda {
+public class CTRL_ListaAgenda {
 
     V_Agenda v_listaAgenda;
     String fecha;
     // V_RegistrarCita v_regitra_cita;
 
-    public CNTRL_ListaAgenda() {
+    public CTRL_ListaAgenda() {
         v_listaAgenda = new V_Agenda();
         MostrarAgenda(0, "x", v_listaAgenda.defModel);
         agregarActions();

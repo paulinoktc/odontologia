@@ -3,15 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/media/zomby/ARCHIVOS/AREA_TRABAJO/EXPERIMENTAR/Odontologia/src/modelo/MODL_ReferenciaTB.java</file>
+            <file>file:/media/zomby/ARCHIVOS/AREA_TRABAJO/EXPERIMENTAR/Odontologia/src/controlador/CTRL_HistorialCompleto.java</file>
             <file>file:/media/zomby/ARCHIVOS/AREA_TRABAJO/EXPERIMENTAR/Odontologia/src/controlador/Main.java</file>
+            <file>file:/media/zomby/ARCHIVOS/AREA_TRABAJO/EXPERIMENTAR/Odontologia/src/modelo/MODL_Padecimiento.java</file>
             <file>file:/media/zomby/ARCHIVOS/AREA_TRABAJO/EXPERIMENTAR/Odontologia/src/odontograma/ManipulaOdontograma.java</file>
-            <file>file:/media/zomby/ARCHIVOS/AREA_TRABAJO/EXPERIMENTAR/Odontologia/src/controlador/CTRL_BuscarPaciente.java</file>
-            <file>file:/media/zomby/ARCHIVOS/AREA_TRABAJO/EXPERIMENTAR/Odontologia/src/controlador/CTRL_DatosPersonales.java</file>
-            <file>file:/media/zomby/ARCHIVOS/AREA_TRABAJO/EXPERIMENTAR/Odontologia/src/odontograma/Pintar.java</file>
-            <file>file:/media/zomby/ARCHIVOS/AREA_TRABAJO/EXPERIMENTAR/Odontologia/src/modelo/MODL_Ventas.java</file>
+            <file>file:/media/zomby/ARCHIVOS/AREA_TRABAJO/EXPERIMENTAR/Odontologia/src/vista/V_HistorialComplet.java</file>
+            <file>file:/media/zomby/ARCHIVOS/AREA_TRABAJO/EXPERIMENTAR/Odontologia/src/modelo/MODL_EstadoPaciente.java</file>
+            <file>file:/media/zomby/ARCHIVOS/AREA_TRABAJO/EXPERIMENTAR/Odontologia/src/modelo/MODL_RelacionTB.java</file>
+            <file>file:/media/zomby/ARCHIVOS/AREA_TRABAJO/EXPERIMENTAR/Odontologia/src/modelo/MODL_TejidosBlandos.java</file>
+            <file>file:/media/zomby/ARCHIVOS/AREA_TRABAJO/EXPERIMENTAR/Odontologia/src/modelo/MODL_Antecedentes.java</file>
             <file>file:/media/zomby/ARCHIVOS/AREA_TRABAJO/EXPERIMENTAR/Odontologia/src/modelo/MODL_Paciente.java</file>
-            <file>file:/media/zomby/ARCHIVOS/AREA_TRABAJO/EXPERIMENTAR/Odontologia/src/odontograma/Trazo.java</file>
-            <file>file:/media/zomby/ARCHIVOS/AREA_TRABAJO/EXPERIMENTAR/Odontologia/src/modelo/Conexion.java</file>
+            <file>file:/media/zomby/ARCHIVOS/AREA_TRABAJO/EXPERIMENTAR/Odontologia/src/modelo/OBJ_Antecedentes.java</file>
         </group>
     </open-files>
 </project-private>
