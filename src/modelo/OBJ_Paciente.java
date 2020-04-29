@@ -28,6 +28,7 @@ public class OBJ_Paciente {
     private String telefono;
     private String correo;
     private String tutor;
+    private String telTutor;
 
     public OBJ_Paciente() {
     }
@@ -150,7 +151,7 @@ public class OBJ_Paciente {
     }
 
     public String creatIDPaciente(String iniciales) {
-        String nuevoId = "";//iniciales;
+        String nuevoId = "";
         LocalDateTime datetime = LocalDateTime.now();
         DateTimeFormatter ldt = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         nuevoId += datetime.format(ldt);
@@ -159,6 +160,14 @@ public class OBJ_Paciente {
         nuevoId = nuevoId.replaceAll("\\ ", "");
         System.out.println(nuevoId);
         return nuevoId;
+    }
+
+    public String getTelTutor() {
+        return telTutor;
+    }
+
+    public void setTelTutor(String telTutor) {
+        this.telTutor = telTutor;
     }
 
     public void MostrarDatos() {

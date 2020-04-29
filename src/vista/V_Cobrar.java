@@ -34,6 +34,7 @@ public DefaultTableModel defModel;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jl_nombre2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jl_titulo = new javax.swing.JLabel();
         jl_nombre = new javax.swing.JLabel();
@@ -45,6 +46,11 @@ public DefaultTableModel defModel;
         jLabel4 = new javax.swing.JLabel();
         jb_add = new javax.swing.JButton();
         jb_rm = new javax.swing.JButton();
+        jl_nombre1 = new javax.swing.JLabel();
+
+        jl_nombre2.setBackground(new java.awt.Color(255, 255, 255));
+        jl_nombre2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jl_nombre2.setForeground(new java.awt.Color(255, 255, 255));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -62,8 +68,7 @@ public DefaultTableModel defModel;
         jl_nombre.setBackground(new java.awt.Color(255, 255, 255));
         jl_nombre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jl_nombre.setForeground(new java.awt.Color(255, 255, 255));
-        jl_nombre.setText("NOMBRE:");
-        jPanel1.add(jl_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 430, -1));
+        jPanel1.add(jl_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 310, 30));
         jPanel1.add(jb_cobrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 260, 50));
 
         jb_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar_40_40.png"))); // NOI18N
@@ -104,6 +109,12 @@ public DefaultTableModel defModel;
 
         jb_rm.setText("-");
         jPanel1.add(jb_rm, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 30, 30));
+
+        jl_nombre1.setBackground(new java.awt.Color(255, 255, 255));
+        jl_nombre1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jl_nombre1.setForeground(new java.awt.Color(255, 255, 255));
+        jl_nombre1.setText("Nombre:");
+        jPanel1.add(jl_nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 90, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 400));
 
@@ -154,6 +165,8 @@ public DefaultTableModel defModel;
     public javax.swing.JButton jb_rm;
     public javax.swing.JButton jb_salir;
     public javax.swing.JLabel jl_nombre;
+    public javax.swing.JLabel jl_nombre1;
+    public javax.swing.JLabel jl_nombre2;
     public javax.swing.JLabel jl_titulo;
     public javax.swing.JLabel jl_total_pagar;
     public javax.swing.JTable jtab_venta;

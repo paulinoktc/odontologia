@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 
 import java.util.ArrayList;
@@ -12,10 +7,6 @@ import javax.swing.JTextField;
 import vista.V_DatosPersonales;
 import vista.V_Presupuesto;
 
-/**
- *
- * @author ZOMBY
- */
 public class ExtraccionDatos {
 
     //V_Presupuesto v_presupuesto;
@@ -103,7 +94,7 @@ public class ExtraccionDatos {
         el_paciente.setAp_paterno(vista.jt_ap_paterno.getText());
         el_paciente.setAp_materno(vista.jt_ap_materno.getText());
         el_paciente.setSexo((String.valueOf(vista.jcb_sexo.getSelectedItem())));
-        String fechaNaciemiento =((JTextField) vista.jd_fechcaNacimiento.getDateEditor().getUiComponent()).getText();
+        String fechaNaciemiento = ((JTextField) vista.jd_fechcaNacimiento.getDateEditor().getUiComponent()).getText();
         el_paciente.setFechaNaciemiento(fechaNaciemiento);
         el_paciente.setEstadoCivil(String.valueOf(vista.jcb_estadoCivil.getSelectedItem()));
         el_paciente.setOcupacion(vista.jtf_ocupacion.getText());
@@ -112,6 +103,7 @@ public class ExtraccionDatos {
         el_paciente.setTelefono(vista.jt_telefono.getText());
         el_paciente.setDomicilio(vista.jt_domicilio.getText());
         el_paciente.setTutor(vista.jt_representante.getText());
+        el_paciente.setTelTutor(vista.jl_telefonotutor.getText());
         el_paciente.setCorreo(vista.jt_correo.getText());
 
         return el_paciente;
@@ -127,9 +119,8 @@ public class ExtraccionDatos {
      */
     public ArrayList<OBJ_Relacion> ExtraerDatosHabitos(V_DatosPersonales vista, OBJ_Antecedentes antecedente) {
         ArrayList<OBJ_Relacion> listaHabitos = new ArrayList<OBJ_Relacion>();
-        System.out.println("dentro habit: "+antecedente.getId_antecedente());
-        
-        
+        System.out.println("dentro habit: " + antecedente.getId_antecedente());
+
         if (vista.jrb_brincomania.isSelected()) {
             listaHabitos.add(new OBJ_Relacion(vista.jrb_brincomania.getText(), antecedente.getId_antecedente()));
         }
@@ -151,7 +142,7 @@ public class ExtraccionDatos {
         if (vista.jrb_carrillo.isSelected()) {
             listaHabitos.add(new OBJ_Relacion(vista.jrb_carrillo.getText(), antecedente.getId_antecedente()));
         }
-        
+
         return listaHabitos;
     }
 
@@ -227,8 +218,7 @@ public class ExtraccionDatos {
         if (vista.jrb_drogas.isSelected()) {
             padecimientos.add(new OBJ_Padecimiento(paciente.getId_paciente(), vista.jrb_drogas.getText()));
         }
-        
-        
+
         return padecimientos;
     }
 
@@ -245,10 +235,12 @@ public class ExtraccionDatos {
     }
 
     public OBJ_Referencia ExtraeReferencia(JTextField texto) {
-        if(texto.getText().isEmpty())return null;
+        if (texto.getText().isEmpty()) {
+            return null;
+        }
         return new OBJ_Referencia(texto.getText());
     }
-    
+
     public OBJ_EstadoPaciente ExtraeEsteElemento(String texto) {
         if (texto.isEmpty()) {
             return null;

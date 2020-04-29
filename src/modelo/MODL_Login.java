@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
@@ -21,6 +22,7 @@ public class MODL_Login {
 
     /**
      * Rellema los items del JComboBox de usuarios
+     *
      * @param items JComboBox a llenar de nombres de usuarios
      */
     public void cargarItems(JComboBox items) {
@@ -37,24 +39,27 @@ public class MODL_Login {
 
     /**
      * Ejecuta la sentencia SQL para la validacion del usuario
+     *
      * @param nombreUsuario Nombre del usuario a comprobar
      * @param pass Contraseña del usuario
      * @return Si es correcto o no la validacion
      */
     public boolean validarPass(String nombreUsuario, String pass) {
+
+        String textoSinEncriptar = pass;
+        String textoEncriptadoConSHA = DigestUtils.sha1Hex(textoSinEncriptar);
+
         boolean passCorrect = false;
         Connection conected = new Conexion().crearConexion();
         try {
-            PreparedStatement prepareState = conected.prepareStatement("SELECT nombre_user,PASS FROM USUARIOS WHERE nombre_user=?"
-                    + "AND PASS =?");
+            PreparedStatement prepareState = conected.prepareStatement("SELECT nombre_user,pass FROM USUARIOS WHERE nombre_user=?");
 
             prepareState.setString(1, nombreUsuario);
-            prepareState.setString(2, pass);
 
             ResultSet rs = prepareState.executeQuery();
-
             if (rs.next()) {
-                if (rs.getString(2).equalsIgnoreCase(pass)) {
+
+                if (rs.getString(2).equalsIgnoreCase(textoEncriptadoConSHA)) {
                     passCorrect = true;
                 }
             }

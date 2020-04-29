@@ -13,6 +13,7 @@ import javax.swing.Action;
 import javax.swing.JOptionPane;
 import modelo.Conexion;
 import modelo.MODL_Login;
+import org.apache.commons.codec.digest.DigestUtils;
 import vista.V_login;
 
 /**
@@ -27,13 +28,13 @@ public class CTRL_login {
     public CTRL_login() {
         v_login = new V_login();
         mod_login = new MODL_Login();
-        
+
         agregarActions();
         v_login.setVisible(true);
         cargarItems();
     }
-    
-    public void cargarItems(){
+
+    public void cargarItems() {
         mod_login.cargarItems(v_login.jcb_usuarios);
     }
 
@@ -42,18 +43,19 @@ public class CTRL_login {
         v_login.jb_iniciar.addActionListener(new ActionListener() {
             @Override
             /**
-             * Verifica que el usuario y contraseña sean correctos pendiente de cifrar contraseña
+             * Verifica que el usuario y contraseña sean correctos pendiente de
+             * cifrar contraseña
              */
             public void actionPerformed(ActionEvent ae) {
-                if(mod_login.validarPass(String.valueOf(v_login.jcb_usuarios.getSelectedItem()), v_login.jp_pass.getText())){
+                if (mod_login.validarPass(String.valueOf(v_login.jcb_usuarios.getSelectedItem()), v_login.jp_pass.getText())) {
                     new CTRL_principal();
                     v_login.dispose();
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(null, "CONTRASEÑA ERRONEA");
                 }
             }
         });
-        
+
         v_login.jcb_usuarios.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -66,7 +68,7 @@ public class CTRL_login {
                 System.exit(0);
             }
         });
-        
+
     }
 
 }

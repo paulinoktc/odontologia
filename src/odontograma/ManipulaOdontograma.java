@@ -8,6 +8,7 @@ package odontograma;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 import vista.V_DatosPersonales;
+import javax.swing.*;
 
 /**
  *
@@ -54,7 +56,7 @@ public class ManipulaOdontograma {
     }
 
     private void carga() {
-        File fichero = new File("/home/zomby/Escritorio/odontograma.png");
+        File fichero = new File("C:\\ODONTOGRAMA\\odontograma.png");
         String nombre = fichero.getName();
         BufferedImage imagen = null;
         try {
@@ -69,7 +71,7 @@ public class ManipulaOdontograma {
     public void guarda(String nombre) {
         //String nombres = "nuevoEdit.png";
 
-        File fichero = new File("/home/zomby/Escritorio/" + nombre + ".png");// jFileChooser1.getSelectedFile();
+        File fichero = new File("C:\\ODONTOGRAMA\\PACIENTES\\" + nombre + ".png");// jFileChooser1.getSelectedFile();
 
         String extension = "png";
         try {
@@ -140,4 +142,5 @@ public class ManipulaOdontograma {
 
         return existeUno;
     }
+
 }

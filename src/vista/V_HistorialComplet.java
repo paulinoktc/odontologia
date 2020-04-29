@@ -18,6 +18,7 @@ public class V_HistorialComplet extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
        // this.jta_AllData.setEditable(false);
+        setDefaultCloseOperation(WIDTH);
     }
 
     /**
@@ -33,9 +34,10 @@ public class V_HistorialComplet extends javax.swing.JFrame {
         jb_salir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jta_AllData = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
+        jl_odontograma = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jcb_fechas = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -44,24 +46,31 @@ public class V_HistorialComplet extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(94, 117, 116));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jb_salir.setText("Salir");
-        jPanel1.add(jb_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
+        jb_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar_40_40.png"))); // NOI18N
+        jb_salir.setBorder(null);
+        jb_salir.setBorderPainted(false);
+        jb_salir.setContentAreaFilled(false);
+        jb_salir.setFocusPainted(false);
+        jPanel1.add(jb_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 0, 40, 40));
 
         jta_AllData.setColumns(20);
         jta_AllData.setFont(new java.awt.Font("Courier Pitch", 1, 14)); // NOI18N
         jta_AllData.setRows(5);
         jScrollPane1.setViewportView(jta_AllData);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 400, 410));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/odonto.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 400, 150));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 430, 410));
+        jPanel1.add(jl_odontograma, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 450, 190));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Odontograma:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, -1, -1));
 
-        jPanel1.add(jcb_fechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 260, -1));
+        jPanel1.add(jcb_fechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 260, -1));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("SELECCIONA UNA FECHA");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 700));
 
@@ -110,6 +119,7 @@ public class V_HistorialComplet extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JButton jb_salir;
     public javax.swing.JComboBox<String> jcb_fechas;
+    public javax.swing.JLabel jl_odontograma;
     public javax.swing.JTextArea jta_AllData;
     // End of variables declaration//GEN-END:variables
 }

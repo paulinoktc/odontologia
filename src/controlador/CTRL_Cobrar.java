@@ -26,7 +26,7 @@ public class CTRL_Cobrar {
         v_cobrar = new V_Cobrar();
         agregarActions();
         v_cobrar.defModel.addRow(concepto);
-        v_cobrar.jl_nombre.setText("Nombre: " + nombre);
+        v_cobrar.jl_nombre.setText( nombre);
         v_cobrar.setVisible(true);
     }
 
@@ -62,7 +62,7 @@ public class CTRL_Cobrar {
         v_cobrar.jb_add.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                String[] add = {"1","2"};
+                String[] add = {"1", "2"};
                 v_cobrar.defModel.addRow(add);
             }
         });
@@ -76,7 +76,7 @@ public class CTRL_Cobrar {
             public void actionPerformed(ActionEvent ae) {
                 try {
                     v_cobrar.jtab_venta.moveColumn(0, 0);
-                    ArrayList<OBJ_Reglones> saveList = ExtraElementosTB();
+                    ArrayList<OBJ_Reglones> saveList = ExtraElementosTB(v_cobrar.jl_nombre.getText());
                     double total = calcularTotal(saveList);
                     v_cobrar.jl_total_pagar.setText("$" + total);
 
@@ -94,14 +94,14 @@ public class CTRL_Cobrar {
         });
     }
 
-    public ArrayList<OBJ_Reglones> ExtraElementosTB() throws NumberFormatException {
+    public ArrayList<OBJ_Reglones> ExtraElementosTB(String nombre) throws NumberFormatException {
         ArrayList<OBJ_Reglones> reglones = new ArrayList<>();
         int columnas = v_cobrar.defModel.getColumnCount();
         int filas = v_cobrar.defModel.getRowCount();
         for (int i = 0; i < filas; i++) {
             String uno = (String) v_cobrar.defModel.getValueAt(i, 0);
             double dos = Double.parseDouble(String.valueOf(v_cobrar.defModel.getValueAt(i, 1)).trim());
-            reglones.add(new OBJ_Reglones(uno, dos));
+            reglones.add(new OBJ_Reglones(uno, dos, nombre));
         }
         return reglones;
     }

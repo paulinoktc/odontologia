@@ -16,6 +16,7 @@ import modelo.MODL_Paciente;
 import modelo.MODL_Ventas;
 import modelo.OBJ_Paciente;
 import modelo.OBJ_Reglones;
+import modelo.Validador;
 import vista.V_BuscarPaciente;
 import vista.V_Cobrar;
 import vista.V_RegistrarCita;
@@ -50,6 +51,20 @@ public class CTRL_BuscarPaciente {
                 v_buscarPaciente.dispose();
 
                 new CTRL_principal();
+            }
+        });
+
+        v_buscarPaciente.jb_nuevoHistorial.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                if (v_buscarPaciente.jcb_select_paciente.getItemCount() > 0) {
+                    String id = listaPacientes.get(v_buscarPaciente.jcb_select_paciente.getSelectedIndex()).getId_paciente();
+                    new CTRL_NuevoHistorial(id);
+                    v_buscarPaciente.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Busca un paciente");
+                }
+
             }
         });
 
@@ -144,6 +159,12 @@ public class CTRL_BuscarPaciente {
         if (listaPacientes.size() != 0) {
             double cantidad = new MODL_Ventas().validaCredito(
                     listaPacientes.get(v_buscarPaciente.jcb_select_paciente.getSelectedIndex()).getId_paciente());
+
+            OBJ_Paciente temporal = new MODL_Paciente().h_paciente(listaPacientes.get(v_buscarPaciente.jcb_select_paciente.getSelectedIndex()).getId_paciente());
+            v_buscarPaciente.jl_telefono.setText("Telefono: " + temporal.getTelefono());
+            v_buscarPaciente.jl_tutor.setText("Tutor: " + temporal.getTutor());
+            v_buscarPaciente.jl_telTutor.setText("Telefono: " + temporal.getTelTutor());
+
             if (cantidad > 0) {
                 v_buscarPaciente.jl_cuenta_credito.setText("$ " + cantidad);
                 v_buscarPaciente.jb_abonar.setVisible(true);
@@ -195,12 +216,11 @@ public class CTRL_BuscarPaciente {
 
     public void mostrarPacientePredefinido() {
         for (OBJ_Paciente listPacient : listaPacientes) {
-            v_buscarPaciente.jcb_select_paciente.addItem(
-                    listPacient.getId_paciente() + " "
+            v_buscarPaciente.jcb_select_paciente.addItem("Folio: "
+                    + listPacient.getId_paciente() + " "
                     + listPacient.getNombre() + " "
                     + listPacient.getAp_paterno() + " "
                     + listPacient.getAp_materno() + " "
-                    + listPacient.getTelefono()
             );
 
         }
@@ -246,7 +266,7 @@ public class CTRL_BuscarPaciente {
             public void actionPerformed(ActionEvent ae) {
                 try {
                     cntr_cobrar.v_cobrar.jtab_venta.moveColumn(0, 0);
-                    ArrayList<OBJ_Reglones> saveList = cntr_cobrar.ExtraElementosTB();
+                    ArrayList<OBJ_Reglones> saveList = cntr_cobrar.ExtraElementosTB(cntr_cobrar.v_cobrar.jl_nombre.getText());
                     double total = cntr_cobrar.calcularTotal(saveList);
                     cntr_cobrar.v_cobrar.jl_total_pagar.setText("$" + total);
 

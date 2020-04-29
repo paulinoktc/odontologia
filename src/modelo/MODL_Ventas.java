@@ -25,18 +25,20 @@ public class MODL_Ventas {
             Conexion cn = new Conexion();
             Connection cc = cn.crearConexion();
             cc.setAutoCommit(false);
-            CallableStatement llamada = cc.prepareCall("{call saveVenta(?,?)}");
+            CallableStatement llamada = cc.prepareCall("{call saveVenta(?,?,?)}");
 
             for (OBJ_Reglones lista : ventas) {
-                llamada.setString(1, lista.getConcepto());
-                llamada.setDouble(2, lista.getCantidad());
+                System.out.println(lista.getCantidad()+" "+lista.getConcepto());
+                llamada.setString(1, lista.getNombreCliente());
+                llamada.setString(2, lista.getConcepto());
+                llamada.setDouble(3, lista.getCantidad());
                 llamada.execute();
             }
 
             cc.commit();
         } catch (SQLException ex) {
 
-            Logger.getLogger(MODL_Antecedentes.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MODL_Ventas.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -227,7 +227,7 @@ public class CTRL_DatosPersonales {
         antecedPaciente.setId_antecedente(mdl_antecedente.getIdAntecedente(antecedPaciente));
         EstraerTejidosBlandos();
         antecedPaciente.setId_consulta(mdl_antecedente.getIdConsulta(String.valueOf(v_datosPersonales.jcb_t_consulta.getSelectedItem())));
-        System.out.println(antecedPaciente.getId_antecedente());
+        //System.out.println(antecedPaciente.getId_antecedente());
         mdl_antecedente.saveTipoConsulta(antecedPaciente);
         mdl_tejidos.GuardarTejidosDB(tegidosBlandos);
         EstraerPadecimientos();
@@ -247,7 +247,7 @@ public class CTRL_DatosPersonales {
             }
             mdl_padecimiento.saveListaPadecimientos(listaPadecimienientos);
         }
-        if (embarazada != null) {
+        if (v_datosPersonales.jcb_sexo.getSelectedIndex() == 1) {
             new MODL_EstadoPaciente().GuardarEmbarazo(embarazada);
         }
         if (hospitalizado != null) {
@@ -297,8 +297,10 @@ public class CTRL_DatosPersonales {
     }
 
     public void ExtraerEmbarazo() {
-        embarazada = extraerDatosVista.ExtraeEsteElemento(String.valueOf(v_datosPersonales.jcb_mesesEmbarazo.getSelectedItem()));//embarazada*
-        embarazada.setId_antecedente(antecedPaciente.getId_antecedente());         //------------estableciendo el Id antecedente                
+        if (v_datosPersonales.jcb_sexo.getSelectedIndex() != 1) {
+            embarazada = extraerDatosVista.ExtraeEsteElemento(String.valueOf(v_datosPersonales.jcb_mesesEmbarazo.getSelectedItem()));//embarazada*
+            embarazada.setId_antecedente(antecedPaciente.getId_antecedente());         //------------estableciendo el Id antecedente                
+        }
     }
 
     public void ExtraeAnticonc() {                                              //anticonc

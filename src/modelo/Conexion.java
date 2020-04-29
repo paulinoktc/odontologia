@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 public class Conexion {
 
-    String baseDatos="dentista";
+    String baseDatos="odontologia";
     String usuario="root";
     String contraseña="zomby";
     String direccion = "jdbc:mysql://localhost/"+baseDatos+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";//+baseDatos;

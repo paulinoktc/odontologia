@@ -12,12 +12,23 @@ package modelo;
 public class OBJ_Reglones {
     private String concepto;
     private double cantidad;
-
+    private String nombreCliente;
+    
+    
+/*
     public OBJ_Reglones(String concepto, double cantidad) {
         this.concepto = concepto;
         this.cantidad = cantidad;
     }
+*/
 
+    public OBJ_Reglones(String concepto, double cantidad, String nombreCliente) {
+        this.concepto = concepto;
+        this.cantidad = cantidad;
+        this.nombreCliente = nombreCliente;
+    }
+    
+    
     public String getConcepto() {
         return concepto;
     }
@@ -32,6 +43,14 @@ public class OBJ_Reglones {
 
     public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
+    }
+
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
     }
     
     

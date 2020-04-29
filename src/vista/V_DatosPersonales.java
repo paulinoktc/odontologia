@@ -64,7 +64,6 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         tratamiento = new javax.swing.JLabel();
         jt_domicilio = new javax.swing.JTextField();
         jcb_sexo = new javax.swing.JComboBox<>();
-        jb_mas = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jtf_ocupacion = new javax.swing.JTextField();
@@ -83,6 +82,8 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jta_tratamiento = new javax.swing.JTextArea();
         jd_fechcaNacimiento = new com.toedter.calendar.JDateChooser();
+        jLabel6 = new javax.swing.JLabel();
+        jl_telefonotutor = new javax.swing.JTextField();
         jl_antecedentes = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jrb_apRespiratorio = new javax.swing.JRadioButton();
@@ -200,9 +201,6 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jcb_sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sexo", "F", "M" }));
         jp_datosPersonales.add(jcb_sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 70, 20));
 
-        jb_mas.setText("AGREGAR");
-        jp_datosPersonales.add(jb_mas, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, -1, -1));
-
         jLabel12.setBackground(new java.awt.Color(204, 204, 255));
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -237,19 +235,19 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Motivo Visita");
-        jp_datosPersonales.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, 20));
+        jp_datosPersonales.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, 20));
 
         jt_motiv_visita.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jp_datosPersonales.add(jt_motiv_visita, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 220, 20));
+        jp_datosPersonales.add(jt_motiv_visita, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 220, 20));
 
         jLabel15.setBackground(new java.awt.Color(204, 204, 255));
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Correo");
-        jp_datosPersonales.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, 20));
+        jLabel15.setText("Correo:");
+        jp_datosPersonales.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, 20));
 
         jt_correo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jp_datosPersonales.add(jt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 220, 20));
+        jp_datosPersonales.add(jt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 220, 20));
 
         jcb_t_consulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo Consulta" }));
         jp_datosPersonales.add(jcb_t_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 150, -1));
@@ -273,12 +271,18 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jta_tratamiento.setRows(5);
         jScrollPane1.setViewportView(jta_tratamiento);
 
-        jp_datosPersonales.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, 250, -1));
+        jp_datosPersonales.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 250, 110));
 
         jd_fechcaNacimiento.setDateFormatString("yyyy-MM-d");
         jp_datosPersonales.add(jd_fechcaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 150, -1));
 
-        getContentPane().add(jp_datosPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 350));
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Telefono:");
+        jp_datosPersonales.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
+        jp_datosPersonales.add(jl_telefonotutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 220, -1));
+
+        getContentPane().add(jp_datosPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 390));
 
         jl_antecedentes.setBackground(new java.awt.Color(94, 117, 116));
         jl_antecedentes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -539,7 +543,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
 
         jp_odontograma.setBackground(new java.awt.Color(94, 117, 116));
         jp_odontograma.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jp_odontograma, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 610, 300));
+        getContentPane().add(jp_odontograma, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 610, 260));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -600,6 +604,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
@@ -609,7 +614,6 @@ public class V_DatosPersonales extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     public javax.swing.JButton jb_add;
     public javax.swing.JButton jb_addAlegia;
-    public javax.swing.JButton jb_mas;
     public javax.swing.JButton jb_more_medic;
     public javax.swing.JButton jb_salir;
     public javax.swing.JComboBox<String> jcb_alimentacion;
@@ -623,11 +627,12 @@ public class V_DatosPersonales extends javax.swing.JFrame {
     public com.toedter.calendar.JDateChooser jd_fechcaNacimiento;
     private javax.swing.JLabel jl_Encia;
     private javax.swing.JLabel jl_Paladar;
-    private javax.swing.JPanel jl_antecedentes;
+    public javax.swing.JPanel jl_antecedentes;
     private javax.swing.JLabel jl_domicilio;
     private javax.swing.JLabel jl_labios;
     private javax.swing.JLabel jl_lengua;
     private javax.swing.JLabel jl_mejilla;
+    public javax.swing.JTextField jl_telefonotutor;
     private javax.swing.JPanel jp_datosPersonales;
     private javax.swing.JPanel jp_habitos;
     public javax.swing.JPanel jp_odontograma;

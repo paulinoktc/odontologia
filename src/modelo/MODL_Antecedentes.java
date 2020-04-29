@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelo;
 
 import java.sql.CallableStatement;
@@ -16,10 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 
-/**
- *
- * @author zomby
- */
+
 public class MODL_Antecedentes {
 
     Conexion cn = new Conexion();
@@ -63,7 +56,6 @@ public class MODL_Antecedentes {
             llamada = cc.prepareCall("{call saveTipoConsulta(?,?)}");
             llamada.setInt(1, antecedente.getId_antecedente());
             llamada.setInt(2, antecedente.getId_consulta());
-
             llamada.execute();
 
             cc.commit();
@@ -78,11 +70,6 @@ public class MODL_Antecedentes {
         }
     }
 
-    /**
-     * Recorre todos los id y obtiene el ultimo
-     *
-     * @return
-     */
     public int getIdAntecedente(OBJ_Antecedentes antecedente) {
 
         int id = 0;
@@ -123,7 +110,6 @@ public class MODL_Antecedentes {
             ps = cc.prepareStatement(""
                     + "SELECT fecha FROM antecedentes WHERE id_paciente='" + folio_paciente + "';");
             ResultSet rs = ps.executeQuery();
-
             while (rs.next()) {
                 items.addItem(rs.getString(1));
             }

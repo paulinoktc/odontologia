@@ -6,10 +6,14 @@
 package controlador;
 
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.Action;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import modelo.MODL_Antecedentes;
 import modelo.MODL_Paciente;
 import modelo.MODL_Padecimiento;
@@ -19,6 +23,7 @@ import modelo.MODL_TejidosBlandos;
 import modelo.OBJ_Antecedentes;
 import modelo.OBJ_Paciente;
 import modelo.OBJ_TejidosBlandos;
+import odontograma.ManipulaOdontograma;
 import vista.V_HistorialComplet;
 
 /**
@@ -45,13 +50,18 @@ public class CTRL_HistorialCompleto {
         this.id_paciente = id_paciente;
         v_historial = new V_HistorialComplet();
         new MODL_Antecedentes().getItemFechasAntecedentes(id_paciente, v_historial.jcb_fechas);
-
         agregarActions();
         v_historial.setVisible(true);
     }
 
     public void mostrarDatosEnPantalla() {
-        v_historial.jta_AllData.append("__________________DATOS PACIENTE________________\n\n");
+
+        cargarodontHist(v_historial.jl_odontograma, id_paciente);
+
+        v_historial.jta_AllData.setText("");
+        v_historial.jta_AllData.append("____________________________________________________\n");
+        v_historial.jta_AllData.append("                      DATOS PACIENTE\n\n");
+        v_historial.jta_AllData.append("____________________________________________________\n");
         v_historial.jta_AllData.append("Nombre: " + paciente.getNombre() + " ");
         v_historial.jta_AllData.append(paciente.getAp_paterno() + " ");
         v_historial.jta_AllData.append(paciente.getAp_materno() + "\n");
@@ -63,8 +73,11 @@ public class CTRL_HistorialCompleto {
         v_historial.jta_AllData.append("Telefono: " + paciente.getTelefono() + "\n");
         v_historial.jta_AllData.append("Correo: " + paciente.getCorreo() + "\n");
         v_historial.jta_AllData.append("Tutor: " + paciente.getTutor() + "\n");
+        v_historial.jta_AllData.append("Domicilio: " + paciente.getDomicilio() + "\n");
+        v_historial.jta_AllData.append("____________________________________________________\n");
 
-        v_historial.jta_AllData.append("__________________ANTECEDENTES________________\n\n");
+        v_historial.jta_AllData.append("                        ANTECEDENTES\n\n");
+        v_historial.jta_AllData.append("____________________________________________________\n");
 
         v_historial.jta_AllData.append("Higiene Bucal: " + antecedente.getHigiene_bucal() + "\n");
         v_historial.jta_AllData.append("Alimentacion: " + antecedente.getAlimentacion() + "\n");
@@ -77,8 +90,9 @@ public class CTRL_HistorialCompleto {
         for (String padecimientos : listaPadecimiento) {
             v_historial.jta_AllData.append(padecimientos + "\n");
         }
-
-        v_historial.jta_AllData.append("__________________TEJIDOS BLANDOS________________\n\n");
+        v_historial.jta_AllData.append("____________________________________________________\n");
+        v_historial.jta_AllData.append("                      TEJIDOS BLANDOS\n\n");
+        v_historial.jta_AllData.append("____________________________________________________\n");
 
         v_historial.jta_AllData.append("Frenillo: " + tejidos_blandos.getFrenillo() + "\n");
         v_historial.jta_AllData.append("Mejilla: " + tejidos_blandos.getMejilla() + "\n");
@@ -86,10 +100,10 @@ public class CTRL_HistorialCompleto {
         v_historial.jta_AllData.append("Paladar: " + tejidos_blandos.getPaladar() + "\n");
         v_historial.jta_AllData.append("Encia: " + tejidos_blandos.getEncia() + "\n");
         v_historial.jta_AllData.append("Lengua: " + tejidos_blandos.getLengua() + "\n");
-        v_historial.jta_AllData.append("___________________________________________________\n");
+        v_historial.jta_AllData.append("____________________________________________________\n");
 
         v_historial.jta_AllData.append("                     HABITOS\n");
-        v_historial.jta_AllData.append("___________________________________________________\n");
+        v_historial.jta_AllData.append("____________________________________________________\n");
 
         for (String listHabit : listaHabitos) {
             v_historial.jta_AllData.append(listHabit + "\n");
@@ -99,14 +113,12 @@ public class CTRL_HistorialCompleto {
         v_historial.jta_AllData.append("                  MEDICAMENTOS \n\n");
         v_historial.jta_AllData.append("____________________________________________________\n");
 
-
         for (String listMedicaments : listaMedicamentos) {
             v_historial.jta_AllData.append(listMedicaments + "\n");
         }
         v_historial.jta_AllData.append("____________________________________________________\n");
         v_historial.jta_AllData.append("                       ALERGIAS\n");
         v_historial.jta_AllData.append("____________________________________________________\n");
-
 
         for (String alergias : listaAlergias) {
             v_historial.jta_AllData.append(alergias + "\n");
@@ -150,5 +162,14 @@ public class CTRL_HistorialCompleto {
                 mostrarDatosEnPantalla();
             }
         });
+    }
+
+    public void cargarodontHist(JLabel label, String nombre) {
+        label.repaint();
+        ImageIcon imagen = new ImageIcon("C:\\ODONTOGRAMA\\PACIENTES\\" + nombre + ".png");
+        Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_DEFAULT));
+        label.setIcon(icono);
+        //label.repaint();
+        //System.out.println("leido");
     }
 }

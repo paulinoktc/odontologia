@@ -72,7 +72,6 @@ public class MODL_ReferenciaTB {
                 llamada.setInt(1, lista.getId_antecedente());
                 llamada.setString(2, lista.getNombre());
                 llamada.execute();
-                System.out.println(lista.getId_antecedente() + " " + lista.getNombre());
             }
 
             cc.commit();
@@ -126,9 +125,9 @@ public class MODL_ReferenciaTB {
             PreparedStatement ps = cc.prepareStatement(scr_l_anticoncept + id_antecedente + ";");
             ResultSet rs = ps.executeQuery();
 
-            rs.next();
-            antic = rs.getString(1);
-
+            if (rs.next()) {
+                antic = rs.getString(1);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(MODL_Paciente.class.getName()).log(Level.SEVERE, null, ex);
         }
