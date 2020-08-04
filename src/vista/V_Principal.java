@@ -1,13 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Vista menu principal
  */
 package vista;
 
+import com.sun.awt.AWTUtilities;
+import java.awt.Shape;
+import java.awt.geom.RoundRectangle2D;
+
 /**
  *
- * @author ZOMBY
+ * @author BereniceAnai
  */
 public class V_Principal extends javax.swing.JFrame {
 
@@ -16,6 +18,8 @@ public class V_Principal extends javax.swing.JFrame {
      */
     public V_Principal() {
         initComponents();
+        Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 30, 30);
+        AWTUtilities.setWindowShape(this, forma);
         this.setLocationRelativeTo(null);
     }
 
@@ -44,78 +48,84 @@ public class V_Principal extends javax.swing.JFrame {
         jmi_cerrarCecion = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(94, 117, 116));
+        jPanel1.setBackground(new java.awt.Color(0, 160, 187));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jb_cerrar_caja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cerrar_170_140.png"))); // NOI18N
         jb_cerrar_caja.setText("Cerrar Caja");
+        jb_cerrar_caja.setToolTipText("Cerrar caja suma las ventas totales");
         jb_cerrar_caja.setBorder(null);
         jb_cerrar_caja.setBorderPainted(false);
         jb_cerrar_caja.setContentAreaFilled(false);
         jb_cerrar_caja.setFocusPainted(false);
         jb_cerrar_caja.setFocusable(false);
-        jPanel1.add(jb_cerrar_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 170, 170, 140));
+        jPanel1.add(jb_cerrar_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 90, 170, 140));
 
         jb_nuevoPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/nuevo_170_140.png"))); // NOI18N
+        jb_nuevoPaciente.setToolTipText("Agregar un nuevo paciente");
         jb_nuevoPaciente.setBorder(null);
         jb_nuevoPaciente.setBorderPainted(false);
         jb_nuevoPaciente.setContentAreaFilled(false);
         jb_nuevoPaciente.setFocusPainted(false);
         jb_nuevoPaciente.setFocusable(false);
-        jPanel1.add(jb_nuevoPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 170, 140));
+        jPanel1.add(jb_nuevoPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 170, 140));
 
         jb_buscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar_170_140.png"))); // NOI18N
+        jb_buscarPaciente.setToolTipText("Buscar Paciente, Realizar Abonos, Agendar Cita");
         jb_buscarPaciente.setBorder(null);
         jb_buscarPaciente.setBorderPainted(false);
         jb_buscarPaciente.setContentAreaFilled(false);
         jb_buscarPaciente.setFocusPainted(false);
         jb_buscarPaciente.setFocusable(false);
-        jPanel1.add(jb_buscarPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 170, 140));
+        jPanel1.add(jb_buscarPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 170, 140));
 
         jb_agenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agenda_170_140.png"))); // NOI18N
+        jb_agenda.setToolTipText("Ver agenta, citas pendientes");
         jb_agenda.setBorder(null);
         jb_agenda.setBorderPainted(false);
         jb_agenda.setContentAreaFilled(false);
         jb_agenda.setFocusPainted(false);
         jb_agenda.setFocusable(false);
-        jPanel1.add(jb_agenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 170, 140));
+        jPanel1.add(jb_agenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 90, 170, 140));
 
         jb_presupuesto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/presupuesto_170_140.png"))); // NOI18N
+        jb_presupuesto.setToolTipText("Generar un presupuesto");
         jb_presupuesto.setBorder(null);
         jb_presupuesto.setBorderPainted(false);
         jb_presupuesto.setContentAreaFilled(false);
         jb_presupuesto.setFocusPainted(false);
         jb_presupuesto.setFocusable(false);
-        jPanel1.add(jb_presupuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 170, 140));
+        jPanel1.add(jb_presupuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 170, 140));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Cerrar Caja");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 330, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 250, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Presupuesto");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nuevo Paciente");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Buscar Paciente");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Agenda");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 330, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 250, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 450));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 450));
 
         jMenu1.setText("Opciones");
 

@@ -1,13 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Vista presupuestos
  */
 package vista;
 
+import com.sun.awt.AWTUtilities;
+import java.awt.Shape;
+import java.awt.geom.RoundRectangle2D;
+
 /**
  *
- * @author ZOMBY
+ * @author BereniceAnai
  */
 public class V_Presupuesto extends javax.swing.JFrame {
 
@@ -16,6 +18,8 @@ public class V_Presupuesto extends javax.swing.JFrame {
      */
     public V_Presupuesto() {
         initComponents();
+          Shape forma=new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 30, 30);
+        AWTUtilities.setWindowShape(this, forma);
         this.setLocationRelativeTo(null);
     }
 
@@ -85,6 +89,7 @@ public class V_Presupuesto extends javax.swing.JFrame {
         jb_cobrar = new javax.swing.JButton();
         jb_nuevo_paciente = new javax.swing.JButton();
         jb_salir = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -92,14 +97,14 @@ public class V_Presupuesto extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(94, 117, 116));
+        jPanel1.setBackground(new java.awt.Color(0, 160, 187));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("COSTO TOTAL DEL TRATAMIENTO");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
         jLabel3.setBackground(new java.awt.Color(204, 204, 255));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -123,7 +128,7 @@ public class V_Presupuesto extends javax.swing.JFrame {
         jl_total.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jl_total.setForeground(new java.awt.Color(255, 255, 255));
         jl_total.setText("$0.00");
-        jPanel1.add(jl_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, -1, -1));
+        jPanel1.add(jl_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 170, -1, -1));
 
         jLabel7.setBackground(new java.awt.Color(204, 204, 255));
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -198,6 +203,7 @@ public class V_Presupuesto extends javax.swing.JFrame {
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, -1, -1));
 
         jtf_p_extraccion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jtf_p_extraccion.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jtf_p_extraccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 60, -1));
 
         jLabel16.setBackground(new java.awt.Color(204, 204, 255));
@@ -302,7 +308,7 @@ public class V_Presupuesto extends javax.swing.JFrame {
         jPanel1.add(jtf_t_otro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 120, -1));
 
         jb_calcular.setText("CALCULAR");
-        jPanel1.add(jb_calcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 70, 230, -1));
+        jPanel1.add(jb_calcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, 140, -1));
 
         jLabel18.setBackground(new java.awt.Color(204, 204, 255));
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -314,10 +320,10 @@ public class V_Presupuesto extends javax.swing.JFrame {
         jl_total1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jl_total1.setForeground(new java.awt.Color(255, 255, 255));
         jl_total1.setText("TOTAL:");
-        jPanel1.add(jl_total1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, -1, -1));
+        jPanel1.add(jl_total1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, -1, -1));
 
         jb_cobrar.setText("Cobrar Consulta");
-        jPanel1.add(jb_cobrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 410, 120, -1));
+        jPanel1.add(jb_cobrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, 140, -1));
 
         jb_nuevo_paciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/nuevo_170_140.png"))); // NOI18N
         jb_nuevo_paciente.setBorder(null);
@@ -325,7 +331,7 @@ public class V_Presupuesto extends javax.swing.JFrame {
         jb_nuevo_paciente.setContentAreaFilled(false);
         jb_nuevo_paciente.setFocusPainted(false);
         jb_nuevo_paciente.setFocusable(false);
-        jPanel1.add(jb_nuevo_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 170, 140));
+        jPanel1.add(jb_nuevo_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, 170, 140));
 
         jb_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar_40_40.png"))); // NOI18N
         jb_salir.setBorder(null);
@@ -333,9 +339,14 @@ public class V_Presupuesto extends javax.swing.JFrame {
         jb_salir.setContentAreaFilled(false);
         jb_salir.setFocusPainted(false);
         jb_salir.setFocusable(false);
-        jPanel1.add(jb_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 40, 40));
+        jPanel1.add(jb_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 0, 40, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 450));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Nuevo Paciente");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 380, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -386,6 +397,7 @@ public class V_Presupuesto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

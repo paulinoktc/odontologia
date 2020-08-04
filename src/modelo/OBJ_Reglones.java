@@ -10,24 +10,39 @@ package modelo;
  * @author zomby
  */
 public class OBJ_Reglones {
-    private String concepto;
-    private double cantidad;
-    private String nombreCliente;
-    
-    
-/*
-    public OBJ_Reglones(String concepto, double cantidad) {
-        this.concepto = concepto;
-        this.cantidad = cantidad;
-    }
-*/
 
-    public OBJ_Reglones(String concepto, double cantidad, String nombreCliente) {
+    private String concepto;
+    private int cantidad_1;
+    private double presio;
+    private String nombreCliente;
+    private double total;
+    private String fecha;
+
+    public OBJ_Reglones(String nombreCliente, String concepto, int cantidad, double precio) {
         this.concepto = concepto;
-        this.cantidad = cantidad;
+        this.cantidad_1 = cantidad;
+        this.presio = precio;
         this.nombreCliente = nombreCliente;
+        total = this.presio * cantidad_1;
     }
-    
+
+    public OBJ_Reglones(String nombreCliente, String concepto, int cantidad_1, double presio, double total, String fecha) {
+        this.concepto = concepto;
+        this.cantidad_1 = cantidad_1;
+        this.presio = presio;
+        this.nombreCliente = nombreCliente;
+        this.total = total;
+        this.fecha = fecha;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
     
     public String getConcepto() {
         return concepto;
@@ -37,13 +52,6 @@ public class OBJ_Reglones {
         this.concepto = concepto;
     }
 
-    public double getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(double cantidad) {
-        this.cantidad = cantidad;
-    }
 
     public String getNombreCliente() {
         return nombreCliente;
@@ -52,6 +60,29 @@ public class OBJ_Reglones {
     public void setNombreCliente(String nombreCliente) {
         this.nombreCliente = nombreCliente;
     }
-    
-    
+
+    public double getPresio() {
+        return presio;
+    }
+
+    public void setPresio(double presio) {
+        this.presio = presio;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public int getCantidad_1() {
+        return cantidad_1;
+    }
+
+    public void setCantidad_1(int cantidad_1) {
+        this.cantidad_1 = cantidad_1;
+    }
+
 }

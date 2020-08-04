@@ -1,13 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * ventana buscar paciente
  */
 package vista;
 
+import com.sun.awt.AWTUtilities;
+import java.awt.Shape;
+import java.awt.geom.RoundRectangle2D;
+
 /**
  *
- * @author ZOMBY
+ * @author BereniceAnai
  */
 public class V_BuscarPaciente extends javax.swing.JFrame {
 
@@ -16,6 +18,10 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
      */
     public V_BuscarPaciente() {
         initComponents();
+         Shape forma=new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 30, 30);
+        AWTUtilities.setWindowShape(this, forma);
+        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
         this.setLocationRelativeTo(null);
     }
 
@@ -52,12 +58,15 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
         jl_telTutor = new javax.swing.JLabel();
         jl_telefono = new javax.swing.JLabel();
         jl_tutor = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jb_cobrarPresupuesto = new javax.swing.JButton();
+        jl_getPresupuesto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(94, 117, 116));
+        jPanel1.setBackground(new java.awt.Color(0, 160, 187));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jcb_buscar_por.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -87,7 +96,7 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
         jl_abonar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jl_abonar.setForeground(new java.awt.Color(255, 255, 255));
         jl_abonar.setText("Abonar");
-        jPanel1.add(jl_abonar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, -1, 20));
+        jPanel1.add(jl_abonar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, -1, 20));
 
         jLabel4.setBackground(new java.awt.Color(204, 204, 255));
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -103,7 +112,7 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
         jl_cuenta_credito.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jl_cuenta_credito.setForeground(new java.awt.Color(255, 255, 255));
         jl_cuenta_credito.setText("$0.00");
-        jPanel1.add(jl_cuenta_credito, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, -1, -1));
+        jPanel1.add(jl_cuenta_credito, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 240, -1, -1));
 
         jcb_select_paciente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel1.add(jcb_select_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 600, -1));
@@ -114,7 +123,7 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
         jb_hist_complet.setContentAreaFilled(false);
         jb_hist_complet.setFocusPainted(false);
         jb_hist_complet.setFocusable(false);
-        jPanel1.add(jb_hist_complet, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 80, 80));
+        jPanel1.add(jb_hist_complet, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 80, 80));
 
         jb_add_cita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Agenda_80_80.png"))); // NOI18N
         jb_add_cita.setBorder(null);
@@ -122,7 +131,7 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
         jb_add_cita.setContentAreaFilled(false);
         jb_add_cita.setFocusPainted(false);
         jb_add_cita.setFocusable(false);
-        jPanel1.add(jb_add_cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 80, 80));
+        jPanel1.add(jb_add_cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, 80, 80));
 
         jb_abonar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Cobrar_80_80.png"))); // NOI18N
         jb_abonar.setBorder(null);
@@ -130,19 +139,19 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
         jb_abonar.setContentAreaFilled(false);
         jb_abonar.setFocusPainted(false);
         jb_abonar.setFocusable(false);
-        jPanel1.add(jb_abonar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 80, 80));
+        jPanel1.add(jb_abonar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 80, 80));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Historial Completo");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, 20));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, 20));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Agendar Cita");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, -1, 20));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, -1, 20));
 
-        jb_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar_40_40.png"))); // NOI18N
+        jb_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/regresar.png"))); // NOI18N
         jb_salir.setBorder(null);
         jb_salir.setBorderPainted(false);
         jb_salir.setContentAreaFilled(false);
@@ -156,24 +165,24 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
         jb_credito.setContentAreaFilled(false);
         jb_credito.setFocusPainted(false);
         jb_credito.setFocusable(false);
-        jPanel1.add(jb_credito, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 80, 80));
+        jPanel1.add(jb_credito, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 80, 80));
 
         jl_otorgaCredito.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jl_otorgaCredito.setForeground(new java.awt.Color(254, 254, 254));
         jl_otorgaCredito.setText("Otorgar  credito");
-        jPanel1.add(jl_otorgaCredito, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, -1, 20));
+        jPanel1.add(jl_otorgaCredito, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, -1, 20));
 
         jb_nuevoHistorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/historial.png"))); // NOI18N
         jb_nuevoHistorial.setBorder(null);
         jb_nuevoHistorial.setBorderPainted(false);
         jb_nuevoHistorial.setFocusPainted(false);
         jb_nuevoHistorial.setFocusable(false);
-        jPanel1.add(jb_nuevoHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 80, 80));
+        jPanel1.add(jb_nuevoHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, 80, 80));
 
         jl_nuevoHistorial.setFont(new java.awt.Font("Courier Pitch", 1, 13)); // NOI18N
         jl_nuevoHistorial.setForeground(new java.awt.Color(254, 254, 254));
         jl_nuevoHistorial.setText("Nuevo Historial");
-        jPanel1.add(jl_nuevoHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, -1, -1));
+        jPanel1.add(jl_nuevoHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, -1, -1));
 
         jl_telTutor.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jl_telTutor.setForeground(new java.awt.Color(255, 255, 255));
@@ -190,7 +199,19 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
         jl_tutor.setText("Tutor:");
         jPanel1.add(jl_tutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 490));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Buscar por:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+
+        jb_cobrarPresupuesto.setText("BULL_");
+        jPanel1.add(jb_cobrarPresupuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 320, 80, 80));
+
+        jl_getPresupuesto.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        jl_getPresupuesto.setForeground(new java.awt.Color(255, 255, 255));
+        jl_getPresupuesto.setText("Cobrar Presupuesto");
+        jPanel1.add(jl_getPresupuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 410, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -233,6 +254,7 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
@@ -241,6 +263,7 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
     public javax.swing.JButton jb_abonar;
     public javax.swing.JButton jb_add_cita;
     public javax.swing.JButton jb_buscar;
+    public javax.swing.JButton jb_cobrarPresupuesto;
     public javax.swing.JButton jb_credito;
     public javax.swing.JButton jb_hist_complet;
     public javax.swing.JButton jb_nuevoHistorial;
@@ -249,6 +272,7 @@ public class V_BuscarPaciente extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> jcb_select_paciente;
     public javax.swing.JLabel jl_abonar;
     public javax.swing.JLabel jl_cuenta_credito;
+    public javax.swing.JLabel jl_getPresupuesto;
     public javax.swing.JLabel jl_nuevoHistorial;
     public javax.swing.JLabel jl_otorgaCredito;
     public javax.swing.JLabel jl_telTutor;

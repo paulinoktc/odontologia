@@ -1,7 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * guarda y lee los datos relacion de la base de datos
  */
 package modelo;
 
@@ -16,15 +14,24 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author zomby
+ * @author Sandraelisabet
  */
 public class MODL_RelacionTB {
 
+    /**
+     * consultas a usar
+     */
     private String src_habitos = "SELECT habito.nombre_habito  "
             + "FROM habito INNER JOIN anteced_habit "
             + "WHERE habito.id_habito=anteced_habit.id_habito "
             + "AND anteced_habit.id_antecedente=";
 
+    /**
+     * Extrae el id del habido abuscar
+     *
+     * @param habito Objeto relacion con el nombre del habito
+     * @return id del habito
+     */
     public int getIdPaHabito(OBJ_Relacion habito) {
 
         int id = 0;
@@ -41,6 +48,11 @@ public class MODL_RelacionTB {
         return id;
     }
 
+    /**
+     * Guarda la lista de habitos enla base de datos
+     *
+     * @param listaHabitos Lista de los habitos a guardar
+     */
     public void saveListHabitos(ArrayList<OBJ_Relacion> listaHabitos) {
         try {
             Conexion cn = new Conexion();
@@ -61,6 +73,12 @@ public class MODL_RelacionTB {
         }
     }
 
+    /**
+     * Extrae la lista de habitos que tiene el paciente
+     *
+     * @param id_antecedente id del antecedente a buscar
+     * @return lista de habitos encontrados
+     */
     public ArrayList<String> getListaHabitos(int id_antecedente) {
 
         ArrayList<String> listaHabitos = new ArrayList<>();

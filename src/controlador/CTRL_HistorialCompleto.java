@@ -1,7 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Busca al paciente y todas sus dependencias para mostrarlos en la vista de historial asi como su odontograma
  */
 package controlador;
 
@@ -10,7 +8,6 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -23,12 +20,11 @@ import modelo.MODL_TejidosBlandos;
 import modelo.OBJ_Antecedentes;
 import modelo.OBJ_Paciente;
 import modelo.OBJ_TejidosBlandos;
-import odontograma.ManipulaOdontograma;
 import vista.V_HistorialComplet;
 
 /**
  *
- * @author Paulino
+ * @author PaulinoSalas
  */
 public class CTRL_HistorialCompleto {
 
@@ -36,7 +32,6 @@ public class CTRL_HistorialCompleto {
 
     private String id_paciente;
     private String antoconceptivo;
-
     private OBJ_Paciente paciente;
     private OBJ_Antecedentes antecedente;
     private ArrayList<String> listaHabitos;
@@ -46,27 +41,36 @@ public class CTRL_HistorialCompleto {
 
     private OBJ_TejidosBlandos tejidos_blandos;
 
+    /**
+     * Realiza la busque de datos del paciente que se le indica
+     *
+     * @param id_paciente id del paciente a bucar
+     */
     public CTRL_HistorialCompleto(String id_paciente) {
         this.id_paciente = id_paciente;
         v_historial = new V_HistorialComplet();
+        //Busca las fechas de los antecedetes se hace uso desepues para buscar los antecedentes por fecha
         new MODL_Antecedentes().getItemFechasAntecedentes(id_paciente, v_historial.jcb_fechas);
         agregarActions();
         v_historial.setVisible(true);
     }
 
+    /**
+     * Muestra en la pantalla los datos encontrados del paciente (JTextField)
+     */
     public void mostrarDatosEnPantalla() {
 
         cargarodontHist(v_historial.jl_odontograma, id_paciente);
 
         v_historial.jta_AllData.setText("");
         v_historial.jta_AllData.append("____________________________________________________\n");
-        v_historial.jta_AllData.append("                      DATOS PACIENTE\n\n");
+        v_historial.jta_AllData.append("                      DATOS PACIENTE\n");
         v_historial.jta_AllData.append("____________________________________________________\n");
         v_historial.jta_AllData.append("Nombre: " + paciente.getNombre() + " ");
         v_historial.jta_AllData.append(paciente.getAp_paterno() + " ");
         v_historial.jta_AllData.append(paciente.getAp_materno() + "\n");
         v_historial.jta_AllData.append("Sexo: " + paciente.getSexo() + "\n");
-        v_historial.jta_AllData.append("Fecha: " + paciente.getFechaNaciemiento() + "\n");
+        v_historial.jta_AllData.append("Edad: " + paciente.getFechaNaciemiento() + "\n");
         v_historial.jta_AllData.append("Estado Civil: " + paciente.getEstadoCivil() + "\n");
         v_historial.jta_AllData.append("Ocupacion: " + paciente.getOcupacion() + "\n");
         v_historial.jta_AllData.append("Escolaridad: " + paciente.getEscolaridad() + "\n");
@@ -76,7 +80,7 @@ public class CTRL_HistorialCompleto {
         v_historial.jta_AllData.append("Domicilio: " + paciente.getDomicilio() + "\n");
         v_historial.jta_AllData.append("____________________________________________________\n");
 
-        v_historial.jta_AllData.append("                        ANTECEDENTES\n\n");
+        v_historial.jta_AllData.append("                        ANTECEDENTES\n");
         v_historial.jta_AllData.append("____________________________________________________\n");
 
         v_historial.jta_AllData.append("Higiene Bucal: " + antecedente.getHigiene_bucal() + "\n");
@@ -85,13 +89,13 @@ public class CTRL_HistorialCompleto {
 
         v_historial.jta_AllData.append("Tratamiento: " + antecedente.getTipo_tratamiento() + "\n");
         v_historial.jta_AllData.append("Observaciones: " + antecedente.getObservaciones() + "\n");
-        v_historial.jta_AllData.append("Tipo Consulta: " + antecedente.getTipoConsulta() + "\n\n");
+        v_historial.jta_AllData.append("Tipo Consulta: " + antecedente.getTipoConsulta() + "\n");
 
         for (String padecimientos : listaPadecimiento) {
             v_historial.jta_AllData.append(padecimientos + "\n");
         }
         v_historial.jta_AllData.append("____________________________________________________\n");
-        v_historial.jta_AllData.append("                      TEJIDOS BLANDOS\n\n");
+        v_historial.jta_AllData.append("                      TEJIDOS BLANDOS\n");
         v_historial.jta_AllData.append("____________________________________________________\n");
 
         v_historial.jta_AllData.append("Frenillo: " + tejidos_blandos.getFrenillo() + "\n");
@@ -110,7 +114,7 @@ public class CTRL_HistorialCompleto {
         }
         v_historial.jta_AllData.append("____________________________________________________\n");
 
-        v_historial.jta_AllData.append("                  MEDICAMENTOS \n\n");
+        v_historial.jta_AllData.append("                  MEDICAMENTOS \n");
         v_historial.jta_AllData.append("____________________________________________________\n");
 
         for (String listMedicaments : listaMedicamentos) {
@@ -133,6 +137,9 @@ public class CTRL_HistorialCompleto {
         v_historial.jta_AllData.enable(false);
     }
 
+    /**
+     * Extrae cada uno de los objetos de los pacientes
+     */
     public void ExtraerDatosObejo() {
         paciente = new MODL_Paciente().h_paciente(this.id_paciente);
         antecedente = new MODL_Antecedentes().getHistorialAntecedentes(
@@ -146,6 +153,9 @@ public class CTRL_HistorialCompleto {
         antoconceptivo = new MODL_ReferenciaTB().getAnticonceptivo(antecedente.getId_antecedente());
     }
 
+    /**
+     * Agrega el comportamiento de los botones estan a la escucha
+     */
     public void agregarActions() {
         v_historial.jb_salir.addActionListener(new ActionListener() {
             @Override
@@ -164,12 +174,16 @@ public class CTRL_HistorialCompleto {
         });
     }
 
+    /**
+     * Busca el odontograma guardado del paciente
+     *
+     * @param label Label donde se mostrara el odontograma
+     * @param nombre Nombre del odontograma (id del paciente)
+     */
     public void cargarodontHist(JLabel label, String nombre) {
         label.repaint();
         ImageIcon imagen = new ImageIcon("C:\\ODONTOGRAMA\\PACIENTES\\" + nombre + ".png");
         Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_DEFAULT));
         label.setIcon(icono);
-        //label.repaint();
-        //System.out.println("leido");
     }
 }

@@ -1,7 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Genera un nuevo historial para los usuarios que ya estan regiistrados su comportamiento es similar al CTRL_DadosPersonales
  */
 package controlador;
 
@@ -25,13 +23,12 @@ import modelo.OBJ_Padecimiento;
 import modelo.OBJ_Referencia;
 import modelo.OBJ_Relacion;
 import modelo.OBJ_TejidosBlandos;
-import modelo.Validador;
 import odontograma.ManipulaOdontograma;
 import vista.V_DatosPersonales;
 
 /**
  *
- * @author zomby
+ * @author PaulinoSalas
  */
 public class CTRL_NuevoHistorial {
 
@@ -71,11 +68,21 @@ public class CTRL_NuevoHistorial {
         vista.setVisible(true);
     }
 
+    /**
+     * Manipula el comportamiento de los botones
+     */
     public void agregarActions() {
+
+        /**
+         * Ajusta comboBox y textField para un mejor entendimiento de la ventana
+         * no todos son requeridos y conforme se necesiten iran apareciendo
+         * ejemplo sexo si es hombre no apareceran los meses de embarazo etc.
+         */
         vista.jtf_alergias.setVisible(false);
         vista.jtf_anti.setVisible(false);
         vista.jtf_hospitalizado.setVisible(false);
         vista.jtf_medicamento.setVisible(false);
+        //si el sexo es masculino no mostrara el rb de embarazada
         if (paciente.getSexo().equalsIgnoreCase("M")) {
             vista.jrb_embarazada.setVisible(false);
         }
@@ -179,6 +186,10 @@ public class CTRL_NuevoHistorial {
         });
     }
 
+    /**
+     * Extrae los datos de la vista guarda los principales como paciente y
+     * antecedentes
+     */
     public void RecopilarDatos() {
         ExtraerAntecedentes();
         mdl_antecedente.GuardarAntecedente(antecedPaciente);
@@ -195,6 +206,10 @@ public class CTRL_NuevoHistorial {
         guardaDatosSecundarios();
     }
 
+    /**
+     * Guarda los datos secundarios como las listas, habitos y padecimientos se
+     * asegura de que las listas no esten bacias para guardar los datos en DB
+     */
     public void guardaDatosSecundarios() {
         if (listaPadecimienientos.size() != 0) {
             for (OBJ_Padecimiento listaPad : listaPadecimienientos) {
@@ -234,6 +249,9 @@ public class CTRL_NuevoHistorial {
 
     }
 
+    /**
+     * Inicializa objetos y listas
+     */
     private void setearObjetos() {
         vista = new V_DatosPersonales();
         odontograma = new ManipulaOdontograma(vista);
@@ -244,6 +262,9 @@ public class CTRL_NuevoHistorial {
 
     }
 
+    /**
+     * Inicializa los modelos
+     */
     public void setModels() {
         mdl_tejidos = new MODL_TejidosBlandos();
         mdl_paciente = new MODL_Paciente();
@@ -252,6 +273,9 @@ public class CTRL_NuevoHistorial {
         mdl_padecimiento = new MODL_Padecimiento();
     }
 
+    /**
+     * Muestra los datos recabado en la ventana
+     */
     private void mostrarDatos() {
         new MODL_Consulta().cargarItems(vista.jcb_t_consulta);
         vista.jt_nombre.setText(paciente.getNombre());
@@ -321,7 +345,4 @@ public class CTRL_NuevoHistorial {
         }
     }
 
-    public static void main(String[] args) {
-        new CTRL_NuevoHistorial("20200423123607");
-    }
 }

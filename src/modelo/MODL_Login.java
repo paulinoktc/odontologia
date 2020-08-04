@@ -1,7 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Reliza las consultas para el logeo de la aplicacions
  */
 package modelo;
 
@@ -16,7 +14,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
- * @author zomby
+ * @author SandraElizabet
  */
 public class MODL_Login {
 
@@ -33,7 +31,7 @@ public class MODL_Login {
             }
             result.close();
         } catch (SQLException ex) {
-            Logger.getLogger(MODL_Login.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(MODL_Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -47,18 +45,19 @@ public class MODL_Login {
     public boolean validarPass(String nombreUsuario, String pass) {
 
         String textoSinEncriptar = pass;
+        //texto encriptado con la contraseña
         String textoEncriptadoConSHA = DigestUtils.sha1Hex(textoSinEncriptar);
 
         boolean passCorrect = false;
         Connection conected = new Conexion().crearConexion();
         try {
-            PreparedStatement prepareState = conected.prepareStatement("SELECT nombre_user,pass FROM USUARIOS WHERE nombre_user=?");
+            PreparedStatement prepareState = conected.prepareStatement("SELECT nombre_user,pass FROM usuarios WHERE nombre_user=?");
 
             prepareState.setString(1, nombreUsuario);
 
             ResultSet rs = prepareState.executeQuery();
             if (rs.next()) {
-
+                //verifica que los textos encriptados sean iguales
                 if (rs.getString(2).equalsIgnoreCase(textoEncriptadoConSHA)) {
                     passCorrect = true;
                 }

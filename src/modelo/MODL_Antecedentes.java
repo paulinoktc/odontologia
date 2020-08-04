@@ -1,4 +1,6 @@
-
+/**
+ * Guarda y buscar antecedentes de la base de datos
+ */
 package modelo;
 
 import java.sql.CallableStatement;
@@ -6,13 +8,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 
-
+/**
+ *
+ * @author SandraElizabeth
+ */
 public class MODL_Antecedentes {
 
     Conexion cn = new Conexion();
@@ -24,7 +27,6 @@ public class MODL_Antecedentes {
             + "FROM consulta INNER JOIN tipo_consulta "
             + "WHERE consulta.id_consulta=tipo_consulta.id_consulta "
             + "AND tipo_consulta.id_antecedente=";
-
 
     public void GuardarAntecedente(OBJ_Antecedentes antecedente) {
         try {

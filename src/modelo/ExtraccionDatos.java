@@ -1,32 +1,42 @@
+/**
+ * Extrae de los datos de las vistas que se le envian como parametro y retorna objetos llenos de atributos
+ */
 package modelo;
 
 import java.util.ArrayList;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import vista.V_DatosPersonales;
 import vista.V_Presupuesto;
 
+/**
+ *
+ * @author BereniceAnai
+ */
 public class ExtraccionDatos {
 
     //V_Presupuesto v_presupuesto;
-    private MatrizCostos[] listaPresupuesto = null;
-
+    // private MatrizCostos[] listaPresupuesto = null;
     /**
      * Extrae los datos de la vista presupuestos
      *
      * @param v_presupuesto ventana presupuesto a extraer elementos inicializa
-     * MatrizCostos[]
+     * MatrizCostos[] Arreglo de clase
      */
-    public void ExtraerDatosPresupuesto(V_Presupuesto v_presupuesto) {
+    public MatrizCostos[] ExtraerDatosPresupuesto(V_Presupuesto v_presupuesto) {
+        MatrizCostos[] listaPresupuesto = null;
         try {
             listaPresupuesto = new MatrizCostos[11];
             if (!v_presupuesto.jtf_p_amalgama.getText().isEmpty()) {
-                listaPresupuesto[0] = new MatrizCostos(Double.parseDouble(v_presupuesto.jtf_p_amalgama.getText().toString()), Integer.parseInt(v_presupuesto.jtf_c_amalgama.getText().toString()));
+                listaPresupuesto[0] = new MatrizCostos(
+                        Double.parseDouble(v_presupuesto.jtf_p_amalgama.getText().toString()),
+                        Integer.parseInt(v_presupuesto.jtf_c_amalgama.getText().toString()));
                 v_presupuesto.jtf_t_amalgama.setText(listaPresupuesto[0].getTotal() + "");
             }
             if (!v_presupuesto.jtf_p_recina.getText().isEmpty()) {
-                listaPresupuesto[1] = new MatrizCostos(Double.parseDouble(v_presupuesto.jtf_p_recina.getText().toString()), Integer.parseInt(v_presupuesto.jtf_c_recina.getText().toString()));
+                listaPresupuesto[1] = new MatrizCostos(Double.parseDouble(
+                        v_presupuesto.jtf_p_recina.getText().toString()),
+                        Integer.parseInt(v_presupuesto.jtf_c_recina.getText().toString()));
                 v_presupuesto.jtf_t_recina.setText(listaPresupuesto[1].getTotal() + "");
             }
 
@@ -77,22 +87,44 @@ public class ExtraccionDatos {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Dato erroneo : Prueba\n1: Verifica que presio y cantidad no estan vacios\n2: Poner Numero Entero En Cantidad\n3: No Poner Letras");
         }
-    }
-
-    public MatrizCostos[] getListaPresupuesto() {
         return listaPresupuesto;
     }
 
-    public void setListaPresupuesto(MatrizCostos[] listaPresupuesto) {
-        this.listaPresupuesto = listaPresupuesto;
+    /**
+     * Retorna matriz de costos
+     *
+     * @return matris con los costos para el presupuesto
+     *
+     * public MatrizCostos[] getListaPresupuesto() { return listaPresupuesto; }
+     *
+     * /**
+     * Establece la lista de presupuestos a partir de una matriz de costos
+     *
+     * @param listaPresupuesto Matriz de costros
+     *
+     * public void setListaPresupuesto(MatrizCostos[] listaPresupuesto) {
+     * this.listaPresupuesto = listaPresupuesto;
     }
-
+     */
+    /**
+     * Extrae los datos del paciente desde la vista recibida y retorna un objeto
+     * paciente con todos los datos llenos
+     *
+     * @param vista Donde se extraeran los datos
+     * @return OBj paciente que se llenara con los datos
+     */
     public OBJ_Paciente ExtraerDatosPaciente(V_DatosPersonales vista) {
         OBJ_Paciente el_paciente = new OBJ_Paciente();
         el_paciente.setId_paciente(el_paciente.creatIDPaciente("ininciales pendientes de mandar"));
-        el_paciente.setNombre(vista.jt_nombre.getText());
-        el_paciente.setAp_paterno(vista.jt_ap_paterno.getText());
-        el_paciente.setAp_materno(vista.jt_ap_materno.getText());
+
+        String datoTemporal = vista.jt_nombre.getText();
+        el_paciente.setNombre(datoTemporal);
+
+        datoTemporal = vista.jt_ap_paterno.getText();
+        el_paciente.setAp_paterno(datoTemporal);
+
+        datoTemporal = vista.jt_ap_materno.getText();
+        el_paciente.setAp_materno(datoTemporal);
         el_paciente.setSexo((String.valueOf(vista.jcb_sexo.getSelectedItem())));
         String fechaNaciemiento = ((JTextField) vista.jd_fechcaNacimiento.getDateEditor().getUiComponent()).getText();
         el_paciente.setFechaNaciemiento(fechaNaciemiento);
@@ -119,7 +151,6 @@ public class ExtraccionDatos {
      */
     public ArrayList<OBJ_Relacion> ExtraerDatosHabitos(V_DatosPersonales vista, OBJ_Antecedentes antecedente) {
         ArrayList<OBJ_Relacion> listaHabitos = new ArrayList<OBJ_Relacion>();
-        System.out.println("dentro habit: " + antecedente.getId_antecedente());
 
         if (vista.jrb_brincomania.isSelected()) {
             listaHabitos.add(new OBJ_Relacion(vista.jrb_brincomania.getText(), antecedente.getId_antecedente()));
@@ -166,6 +197,13 @@ public class ExtraccionDatos {
         return antecedentes;
     }
 
+    /**
+     * Extrae la lista de padecimientos de la vista
+     *
+     * @param vista Vista donde se extraeran los datos
+     * @param paciente paciente proprietario del antecededente
+     * @return lista de objetos padecimiento con los datos recabados
+     */
     public ArrayList<OBJ_Padecimiento> EstraerPadecimientos(V_DatosPersonales vista, OBJ_Paciente paciente) {
         ArrayList<OBJ_Padecimiento> padecimientos = new ArrayList<OBJ_Padecimiento>();                        //cargar id_ del paciente
 
@@ -222,6 +260,13 @@ public class ExtraccionDatos {
         return padecimientos;
     }
 
+    /**
+     * Extrae los datos de los tejidos blandos que se encuentren en la vista
+     *
+     * @param vista Donde se extraeran los datos
+     * @param id_paciente id_ del paciente propietario de los tejidos blandos
+     * @return OBJ_Tejidos blandos lleno de atributos
+     */
     public OBJ_TejidosBlandos EstraerTegidosBlandos(V_DatosPersonales vista, String id_paciente) {
         OBJ_TejidosBlandos tejidosBlandos = new OBJ_TejidosBlandos();
         tejidosBlandos.setId_paciente(id_paciente);
@@ -234,6 +279,12 @@ public class ExtraccionDatos {
         return tejidosBlandos;
     }
 
+    /**
+     * Estrae objetos de referencia
+     *
+     * @param texto Texto a Extraer
+     * @return Objero para crear lista
+     */
     public OBJ_Referencia ExtraeReferencia(JTextField texto) {
         if (texto.getText().isEmpty()) {
             return null;
@@ -241,6 +292,12 @@ public class ExtraccionDatos {
         return new OBJ_Referencia(texto.getText());
     }
 
+    /**
+     * Extrae el estado de un paciente
+     *
+     * @param texto Texto a extraer
+     * @return OBJ_EstadoPaciente con atributos llenos
+     */
     public OBJ_EstadoPaciente ExtraeEsteElemento(String texto) {
         if (texto.isEmpty()) {
             return null;

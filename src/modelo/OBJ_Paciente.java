@@ -158,7 +158,6 @@ public class OBJ_Paciente {
         nuevoId = nuevoId.replaceAll("\\-", "");
         nuevoId = nuevoId.replaceAll("\\:", "");
         nuevoId = nuevoId.replaceAll("\\ ", "");
-        System.out.println(nuevoId);
         return nuevoId;
     }
 

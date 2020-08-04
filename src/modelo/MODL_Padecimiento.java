@@ -1,3 +1,6 @@
+/**
+ *Guarda y consulta los padecimientos del paciente
+ */
 package modelo;
 
 import java.sql.CallableStatement;
@@ -5,18 +8,30 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ *
+ * @author SandraElizabet
+ */
 public class MODL_Padecimiento {
 
+    /**
+     * consultas a usar
+     */
     private String scr_padecimientos = "SELECT padecimiento.nombre_padecimiento "
             + "FROM padecimiento INNER JOIN padeci_paciente "
             + "WHERE padecimiento.id_padecimiento=padeci_paciente.id_padecimiento "
             + "AND padeci_paciente.id_paciente='";
 
+    /**
+     * Extrae el id padecimiento del paciente
+     *
+     * @param nombre_consulta OBJ_Padecimiento que se desea buscar
+     * @return id del paciente
+     */
     public int getIdPadecimiento(OBJ_Padecimiento nombre_consulta) {
 
         int id = 0;
@@ -33,6 +48,11 @@ public class MODL_Padecimiento {
         return id;
     }
 
+    /**
+     * Guarda la lista de los padecimientos del paciente
+     *
+     * @param listaPadecimienientos Lista de los padecimientos del paciente
+     */
     public void saveListaPadecimientos(ArrayList<OBJ_Padecimiento> listaPadecimienientos) {
         try {
             Conexion cn = new Conexion();
@@ -54,6 +74,13 @@ public class MODL_Padecimiento {
         }
     }
 
+    /**
+     * Extrae la lista de padeccimientos que se encuentran en la base de datos
+     * de un paciente
+     *
+     * @param id_paciente id(folio ) del paciente a buscar
+     * @return lista de padecimientos encontrados
+     */
     public ArrayList<String> getListaPadecimientos(String id_paciente) {
 
         ArrayList<String> listaPadecimiento = new ArrayList<>();
