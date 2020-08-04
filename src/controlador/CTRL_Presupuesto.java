@@ -1,21 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Lleva el control del presupuesto solo agrega un nuevo paciente si el paciente asi lo quiere o cobra la consulta
  */
 package controlador;
 
 import modelo.ExtraccionDatos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.Action;
-import javax.swing.JOptionPane;
 import modelo.MatrizCostos;
 import vista.V_Presupuesto;
 
 /**
  *
- * @author ZOMBY
+ * @author PaulinoSalas
  */
 public class CTRL_Presupuesto {
 
@@ -36,7 +32,7 @@ public class CTRL_Presupuesto {
         v_presupuesto.jb_calcular.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                xtraccionDatos.ExtraerDatosPresupuesto(v_presupuesto);
+               // xtraccionDatos.ExtraerDatosPresupuesto(v_presupuesto);
                 CalcularPrecioTotal();
             }
         });
@@ -59,8 +55,8 @@ public class CTRL_Presupuesto {
         v_presupuesto.jb_cobrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String[]concepto={"Consulta"};
-                new CTRL_Cobrar(concepto,"Al mostrador").botonComartidoCobrar();
+                String[] concepto = {"Consulta"};
+                new CTRL_Cobrar(concepto, "Al mostrador").botonComartidoCobrar();
                 v_presupuesto.dispose();
             }
         });
@@ -72,7 +68,7 @@ public class CTRL_Presupuesto {
     public void CalcularPrecioTotal() {
         double totalNeto = 0;
 
-        MatrizCostos[] listaPresupuesto = xtraccionDatos.getListaPresupuesto();
+        MatrizCostos[] listaPresupuesto = xtraccionDatos.ExtraerDatosPresupuesto(v_presupuesto);
 
         for (int i = 0; i < listaPresupuesto.length; i++) {
             if (listaPresupuesto[i] != null) {

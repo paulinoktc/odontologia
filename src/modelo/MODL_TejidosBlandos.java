@@ -1,7 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Busca y guarda los daros de tegidos blandos
  */
 package modelo;
 
@@ -10,17 +8,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
  *
- * @author zomby
+ * @author SandraElizabet
  */
 public class MODL_TejidosBlandos {
 
+    /**
+     * Consultas a usar
+     */
     private String scr_tejidBlands = "SELECT frenillo,mejilla,labios,paladar,encia,lengua FROM tejidos_blandos "
             + "WHERE id_paciente='";
 
@@ -46,6 +45,12 @@ public class MODL_TejidosBlandos {
         }
     }
 
+    /**
+     * Extrae tegidos blandos de la base de datos
+     *
+     * @param id_paciente id_del paciente a buscar
+     * @return OBJ_TejidosBlandos objeto de tegidos blandos
+     */
     public OBJ_TejidosBlandos getListTejidos(String id_paciente) {
 
         OBJ_TejidosBlandos tejidos = new OBJ_TejidosBlandos();

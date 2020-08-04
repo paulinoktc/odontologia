@@ -1,28 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Lleva el control de la ventana principal muestra las diferentes opciones que se pueden realizar
  */
 package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import vista.V_Principal;
-import vista.V_login;
 
 /**
  *
- * @author ZOMBY
+ * @author PaulinoSalas
  */
 public class CTRL_principal {
+
     V_Principal v_principal;
+
+    /**
+     * Inicializa la ventana de logueo
+     */
     public CTRL_principal() {
-        v_principal=new V_Principal();
+        v_principal = new V_Principal();
         agregarActions();
         v_principal.setVisible(true);
     }
-    
-    private void agregarActions(){
+
+    /**
+     * Establece las acciones que van a realizar los botones
+     */
+    private void agregarActions() {
         v_principal.jmi_cerrarCecion.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -30,7 +35,7 @@ public class CTRL_principal {
                 new CTRL_login();
             }
         });
-        
+
         v_principal.jb_nuevoPaciente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -38,7 +43,7 @@ public class CTRL_principal {
                 new CTRL_DatosPersonales();
             }
         });
-        
+
         v_principal.jb_buscarPaciente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -46,7 +51,7 @@ public class CTRL_principal {
                 new CTRL_BuscarPaciente();
             }
         });
-        
+
         v_principal.jb_agenda.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -54,23 +59,22 @@ public class CTRL_principal {
                 new CTRL_ListaAgenda();
             }
         });
-        
+
         v_principal.jb_cerrar_caja.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 v_principal.dispose();
-                new CTRL_Venta();
+                new CTRL_Venta().AjustarVentana();
             }
         });
-        
+
         v_principal.jb_presupuesto.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 v_principal.dispose();
-                new CTRL_Presupuesto();
+                new CTRL_PresupuestoTB();
             }
         });
     }
-    
-   
+
 }

@@ -1,7 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Vista datos personales
  */
 package vista;
 
@@ -11,7 +9,7 @@ import java.awt.image.BufferedImage;
 
 /**
  *
- * @author ZOMBY
+ * @author BereniceAnai
  */
 public class V_DatosPersonales extends javax.swing.JFrame {
 
@@ -31,6 +29,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
      */
     public V_DatosPersonales() {
         initComponents();
+        jd_fechcaNacimiento.setToolTipText("Selecciona Fecha \nDe Nacimiento");
         this.setLocationRelativeTo(null);
 
     }
@@ -151,9 +150,10 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jTextField5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jp_datosPersonales.setBackground(new java.awt.Color(94, 117, 116));
+        jp_datosPersonales.setBackground(new java.awt.Color(0, 160, 187));
         jp_datosPersonales.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 255));
@@ -169,7 +169,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jp_datosPersonales.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         jt_telefono.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jp_datosPersonales.add(jt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 120, 20));
+        jp_datosPersonales.add(jt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 120, -1));
 
         jLabel3.setBackground(new java.awt.Color(204, 204, 255));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -184,10 +184,10 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jp_datosPersonales.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, 20));
 
         jt_nombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jp_datosPersonales.add(jt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 170, 20));
+        jp_datosPersonales.add(jt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 170, -1));
 
         jt_ap_materno.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jp_datosPersonales.add(jt_ap_materno, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 260, 20));
+        jp_datosPersonales.add(jt_ap_materno, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 260, -1));
 
         tratamiento.setBackground(new java.awt.Color(204, 204, 255));
         tratamiento.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -196,10 +196,11 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jp_datosPersonales.add(tratamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, -1, 20));
 
         jt_domicilio.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jp_datosPersonales.add(jt_domicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 220, 20));
+        jp_datosPersonales.add(jt_domicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 220, -1));
 
         jcb_sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sexo", "F", "M" }));
-        jp_datosPersonales.add(jcb_sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 70, 20));
+        jcb_sexo.setToolTipText("Selecciona Sexo");
+        jp_datosPersonales.add(jcb_sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 70, -1));
 
         jLabel12.setBackground(new java.awt.Color(204, 204, 255));
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -214,10 +215,10 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jp_datosPersonales.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, 20));
 
         jtf_ocupacion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jp_datosPersonales.add(jtf_ocupacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 190, 20));
+        jp_datosPersonales.add(jtf_ocupacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 190, -1));
 
         jt_representante.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jp_datosPersonales.add(jt_representante, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 220, 20));
+        jp_datosPersonales.add(jt_representante, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 220, -1));
 
         jLabel18.setBackground(new java.awt.Color(204, 204, 255));
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -238,7 +239,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jp_datosPersonales.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, 20));
 
         jt_motiv_visita.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jp_datosPersonales.add(jt_motiv_visita, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 220, 20));
+        jp_datosPersonales.add(jt_motiv_visita, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 220, -1));
 
         jLabel15.setBackground(new java.awt.Color(204, 204, 255));
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -247,7 +248,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jp_datosPersonales.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, 20));
 
         jt_correo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jp_datosPersonales.add(jt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 220, 20));
+        jp_datosPersonales.add(jt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 220, -1));
 
         jcb_t_consulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo Consulta" }));
         jp_datosPersonales.add(jcb_t_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 150, -1));
@@ -259,7 +260,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jp_datosPersonales.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1, -1));
 
         jt_ap_paterno.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jp_datosPersonales.add(jt_ap_paterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 210, 20));
+        jp_datosPersonales.add(jt_ap_paterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 210, -1));
 
         jl_domicilio.setBackground(new java.awt.Color(204, 204, 255));
         jl_domicilio.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -284,7 +285,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
 
         getContentPane().add(jp_datosPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 390));
 
-        jl_antecedentes.setBackground(new java.awt.Color(94, 117, 116));
+        jl_antecedentes.setBackground(new java.awt.Color(0, 160, 187));
         jl_antecedentes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setBackground(new java.awt.Color(94, 117, 116));
@@ -396,9 +397,9 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         });
         jl_antecedentes.add(jb_addAlegia, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, -1, -1));
 
-        getContentPane().add(jl_antecedentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, 280, 650));
+        getContentPane().add(jl_antecedentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, 280, 660));
 
-        jp_habitos.setBackground(new java.awt.Color(94, 117, 116));
+        jp_habitos.setBackground(new java.awt.Color(0, 160, 187));
         jp_habitos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -452,7 +453,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
         jp_habitos.add(jtf_hospitalizado, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 170, -1));
 
         jb_add.setText("Guardar");
-        jp_habitos.add(jb_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 360, -1));
+        jp_habitos.add(jb_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 630, 360, -1));
 
         jrb_encia.setBackground(new java.awt.Color(94, 117, 116));
         jrb_encia.setForeground(new java.awt.Color(255, 255, 255));
@@ -541,7 +542,7 @@ public class V_DatosPersonales extends javax.swing.JFrame {
 
         getContentPane().add(jp_habitos, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 0, 420, 660));
 
-        jp_odontograma.setBackground(new java.awt.Color(94, 117, 116));
+        jp_odontograma.setBackground(new java.awt.Color(0, 160, 187));
         jp_odontograma.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jp_odontograma, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 610, 260));
 

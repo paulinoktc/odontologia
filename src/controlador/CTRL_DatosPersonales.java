@@ -1,8 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
-los * muestras las tablas que se usan en la base de datos
+/**
+ * Extrae los datos ingresados en la visrta de nuevo paciente valida campos vacios guarla los cambios guarda el odontograma del paciente
  */
 package controlador;
 
@@ -30,49 +27,60 @@ import modelo.Validador;
 import odontograma.ManipulaOdontograma;
 import vista.V_DatosPersonales;
 
+/**
+ *
+ * @author PaulinoSalas
+ */
 public class CTRL_DatosPersonales {
 
     ExtraccionDatos extraerDatosVista;
     V_DatosPersonales v_datosPersonales;
     //--------------------------------------------------------------------------Modelos
-    MODL_Consulta mdl_consulta;
-    MODL_TejidosBlandos mdl_tejidos;
-    MODL_Paciente mdl_paciente;
-    MODL_Antecedentes mdl_antecedente;
-    MODL_EstadoPaciente mdl_estado;
-    MODL_Padecimiento mdl_padecimiento;
+    private MODL_Consulta mdl_consulta;
+    private MODL_TejidosBlandos mdl_tejidos;
+    private MODL_Paciente mdl_paciente;
+    private MODL_Antecedentes mdl_antecedente;
+    private MODL_EstadoPaciente mdl_estado;
+    private MODL_Padecimiento mdl_padecimiento;
     //--------------------------------------------------------------------------Objetos
-    OBJ_Paciente paciente;
-    OBJ_Antecedentes antecedPaciente;
-    OBJ_EstadoPaciente embarazada = null;
-    OBJ_EstadoPaciente hospitalizado;
+    private OBJ_Paciente paciente;
+    private OBJ_Antecedentes antecedPaciente;
+    private OBJ_EstadoPaciente embarazada = null;
+    private OBJ_EstadoPaciente hospitalizado;
 
-    OBJ_TejidosBlandos tegidosBlandos = null;
+    private OBJ_TejidosBlandos tegidosBlandos = null;
 
     //--------------------------------------------------------------------------Listas
-    ArrayList<OBJ_Referencia> listaAlergia = null;
-    ArrayList<OBJ_Referencia> listaMedicamentos = null;
-    OBJ_Referencia anticonceptivo;
+    private ArrayList<OBJ_Referencia> listaAlergia = null;
+    private ArrayList<OBJ_Referencia> listaMedicamentos = null;
+    private OBJ_Referencia anticonceptivo;
 
-    ArrayList<OBJ_Relacion> listaHabitos = null;
-    ArrayList<OBJ_Padecimiento> listaPadecimienientos = null;
+    private ArrayList<OBJ_Relacion> listaHabitos = null;
+    private ArrayList<OBJ_Padecimiento> listaPadecimienientos = null;
+    //--------------------------------------------------------------------------clase que manipula los odontogramas para editarlos
     ManipulaOdontograma odontograma;
 
+    /**
+     * Inicializa los las listas y onjetos principales
+     */
     public CTRL_DatosPersonales() {
         listaMedicamentos = new ArrayList<>();
         listaAlergia = new ArrayList<>();
         extraerDatosVista = new ExtraccionDatos();
         v_datosPersonales = new V_DatosPersonales();
 
-        agregarActions();
+        
         v_datosPersonales.setDefaultCloseOperation(0);
         odontograma = new ManipulaOdontograma(v_datosPersonales);
-
+        agregarActions();
         LlenarItemsConsulta();
         setModels();
 
     }
 
+    /**
+     * Inicializa los modelos correspondientes
+     */
     public void setModels() {
         mdl_tejidos = new MODL_TejidosBlandos();
         mdl_paciente = new MODL_Paciente();
@@ -102,6 +110,10 @@ public class CTRL_DatosPersonales {
         v_datosPersonales.jb_addAlegia.setVisible(false);
         v_datosPersonales.setVisible(true);
 
+        /**
+         * Si el usuario es femenino mostrara los meses de embarazo si es
+         * masculino entonces no
+         */
         v_datosPersonales.jcb_sexo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -113,6 +125,9 @@ public class CTRL_DatosPersonales {
             }
         });
 
+        /**
+         * Regresa al menu principal llamando al controlador principal
+         */
         v_datosPersonales.jb_salir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -121,6 +136,10 @@ public class CTRL_DatosPersonales {
             }
         });
 
+        /**
+         * Si esta embarazada muestra el muestra los items para selecconar
+         * cuantos meses
+         */
         v_datosPersonales.jrb_embarazada.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -131,7 +150,9 @@ public class CTRL_DatosPersonales {
                 }
             }
         });
-
+        /**
+         * Agrega alergia a la lista de alergias
+         */
         v_datosPersonales.jb_addAlegia.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -139,6 +160,10 @@ public class CTRL_DatosPersonales {
                 v_datosPersonales.jtf_alergias.setText("");
             }
         });
+
+        /**
+         * Se Muestra el textField si se a seleccionado que tiene alergias
+         */
         v_datosPersonales.jrb_alergias.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -166,6 +191,10 @@ public class CTRL_DatosPersonales {
             }
         });
 
+        /**
+         * Muestra el cuadro de texto si el paciente ha sid hospitlaizado
+         * paraponer el motivo de la hopitalizacion
+         */
         v_datosPersonales.jrb_hospializado.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -178,6 +207,9 @@ public class CTRL_DatosPersonales {
             }
         });
 
+        /**
+         * Agrega Medicamentos a la lista de medicamentos
+         */
         v_datosPersonales.jb_more_medic.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -186,6 +218,10 @@ public class CTRL_DatosPersonales {
             }
         });
 
+        /**
+         * Valida si esta seleccionado mostrara el textField para ingresar el
+         * nombre del medicamentp
+         */
         v_datosPersonales.jrb_medicamento.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -199,6 +235,10 @@ public class CTRL_DatosPersonales {
                 }
             }
         });
+        /**
+         * Antes de agregar al paciente se asegura que se todos los campos esten
+         * llenos
+         */
         v_datosPersonales.jb_add.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -206,6 +246,7 @@ public class CTRL_DatosPersonales {
                     JOptionPane.showMessageDialog(null, "Todos los espacios son obligatorios");
                 } else if (!new Validador(v_datosPersonales).revisaJCombobox()) {
                     RecopilarDatos();
+                    // guarda el odontograma del paciente con el id del paciente
                     odontograma.guarda(paciente.getId_paciente());
                     new CTRL_BuscarPaciente().addPacientePredefinido(paciente);
                     v_datosPersonales.dispose();
@@ -214,10 +255,18 @@ public class CTRL_DatosPersonales {
         });
     }
 
+    /**
+     * LLena los items con las consultas que se pueden realizar extrae los datos
+     * de la base de datos
+     */
     public void LlenarItemsConsulta() {
         mdl_consulta.cargarItems(v_datosPersonales.jcb_t_consulta);
     }
 
+    /**
+     * Extrae los datos de la vista guarda los principales como paciente y
+     * antecedentes
+     */
     public void RecopilarDatos() {
 //-------------------------------------------datos obligatorios
         ExtraerPaciente();
@@ -227,7 +276,6 @@ public class CTRL_DatosPersonales {
         antecedPaciente.setId_antecedente(mdl_antecedente.getIdAntecedente(antecedPaciente));
         EstraerTejidosBlandos();
         antecedPaciente.setId_consulta(mdl_antecedente.getIdConsulta(String.valueOf(v_datosPersonales.jcb_t_consulta.getSelectedItem())));
-        //System.out.println(antecedPaciente.getId_antecedente());
         mdl_antecedente.saveTipoConsulta(antecedPaciente);
         mdl_tejidos.GuardarTejidosDB(tegidosBlandos);
         EstraerPadecimientos();
@@ -239,11 +287,14 @@ public class CTRL_DatosPersonales {
 
     }
 
+    /**
+     * Guarda los datos secundarios como las listas, habitos y padecimientos se
+     * asegura de que las listas no esten bacias para guardar los datos en DB
+     */
     public void guardaDatosSecundarios() {
         if (listaPadecimienientos.size() != 0) {
             for (OBJ_Padecimiento listaPad : listaPadecimienientos) {
                 listaPad.setId_padecimiento(mdl_padecimiento.getIdPadecimiento(listaPad));
-                System.out.println(listaPad.getId_paciente() + " nombre: " + listaPad.getNombre_padecimiento() + " id " + listaPad.getId_padecimiento());
             }
             mdl_padecimiento.saveListaPadecimientos(listaPadecimienientos);
         }
@@ -254,14 +305,12 @@ public class CTRL_DatosPersonales {
             new MODL_EstadoPaciente().GuardarHospitalizado(hospitalizado);
         }
         if (listaAlergia.size() != 0) {
-            System.out.println("dentro de alergia");
             for (OBJ_Referencia listAler : listaAlergia) {
                 listAler.setId_antecedente(antecedPaciente.getId_antecedente());
             }
             new MODL_ReferenciaTB().saveLisAlergias(listaAlergia);
         }
         if (anticonceptivo != null) {
-            System.out.println("guardando anticonceptivo");
             anticonceptivo.setId_antecedente(antecedPaciente.getId_antecedente());
             new MODL_ReferenciaTB().saveAntic(anticonceptivo);
         }
@@ -273,7 +322,6 @@ public class CTRL_DatosPersonales {
             new MODL_RelacionTB().saveListHabitos(listaHabitos);
         }
         if (listaMedicamentos.size() != 0) {
-            System.out.println("se encuentra dentro de medicamentos");
             for (OBJ_Referencia listaMedic : listaMedicamentos) {
                 listaMedic.setId_antecedente(antecedPaciente.getId_antecedente());
             }
@@ -282,6 +330,11 @@ public class CTRL_DatosPersonales {
 
     }
 
+    /**
+     * LLama la clase de extarccion de datos para estraer cada unas de las
+     * siguienres peticiones todos los datos son extraidos de la vista datos
+     * personales
+     */
     public void ExtraerPaciente() {
         paciente = extraerDatosVista.ExtraerDatosPaciente(v_datosPersonales);
 
@@ -297,7 +350,7 @@ public class CTRL_DatosPersonales {
     }
 
     public void ExtraerEmbarazo() {
-        if (v_datosPersonales.jcb_sexo.getSelectedIndex() != 1) {
+        if (v_datosPersonales.jcb_sexo.getSelectedIndex() == 1) {
             embarazada = extraerDatosVista.ExtraeEsteElemento(String.valueOf(v_datosPersonales.jcb_mesesEmbarazo.getSelectedItem()));//embarazada*
             embarazada.setId_antecedente(antecedPaciente.getId_antecedente());         //------------estableciendo el Id antecedente                
         }
@@ -312,15 +365,11 @@ public class CTRL_DatosPersonales {
      * medicamentos
      */
     public void AgregarMedicamentos() {                                          //anteced_medicam*
-        System.out.println("Agregando medicamento");
         listaMedicamentos.add(extraerDatosVista.ExtraeReferencia(v_datosPersonales.jtf_medicamento));
-        System.out.println(v_datosPersonales.jtf_medicamento.getText());
     }
 
     public void AgregarAlergias() {                                             //anteced_alergias*
-        System.out.println("Agregando alergia");
         listaAlergia.add(extraerDatosVista.ExtraeReferencia(v_datosPersonales.jtf_alergias));
-        System.out.println(v_datosPersonales.jtf_alergias.getText());
     }
 
     public void EstraerPadecimientos() {

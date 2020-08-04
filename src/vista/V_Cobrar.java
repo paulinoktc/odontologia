@@ -1,10 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * ventana cobrar
  */
 package vista;
 
+import com.sun.awt.AWTUtilities;
+import java.awt.Shape;
+import java.awt.geom.RoundRectangle2D;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,8 +21,10 @@ public DefaultTableModel defModel;
         initComponents();
         defModel=new DefaultTableModel();
         defModel.addColumn("Concepto");
-        defModel.addColumn("Cantidad");
+        defModel.addColumn("Precio $");
         this.jtab_venta.setModel(defModel);
+         Shape forma=new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 30, 30);
+        AWTUtilities.setWindowShape(this, forma);
         this.setLocationRelativeTo(null);
     }
 
@@ -56,22 +59,29 @@ public DefaultTableModel defModel;
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(94, 117, 116));
+        jPanel1.setBackground(new java.awt.Color(0, 160, 187));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jl_titulo.setBackground(new java.awt.Color(255, 255, 255));
         jl_titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jl_titulo.setForeground(new java.awt.Color(255, 255, 255));
         jl_titulo.setText("Registrar Venta");
-        jPanel1.add(jl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 220, -1));
+        jPanel1.add(jl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 220, -1));
 
         jl_nombre.setBackground(new java.awt.Color(255, 255, 255));
         jl_nombre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jl_nombre.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jl_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 310, 30));
-        jPanel1.add(jb_cobrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 260, 50));
+        jPanel1.add(jl_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 310, 30));
 
-        jb_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar_40_40.png"))); // NOI18N
+        jb_cobrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/calcular_large.png"))); // NOI18N
+        jb_cobrar.setBorder(null);
+        jb_cobrar.setBorderPainted(false);
+        jb_cobrar.setContentAreaFilled(false);
+        jb_cobrar.setFocusPainted(false);
+        jb_cobrar.setFocusable(false);
+        jPanel1.add(jb_cobrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, 260, 50));
+
+        jb_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/regresar.png"))); // NOI18N
         jb_salir.setBorder(null);
         jb_salir.setBorderPainted(false);
         jb_salir.setContentAreaFilled(false);
@@ -92,31 +102,37 @@ public DefaultTableModel defModel;
         ));
         jScrollPane1.setViewportView(jtab_venta);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 440, 160));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 440, 230));
 
         jl_total_pagar.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jl_total_pagar.setForeground(new java.awt.Color(255, 255, 255));
         jl_total_pagar.setText("$0.0");
-        jPanel1.add(jl_total_pagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 270, -1));
+        jPanel1.add(jl_total_pagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 270, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("TOTAL:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
 
-        jb_add.setText("+");
-        jPanel1.add(jb_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 30, 30));
+        jb_add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/More.png"))); // NOI18N
+        jb_add.setBorder(null);
+        jb_add.setBorderPainted(false);
+        jb_add.setContentAreaFilled(false);
+        jPanel1.add(jb_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 40, 40));
 
-        jb_rm.setText("-");
-        jPanel1.add(jb_rm, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 30, 30));
+        jb_rm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/quit.png"))); // NOI18N
+        jb_rm.setBorder(null);
+        jb_rm.setBorderPainted(false);
+        jb_rm.setContentAreaFilled(false);
+        jPanel1.add(jb_rm, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, 40, 40));
 
         jl_nombre1.setBackground(new java.awt.Color(255, 255, 255));
         jl_nombre1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jl_nombre1.setForeground(new java.awt.Color(255, 255, 255));
         jl_nombre1.setText("Nombre:");
-        jPanel1.add(jl_nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 90, 30));
+        jPanel1.add(jl_nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 90, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 400));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

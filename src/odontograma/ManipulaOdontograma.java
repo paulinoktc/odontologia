@@ -43,11 +43,11 @@ public class ManipulaOdontograma {
         buffer = (BufferedImage) vista.jp_odontograma.createImage(vista.jp_odontograma.getWidth(), vista.jp_odontograma.getHeight());
         vista.setBuffer(buffer);
         bufferGraphics = buffer.createGraphics();
-        bufferGraphics.setColor(new Color(94, 117, 116));
+        bufferGraphics.setColor(new Color(0, 160, 187));
         bufferGraphics.fillRect(0, 0, buffer.getWidth(), buffer.getHeight());
         buffer2 = (BufferedImage) vista.jp_odontograma.createImage(vista.jp_odontograma.getWidth(), vista.jp_odontograma.getHeight());
         buffer2Graphics = buffer2.createGraphics();
-        buffer2Graphics.setColor(new Color(94, 117, 116));
+        buffer2Graphics.setColor(new Color(0, 160, 187));
         buffer2Graphics.fillRect(0, 0, buffer2.getWidth(), buffer2.getHeight());
 
         jPanelGraphics = (Graphics2D) vista.jp_odontograma.getGraphics();

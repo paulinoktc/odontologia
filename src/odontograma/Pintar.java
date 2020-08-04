@@ -18,9 +18,9 @@ public class Pintar {
         bufferGraphics.setColor(Color.ORANGE);
         bufferGraphics.drawRect(x - 13, y - 10, 20, 20);
         bufferGraphics.setColor(Color.RED);
-        Font fuente = new Font("Monospaced", Font.PLAIN, 25);
+        Font fuente = new Font("Arial Black", Font.PLAIN, 25);
         bufferGraphics.setFont(fuente);
-        bufferGraphics.drawString(n, x - 4, y - 15);
+        bufferGraphics.drawString(n, x , y - 15);
 
     }
 }

@@ -1,7 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Valida espacios vacios y envia mensajes donde  existen espacios vacios
  */
 package modelo;
 
@@ -11,16 +9,24 @@ import vista.V_DatosPersonales;
 
 /**
  *
- * @author zomby
+ * @author
  */
 public class Validador {
 
     V_DatosPersonales vista;
 
+    /**
+     *
+     * @param vista
+     */
     public Validador(V_DatosPersonales vista) {
         this.vista = vista;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean validarEspaciosPaciente() {
         boolean faltanDatos = false;
         if (vista.jt_nombre.getText().isEmpty()) {
@@ -65,6 +71,10 @@ public class Validador {
         return faltanDatos;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean validaEspaciosAddiconales() {
         boolean faltanDatos = false;
 
@@ -84,6 +94,10 @@ public class Validador {
         return faltanDatos;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean revisaJCombobox() {
         if (vista.jcb_sexo.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(null, "Selecciona sexo");
@@ -116,6 +130,10 @@ public class Validador {
         return false;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean revisaJComboboxSecundarios() {
         if (vista.jcb_t_consulta.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(null, "Selecciona un Tipo consulta");

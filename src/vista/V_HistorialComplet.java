@@ -1,13 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Ventana historial completo
  */
 package vista;
 
 /**
  *
- * @author Berenice Anai
+ * @author BereniceAnai
  */
 public class V_HistorialComplet extends javax.swing.JFrame {
 
@@ -17,7 +15,7 @@ public class V_HistorialComplet extends javax.swing.JFrame {
     public V_HistorialComplet() {
         initComponents();
         this.setLocationRelativeTo(null);
-       // this.jta_AllData.setEditable(false);
+        // this.jta_AllData.setEditable(false);
         setDefaultCloseOperation(WIDTH);
     }
 
@@ -43,7 +41,7 @@ public class V_HistorialComplet extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(94, 117, 116));
+        jPanel1.setBackground(new java.awt.Color(0, 160, 187));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jb_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar_40_40.png"))); // NOI18N

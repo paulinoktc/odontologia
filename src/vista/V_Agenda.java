@@ -1,15 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Vista Agenda
  */
 package vista;
 
+
+import com.sun.awt.AWTUtilities;
+import java.awt.Color;
+import java.awt.Shape;
+import java.awt.geom.RoundRectangle2D;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author ZOMBY
+ * @author BereniceAnai
  */
 public class V_Agenda extends javax.swing.JFrame {
 
@@ -28,6 +31,10 @@ public class V_Agenda extends javax.swing.JFrame {
         defModel.addColumn("fecha");
         defModel.addColumn("Motivo");
         this.jt_cita_pacientes.setModel(defModel);
+         Shape forma=new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 30, 30);
+        AWTUtilities.setWindowShape(this, forma);
+        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
         this.setLocationRelativeTo(null);
     }
 
@@ -50,19 +57,24 @@ public class V_Agenda extends javax.swing.JFrame {
         jb_salir = new javax.swing.JButton();
         jd_calendar = new com.toedter.calendar.JDateChooser();
         jb_buscar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(94, 117, 116));
+        jPanel1.setBackground(new java.awt.Color(0, 160, 187));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Agenda");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, -1, -1));
 
+        jt_cita_pacientes.setBackground(new java.awt.Color(0, 204, 204));
         jt_cita_pacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -76,28 +88,31 @@ public class V_Agenda extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jt_cita_pacientes);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1000, 400));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 1000, 370));
 
         jcb_pacientes_mostrar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Atendidos", "Por Antender" }));
-        jPanel1.add(jcb_pacientes_mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 140, 30));
+        jcb_pacientes_mostrar.setToolTipText("Selecciona el grupo que deseas buscar");
+        jPanel1.add(jcb_pacientes_mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 140, 30));
 
         jb_atender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Atender_80_80.png"))); // NOI18N
+        jb_atender.setToolTipText("Marcar al paciente como atendido");
         jb_atender.setBorder(null);
         jb_atender.setBorderPainted(false);
         jb_atender.setContentAreaFilled(false);
         jb_atender.setFocusPainted(false);
         jb_atender.setFocusable(false);
-        jPanel1.add(jb_atender, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 50, 80, 80));
+        jPanel1.add(jb_atender, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 90, 80, 80));
 
         jb_agendar_cita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Agenda_80_80.png"))); // NOI18N
+        jb_agendar_cita.setToolTipText("Agendar nueva cita");
         jb_agendar_cita.setBorder(null);
         jb_agendar_cita.setBorderPainted(false);
         jb_agendar_cita.setContentAreaFilled(false);
         jb_agendar_cita.setFocusPainted(false);
         jb_agendar_cita.setFocusable(false);
-        jPanel1.add(jb_agendar_cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 140, 80, 80));
+        jPanel1.add(jb_agendar_cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 230, 80, 80));
 
-        jb_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar_40_40.png"))); // NOI18N
+        jb_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/regresar.png"))); // NOI18N
         jb_salir.setToolTipText("");
         jb_salir.setBorder(null);
         jb_salir.setBorderPainted(false);
@@ -105,11 +120,36 @@ public class V_Agenda extends javax.swing.JFrame {
         jb_salir.setFocusPainted(false);
         jPanel1.add(jb_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 0, 40, 40));
 
+        jd_calendar.setToolTipText("Selecciona una fecha");
         jd_calendar.setDateFormatString("yyyy-MM-d");
-        jPanel1.add(jd_calendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 200, -1));
+        jPanel1.add(jd_calendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 200, 30));
 
-        jb_buscar.setText("jButton1");
-        jPanel1.add(jb_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, -1, -1));
+        jb_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar_50_50.png"))); // NOI18N
+        jb_buscar.setToolTipText("Buscar Fecha");
+        jb_buscar.setBorder(null);
+        jb_buscar.setBorderPainted(false);
+        jb_buscar.setContentAreaFilled(false);
+        jPanel1.add(jb_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 50, 50));
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Nueva Cita");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 320, -1, -1));
+
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Pacientes a Mostrar:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Selecciona fecha:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, -1, -1));
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Atender");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 180, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 490));
 
@@ -154,6 +194,10 @@ public class V_Agenda extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JButton jb_agendar_cita;

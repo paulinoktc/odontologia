@@ -1,7 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *Lleva el control de las citas muestra todas las citas, pedientes, atendidas por fecha selecciona la cita que se desea atender
  */
 package controlador;
 
@@ -9,23 +7,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.plaf.basic.BasicDesktopIconUI;
 import javax.swing.table.DefaultTableModel;
 import modelo.MODL_Agenda;
 import modelo.MODL_Paciente;
 import vista.V_Agenda;
-import vista.V_RegistrarCita;
 
 /**
  *
- * @author ZOMBY
+ * @author PaulinoSalas
  */
 public class CTRL_ListaAgenda {
 
     V_Agenda v_listaAgenda;
     String fecha;
-    // V_RegistrarCita v_regitra_cita;
 
+    /**
+     * Metodo constructor inicializa los objetos cargar todas las citas que se
+     * encuentre atendidas o no atendidas
+     */
     public CTRL_ListaAgenda() {
         v_listaAgenda = new V_Agenda();
         MostrarAgenda(0, "x", v_listaAgenda.defModel);
@@ -35,6 +34,9 @@ public class CTRL_ListaAgenda {
         v_listaAgenda.setVisible(true);
     }
 
+    /**
+     * Agrega el comportamiento de los botones
+     */
     public void agregarActions() {
         v_listaAgenda.jb_salir.addActionListener(new ActionListener() {
             @Override
@@ -56,7 +58,11 @@ public class CTRL_ListaAgenda {
             public void actionPerformed(ActionEvent ae) {
                 VaciarTabla(v_listaAgenda.defModel);
                 fecha = ((JTextField) v_listaAgenda.jd_calendar.getDateEditor().getUiComponent()).getText();
-                MostrarAgenda(v_listaAgenda.jcb_pacientes_mostrar.getSelectedIndex(), fecha, v_listaAgenda.defModel);
+                if (fecha.length() > 3) {
+                    MostrarAgenda(v_listaAgenda.jcb_pacientes_mostrar.getSelectedIndex(), fecha, v_listaAgenda.defModel);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Selecciona una fecha");
+                }
             }
         });
         v_listaAgenda.jcb_pacientes_mostrar.addActionListener(new ActionListener() {
@@ -84,22 +90,36 @@ public class CTRL_ListaAgenda {
         });
     }
 
+    /**
+     * Busca en la base de datos las citas dependiendo de los parametros
+     *
+     * @param tipo Tipo de cita atndido 1 no atgendido 0
+     * @param fecha Fecha de la cita
+     * @param defModel defModel en la que se van a mostrar los datos encontrados
+     */
     public void MostrarAgenda(int tipo, String fecha, DefaultTableModel defModel) {
         new MODL_Agenda().EnlistarAgenda(tipo, fecha, v_listaAgenda.defModel);
     }
 
+    /**
+     * Vacia los datos de la tabla para voverlos a llenar
+     *
+     * @param defModel DelModel que se pretende limpiar
+     */
     public void VaciarTabla(DefaultTableModel defModel) {
         while (defModel.getRowCount() > 0) {
             defModel.removeRow(defModel.getRowCount() - 1);
         }
     }
 
+    /**
+     * Cambia el estado de la cita a atendido
+     */
     public void atenderPaciente() {
         try {
             int fila = v_listaAgenda.jt_cita_pacientes.getSelectedRow();
             String id = String.valueOf(v_listaAgenda.defModel.getValueAt(fila, 0));
             String fecha = String.valueOf(v_listaAgenda.defModel.getValueAt(fila, 4));
-            System.out.println(id + " " + fecha);
             new MODL_Paciente().AtenderPaciente(id, fecha);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Selecciona un paciente");

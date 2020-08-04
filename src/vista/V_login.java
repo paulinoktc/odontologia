@@ -5,6 +5,10 @@
  */
 package vista;
 
+import com.sun.awt.AWTUtilities;
+import java.awt.Shape;
+import java.awt.geom.RoundRectangle2D;
+
 /**
  *
  * @author ZOMBY
@@ -16,6 +20,9 @@ public class V_login extends javax.swing.JFrame {
      */
     public V_login() {
         initComponents();
+        Shape forma=new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 30, 30);
+        AWTUtilities.setWindowShape(this, forma);
+        this.setLocationRelativeTo(null);
         this.setLocationRelativeTo(null);
     }
 
@@ -39,14 +46,18 @@ public class V_login extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(94, 117, 116));
+        jPanel2.setBackground(new java.awt.Color(0, 160, 187));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jcb_usuarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USUARIO" }));
+        jcb_usuarios.setToolTipText("Selecciona un usuario");
         jPanel2.add(jcb_usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 150, 30));
+
+        jp_pass.setToolTipText("Escribe La Contraseña");
         jPanel2.add(jp_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 150, 30));
 
         jb_iniciar.setText("INICIAR");
+        jb_iniciar.setToolTipText("Iniciar Secion");
         jPanel2.add(jb_iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 150, -1));
 
         jb_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cancelar_40_40.png"))); // NOI18N

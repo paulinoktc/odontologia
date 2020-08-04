@@ -1,7 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * unicamente muestra la lista de las ventas del dia y genera las sumas correspondientes
  */
 package controlador;
 
@@ -17,7 +15,7 @@ import vista.V_Cobrar;
 
 /**
  *
- * @author ZOMBY
+ * @author PaulinoSalas
  */
 public class CTRL_Venta {
 
@@ -28,7 +26,7 @@ public class CTRL_Venta {
         agregarActions();
         AjustarVentana();
         v_ventasDia.jb_add.setVisible(false);
-        v_ventasDia.jb_rm.setVisible(false);    
+        v_ventasDia.jb_rm.setVisible(false);
         v_ventasDia.setVisible(true);
         mostrarVentas(getFecha());
     }
@@ -39,6 +37,8 @@ public class CTRL_Venta {
     public void AjustarVentana() {
         v_ventasDia.jl_titulo.setText("VENTAS DEL DIA");
         v_ventasDia.jl_nombre.setVisible(false);
+        v_ventasDia.jl_nombre1.setVisible(false);
+        
     }
 
     public void agregarActions() {
@@ -52,11 +52,16 @@ public class CTRL_Venta {
         v_ventasDia.jb_cobrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                v_ventasDia.jl_total_pagar.setText("$ "+new MODL_Ventas().totalVentasDia(getFecha()));
+                v_ventasDia.jl_total_pagar.setText("$ " + new MODL_Ventas().totalVentasDia(getFecha()));
             }
         });
     }
 
+    /**
+     * Muestra las ventas registradas en el dia
+     *
+     * @param fecha fecha de las ventas a mostrar
+     */
     public void mostrarVentas(String fecha) {
         ArrayList<OBJ_Ventas> listaVentas = new MODL_Ventas().todasLasVentas(fecha);
         for (OBJ_Ventas listaVnts : listaVentas) {
@@ -65,6 +70,11 @@ public class CTRL_Venta {
         }
     }
 
+    /**
+     * Extrae la fecha actual para mostrar las ventas del dia ctual
+     *
+     * @return
+     */
     public String getFecha() {
         String fecha = "";//iniciales;
         LocalDateTime datetime = LocalDateTime.now();
